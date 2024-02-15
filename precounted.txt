@@ -1,0 +1,269 @@
+
+$ P_Z_{1088} = \frac{\xi \cdot P_Z_{1085}}{\eta_0}  
+$ P_Z_{1085} = (M_Z_{1085} + J_Z_{1085} \cdot \varepsilon_Z_{1085})\cdot \omega_Z_{1085} 
+$\omega_Z_{1085} = \frac{2\pi \cdot n_Z_{1085} }{60}
+\omega_Z_{1085}  = 8.796460
+P_Z_{1085}  = 3.919725
+P_Z_{1088}  = 7.349484
+$P_{Z_{1076}Z_{1074}} > P_{Z_{1088}}\\9.25 > 7.34948
+$M_{Z_{1087}Z_{1091}Z_{1089}Z_{1082}} \ge M_{Z_{1089}\.Z_{1087}Z_{1088}\.} + M_{Z_{1076}\.Z_{1087}Z_{1088}\.}
+$M_{Z_{1085}Z_{1086}Z_{1084}} > M_{Z_{1089}\.Z_{1087}Z_{1088}\.}
+$ M_{Z_{1089}\.Z_{1087}Z_{1088}\.} = \frac{M_Z_{1085}}{i_0 \cdot \eta_0} 
+$ M_{Z_{1076}\.Z_{1087}Z_{1088}\.} = \varepsilon_Z_{1085} \cdot i_0 \left((1  + K_Z_{1084})\cdot J_Z_{1088} + \frac{J_Z_{1085}}{{i_0}^2} \right) 
+i_0  = 53.571429
+ M_{Z_{1089}\.Z_{1087}Z_{1088}\.}  = 8.166667
+M_{Z_{1076}\.Z_{1087}Z_{1088}\.}  = 9.981009
+$M_{Z_{1087}Z_{1091}Z_{1089}Z_{1082}} \ge M_{Z_{1089}\.Z_{1087}Z_{1088}\.} + M_{Z_{1076}\.Z_{1087}Z_{1088}\.}\\118 \geq 8.16667 + 9.98101
+$M_{Z_{1085}Z_{1086}Z_{1084}} > M_{Z_{1089}\.Z_{1087}Z_{1088}\.}\\19.6 > 8.16667
+$ n = \frac{\log_{10}{i_0}}{\log_{10}{i_n}}
+ n  = 1.914464
+$ z_Z_{1082} = z_Z_{1096} \cdot i_j 
+z_2  = 150.000000
+z_4  = 150.000000
+$ i_Z_{1076} = i_{12} \cdot i_{34} 
+$ \Delta i = \frac{|i_Z_{1076} - i_0|}{i_0} 
+i_Z_{1076}  = 53.571429
+\Delta i  = 0.000000
+$ M_{Z_{1074}Z_{1077}Z_{1076}Z_{1091}Z_{1097}} = \frac{M_{Z_{1074}Z_{1077}Z_{1076}Z_{1086}Z_{1084}}}{i_j \cdot \eta_j \cdot \eta_{Z_{1087}Z_{1086}Z_{1076}Z_{1096}}} 
+$ M_\Sigma = (M_Z_{1085} + J_Z_{1085} \cdot \varepsilon_Z_{1085}) \cdot 1000  
+M_\Sigma  = 445.602500
+M_{III \Sigma}  = 450.103535
+M_{II \Sigma}  = 61.232328
+M_{I \Sigma}  = 8.746583
+$ N_H = 60 \cdot n \cdot c \cdot  L_h 
+N_{H1}  = 270000000.000000
+N_{H2}  = 37800000.000038
+N_{H3}  = 37800000.000038
+N_{H4}  = 5040000.000005
+$ K_{FL} = \sqrt[m]{\frac{4\cdot 10^6}{N_H}} 
+$K_{FL1} = 1
+$N_{H1} > 4 \cdot 10^6\\270000000.0 > 4 \cdot 10^{6}
+$K_{FL2} =  1
+$N_{H2} > 4 \cdot 10^6\\37800000.00004 > 4 \cdot 10^{6}
+K_{FL3}  = 1.000000
+$K_{FL4} =  1
+$N_{H4} > 4 \cdot 10^6\\5040000.00001 > 4 \cdot 10^{6}
+$ [\sigma_F] = \frac{\sigma_{FR} \cdot K_{FC} \cdot K_{FL}}{S_F} 
+$ \sigma_{FR} = 1.8 \cdot HB
+\sigma_{F 1}  = 127.636364
+\sigma_{F 2}  = 114.340909
+\sigma_{F 3}  = 127.636364
+\sigma_{F 4}  = 114.340909
+$ [\sigma_H] = \frac{\sigma_{HR} \cdot z_R \cdot z_v \cdot K_{HL}}{S_H} 
+$ K_{HL} = \sqrt[m]{\frac{N_{H0}}{N_H}} 
+$ \sigma_{HR} = 2\cdot HB + 70
+$K_{HL1} = 1
+$N_{H1} > 30 \cdot 10^6\\270000000.0 > 30 \cdot 10^{6}
+$K_{HL2} =  1
+$N_{H2} > 30 \cdot 10^6\\37800000.00004 > 30 \cdot 10^{6}
+K_{HL3}  = 1.000000
+K_{HL 4}  = 1.346217
+[\sigma_{H1}]  = 500.000000
+[\sigma_{H2}]  = 454.545455
+[\sigma_{H3}]  = 500.000000
+[\sigma_{H4}]  = 611.916887
+$ m = K_m \sqrt[3]{\frac{M \cdot Y_F \cdot K}{z \cdot \psi_m \cdot [\sigma_F]}} 
+Z_{1086}Z_{1090}Z_{1085}Z_{1086}Z_{1096}1  = 0.032514
+Z_{1086}Z_{1090}Z_{1085}Z_{1086}Z_{1096}2  = 0.032797
+Z_{1086}Z_{1090}Z_{1085}Z_{1086}Z_{1096}3  = 0.032514
+Z_{1086}Z_{1090}Z_{1085}Z_{1086}Z_{1096}4  = 0.032797
+ m_{12 Z_{1088}}  = 0.169047
+ m_{34 Z_{1088}}  = 0.328688
+$ d = \frac{m \cdot z}{\cos \beta} 
+d_1  = 8.400000
+d_2  = 60.000000
+d_3  = 16.000000
+d_4  = 120.000000
+$ d_a =  d + 2m \left( h_a^* + x \right)
+d_{a1}  = 9.200000
+d_{a2}  = 60.800000
+d_{a3}  = 17.600000
+d_{a4}  = 121.600000
+$ d_f = d - 2m \left( h_a^* + c^* - x \right)
+d_{f  1}  = 7.200000
+d_{f  2}  = 58.800000
+d_{f  3}  = 13.840000
+d_{f  4}  = 117.840000
+$ p = m \cdot \pi 
+p_{12}  = 1.256637
+p_{34}  = 2.513274
+$ b_Z_{1082} = \psi_m \cdot m 
+b_{ 2}  = 4.000000
+b_{ 4}  = 8.000000
+$ b_Z_{1096} = b_Z_{1082} + m 
+b_{ 1}  = 4.400000
+b_{ 3}  = 8.800000
+$ a_\omega = \frac{0.5 \cdot m \cdot (z_Z_{1082} + z_Z_{1096})}{\cos \beta} 
+a_{\omega 12}  = 34.200000
+a_{\omega 34}  = 68.000000
+$ d = \sqrt[3]{\frac{M_{Z_{1082}Z_{1088}}}{0.2[\tau_{Z_{1082}Z_{1088}}]}} 
+$ [\tau_{Z_{1082}Z_{1088}}] = 0.56 \frac{\sigma_{-1}}{n} 
+[\tau_{Z_{1082}Z_{1088}}]  = 106.473668
+d_{II Z_{1088}}  = 1.422011
+d_{III Z_{1088}}  = 2.764904
+$d_{Z_{1094}} = d - 1.3
+$ j_p < j_{n min} 
+$ j_p = j_n^t + j_c
+$ j_n^t = 0.684 \cdot a_\omega \cdot (\alpha_{Z_{1079}Z_{1082}} \cdot (t_{Z_{1079}Z_{1082}} - 40^\circ) - \alpha_{Z_{1082}Z_{1086}Z_{1088}} \cdot (t_{Z_{1082}Z_{1086}Z_{1088}} - 40^\circ))
+ j_{n Z_{1078}Z_{1072}Z_{1088} 12}^t  = -0.005146
+ j_{n Z_{1078}Z_{1072}Z_{1088} 34}^t  = -0.010233
+ j_{n Z_{1093}Z_{1086}Z_{1083} 12}^t  = 0.015439
+ j_{n Z_{1093}Z_{1086}Z_{1083} 34}^t  = 0.030698
+$ j_c = 0.01 \cdot m 
+j_{c 12}  = 0.004000
+j_{c 34}  = 0.008000
+j_{p 12}  = 4.000000
+j_{p 34}  = 8.000000
+$ F_{i0 min}' = 0.71 \cdot K_S \cdot K_\phi \cdot (F_{iZ_{1096}}' + F_{iZ_{1082}}') 
+$ F_i' = F_p + f_f 
+F_{i 1}'  = 31.000000
+F_{i 2}'  = 44.000000
+F_{i 3}'  = 34.000000
+F_{i 4}'  = 52.000000
+F_{i0min 12}'  = 52.717500
+F_{i0min 34}'  = 30.224700
+$ E_{\Sigma M} = \sqrt{ \left( \frac{e_r \cdot \tan \alpha}{\cos \beta} \right)^2 + (e_a \cdot \tan \beta)^2 }
+$ e_r = 0.85 \sqrt{\Sigma_{1}^n e^2_i } 
+$ e_a = 0.85 \sqrt{\Sigma_{1}^n e^2_j } 
+$ F_{i0max}' = K \cdot K_{\phi} \cdot \Bigg( \sqrt{ (F_{iZ_{1096}}')^2 + E_{\Sigma M Z_{1096}}^2 } + \sqrt{ (F_{iZ_{1082}}')^2 + E_{\Sigma M Z_{1082}}^2} \Bigg) 
+$F_{i0max}' =  K \cdot K_{\phi} \cdot ( |F_{i1}'|  + |F_{i2}'| )
+F_{i0max 12}'  = 73.500000
+F_{i0max 34}'  = 42.140000
+$ \Delta_{\phi i0} = 6.88 \cdot \frac{F_{i0}'}{m} \cdot z 
+\Delta_{\phi min 12 }  = 6.044940
+\Delta_{\phi min 34 }  = 1.732883
+\Delta_{\phi max 12 }  = 8.428000
+\Delta_{\phi max 34 }  = 2.416027
+$\Delta_{\phi max 12 } > \Delta_{\phi min 12}\\8.428 > 6.04494
+$\Delta_{\phi max 34 } > \Delta_{\phi min 34}\\2.41603 > 1.73288
+$ j_{t min} = \frac{j_{n min}}{\cos \alpha \cdot \cos \beta } 
+j_{t min 12 }  = 26.604388
+j_{t min 34 }  = 31.925265
+$j_{t max} = 0.7 \cdot (E_{HS Z_{1096}} + E_{HS Z_{1082}}) + \sqrt{0.5 \cdot (T_{HZ_{1096}}^2 + T_{HZ_{1082}}^2) + 2 \cdot f_a^2 + \Delta_{p Z_{1096}}^2 + \Delta_{p Z_{1082}}^2 }
+j_{t max 12 }  = 142.554528
+j_{t max 34 }  = 170.475445
+$ j_\phi = 6.88  \cdot \frac{j_t}{d}
+j_{\phi max 12 }  = 16.346253
+j_{\phi max 34 }  = 9.773926
+j_{\phi min 12 }  = 3.050636
+j_{\phi min 34 }  = 1.830382
+$j_{\phi max 12} > j_{\phi min 12} \\16.34625 > 3.05064
+$j_{\phi max 34} > j_{\phi min 34} \\9.77393 > 1.83038
+$ \Delta_{\phi} = \frac{2 \cdot M_{Z_{1082}Z_{1088}} \cdot l}{G \cdot J_p} 
+$ J_p = 0.1 \cdot d_Z_{1074}^4 
+$ l = (1.\.\.3) + 2 \cdot b 
+\Delta_{\phi II}  = 0.000003
+\Delta_{\phi III}  = 0.000069
+$ \Delta_{\phi Z_{1084}Z_{1080}Z_{1085}} = \frac{180 \cdot 60 \cdot \Delta_{\phi} }{\pi} 
+\Delta_{\phi II Z_{1084}Z_{1080}Z_{1085}}  = 0.009255
+\Delta_{\phi III Z_{1084}Z_{1080}Z_{1085}}  = 0.238787
+$ \xi_j = \frac{1}{i_{j-Z_{1074}}} 
+\xi_{34}  = 1.000000
+\xi_{12}  = 0.133333
+\xi_{0}  = 0.018667
+$ \Delta_{\phi \Sigma Z_{1084}Z_{1080}Z_{1085}} = \Sigma_{1}^n \xi_j \cdot \Delta_{\phi j Z_{1084}Z_{1080}Z_{1085}}
+\Delta_{\phi \Sigma Z_{1084}Z_{1080}Z_{1085}}'  = 0.240021
+$ \delta \phi_{\Sigma P} = E_{V \Sigma}^\phi + t_1 \cdot \sqrt{ \Sigma_{1}^n (\xi_j \cdot V_j^\phi)^2} 
+$ E_{V \Sigma}^\phi = \Sigma_{1}^n \xi_j \cdot \frac{\delta_{\phi jmax} - \delta_{\phi jmin}}{2} 
+$ V_j^\phi = \delta \phi_{j max} - \delta \phi_{j min} 
+\delta_{\phi max 12}  = 7.962500
+\delta_{\phi max 34}  = 2.282583
+\delta_{\phi min 12}  = 5.711063
+\delta_{\phi min 34}  = 1.637171
+V_{12}^\phi  = 2.251438
+V_{34}^\phi  = 6.325329
+E_{V \Sigma}^\phi  = 2.871448
+\delta_{\phi \Sigma P}  = 5.784374
+$ \delta_{j \Sigma P} = E_{V \Sigma}^j+ t_2\cdot \sqrt{\Sigma_{1}^n (\xi_j \cdot V_j^j)^2 } 
+$ V_j^j = j_{\phi max j} - j_{\phi min j} 
+$ E_{V \Sigma}^j = \Sigma_{1}^n \xi_j \cdot \frac{j_{\phi max j} + j_{\phi min j}}2 
+V_{12}^j  = 13.295616
+V_{34}^j  = 7.943544
+ E_{V \Sigma}^j  = 7.095280
+\delta_{j \Sigma P}  = 10.269471
+$ \Delta_\Sigma = \delta_{\phi \Sigma P} + \delta_{j \Sigma P} + \Delta_{\phi \Sigma Z_{1084}Z_{1080}Z_{1085}} 
+$ \Delta_\Sigma \le \frac{[\delta_{0S}]}{n_{Z_{1079}Z_{1072}Z_{1087}Z_{1072}Z_{1089}Z_{1072}}} 
+\Delta_\Sigma  = 16.293866
+$ F_{Z_{1086}Z_{1082}Z_{1088}} = \frac{2 \cdot M}{d} 
+$ F_{r} = \frac{F_{Z_{1086}Z_{1082}Z_{1088}} \cdot \tan \alpha}{\cos \beta} 
+F_{Z_{1086}Z_{1082}Z_{1088} 2 }  = 2.041078
+F_{Z_{1086}Z_{1082}Z_{1088} 3 }  = 7.654041
+F_{Z_{1086}Z_{1082}Z_{1088} 4 }  = 7.501726
+F_{ r 2 }  = 0.742878
+F_{ r 3 }  = 2.785792
+F_{ r 4 }  = 2.730355
+$\Sigma M_{Bx II} = 0
+$(L_{II 1} + L_{II 2} + L_{II 3}) \cdot R_{Bx II} - F_{r i+2} \cdot (L_{II 1} + L_{II 2}) + F_{r i+1} \cdot L_{II 1} = 0
+$R_{Bx II} = \frac{F_{r i+2} \cdot (L_{II 1} + L_{II 2}) - F_{r i+1} \cdot L_{II 1}}{L_{II 1} + L_{II 2} + L_{II 3}} 
+$\Sigma M_{Bx II} = 0
+$(L_{II 1} + L_{II 2} + L_{II 3}) \cdot R_{Ax II} + F_{r i+1} \cdot (L_{II 1} + L_{II 2}) - F_{r i+2} \cdot L_{II 1} = 0
+$R_{Ax II} = \frac{F_{r i+2} \cdot L_{II 1} - F_{r i+1} \cdot (L_{II 1} + L_{II 2}) }{L_{II 1} + L_{II 2} + L_{II 3}}
+$\Sigma M_{Ay II} = 0
+$(L_{II 1} + L_{II 2} + L_{II 3}) \cdot R_{By II} - F_{Z_{1086}Z_{1082}Z_{1088} i+2} \cdot (L_{II 1} + L_{II 2}) + F_{Z_{1086}Z_{1082}Z_{1088} i+1} \cdot L_{II 1} = 0
+$R_{By II} = \frac{F_{Z_{1086}Z_{1082}Z_{1088} i+2} \cdot (L_{II 1} + L_{II 2}) - F_{Z_{1086}Z_{1082}Z_{1088} i+1} \cdot L_{II 1} }{L_{II 1} + L_{II 2} + L_{II 3}}
+$\Sigma M_{By II} = 0
+$(L_{II 1} + L_{II 2} + L_{II 3}) \cdot R_{Ay II} + F_{Z_{1086}Z_{1082}Z_{1088} i+1} \cdot (L_{II 1} + L_{II 2}) - F_{Z_{1086}Z_{1082}Z_{1088} i+2} \cdot L_{II 1} = 0
+$R_{Ay II} = \frac{- F_{Z_{1086}Z_{1082}Z_{1088} i+1} \cdot (L_{II 1} + L_{II 2}) + F_{Z_{1086}Z_{1082}Z_{1088} i+2} \cdot L_{II 1} }{L_{II 1} + L_{II 2} + L_{II 3}}
+$F_{rA II} = \sqrt{R_{Ax}^2 + R_{Ay II}^2} 
+$F_{rB II} = \sqrt{R_{Bx}^2 + R_{By II}^2} 
+R_{Bx II }  = -2.268979
+R_{Ax II }  = 0.226065
+R_{By II }  = -6.234082
+R_{Ay II }  = 0.621119
+F_{rA II }  = 0.660979
+F_{rB II }  = 6.634157
+$ M_{Z_{1087}Z_{1086}Z_{1076}Z_{1096}} = M_0 + \frac{1.25 \cdot F_r \cdot f_{Z_{1090}Z_{1088}} \cdot D_0}{d_Z_{1096}} 
+M_{Z_{1087}Z_{1086}Z_{1076}Z_{1096} II}  = 1.009270
+M_{Z_{1087}Z_{1086}Z_{1076}Z_{1096} III}  = 5.454476
+$ \eta_{Z_{1087}Z_{1086}Z_{1076}Z_{1096} Z_{1088}} = \frac{M - M_{Z_{1087}Z_{1086}Z_{1076}Z_{1096}}}{M} 
+\eta_{Z_{1087}Z_{1086}Z_{1076}Z_{1096}IIZ_{1088}}  = 0.983517
+\eta_{Z_{1087}Z_{1086}Z_{1076}Z_{1096}IIIZ_{1088}}  = 0.987882
+$C > C_Z_{1088}
+$C_Z_{1088} = 0.01 \cdot P \cdot \sqrt[3]{60 \cdot n \cdot L_h}
+$P = F_r \cdot V \cdot k_{\sigma} \cdot k_T
+$P = (X \cdot F_r \cdot V + Y \cdot F_a) \cdot k_{\sigma} \cdot k_T
+$F_a = F_{Z_{1086}Z_{1082}Z_{1088}} \cdot \tan \beta
+$F_{a II} = 0
+$F_{a III} = 0
+$\frac{F_{a II}}{C_{II}} = 0
+$\frac{F_{a III}}{C_{III}} = 0
+$\frac{F_{a II}}{V \cdot F_{r II}} < e\\1^{-1} \cdot 0 \cdot 6.63416^{-1} < 0.19
+$\frac{F_{a III}}{V \cdot F_{r III}} < e\\1^{-1} \cdot 0 \cdot 7.47369^{-1} < 0.19
+P_{II}  = 9.553190
+P_{III}  = 10.762114
+C_{Z_{1088} II}  = 3.206115
+C_{Z_{1088} III}  = 1.845190
+$C_{II} > C_{Z_{1088} II}\\160 > 3.20611
+$C_{III} > C_{Z_{1088} III}\\1080 > 1.84519
+$L_{10} = \left( \frac{C}{P_r} \right)^3
+L_{10 II}  = 4698.017686
+L_{10 III}  = 1010598.270364
+L_{h10 II }  = 124286.182158
+L_{h10 III }  = 200515529.833832
+$L_{h10 II} > L_h\\124286.18216 > 1000
+$L_{h10 III} > L_h\\200515529.83383 > 1000
+$ \eta_{j} = 1 - \pi \cdot f \cdot \varepsilon_\nu \cdot C \cdot \frac12 \left( \frac1{z_i} + \frac{1}{z_{i+1}} \right) 
+F_2  = 2.041078
+F_4  = 7.501726
+C_{12}  = 2.239686
+C_{34}  = 1.357751
+\eta_{12 Z_{1088}}  = 0.982812
+\eta_{34 Z_{1088}}  = 0.989123
+$M_{Z_{1085}Z_{1086}Z_{1088}} \ge M_{Z_{1089}\.Z_{1087}Z_{1088}}'
+$M_{Z_{1087}Z_{1091}Z_{1089}Z_{1082}} \ge M_{Z_{1089}\.Z_{1087}Z_{1088}}' + M_{Z_{1076}\.Z_{1087}Z_{1088}}'
+$J_{Z_{1087}Z_{1088}} = J_Z_{1088} + J_{Z_{1088}\.Z_{1087}Z_{1088}} + \frac{J_Z_{1085}}{i_0^2}
+$J_{Z_{1088}\.Z_{1087}Z_{1088}} = \Sigma_{1}^k \frac{J_j + J_{j+1}}{i_{j, j+1}^2}
+$\varepsilon = \varepsilon_Z_{1085} \cdot i_0
+$M_{Z_{1074}Z_{1077}Z_{1076}Z_{1091}Z_{1097}} = \frac{M_{Z_{1074}Z_{1077}Z_{1076}Z_{1086}Z_{1084}}}{i_{k} \cdot \eta_{k} \cdot \eta_{Z_{1087}Z_{1086}Z_{1076}Z_{1096} k}} + (J_k + J_{k+1})\cdot \varepsilon_k
+$J_k = \frac{\pi \cdot b_k \cdot \rho_k \cdot d_k^4 \cdot 10^{-12}}{32}
+J_1  = 0.000000
+J_2  = 0.000040
+J_3  = 0.000000
+J_4  = 0.001270
+M_{ III }  = 451.100429
+M_{ II }  = 61.779965
+M_{ I }  = 8.741405
+J_{Z_{1088}\.Z_{1087}Z_{1088}}  = 0.000001
+$M_{Z_{1089}\.Z_{1087}Z_{1088}}' = \frac{M_Z_{1085}}{i_0 \cdot \Pi_{1}^k (\eta_{j} \cdot \eta_{Z_{1087}Z_{1086}Z_{1076}Z_{1096} j})}
+M_{Z_{1089}\.Z_{1087}Z_{1088}}'  = 6.917151
+$M_{Z_{1076}\.Z_{1087}Z_{1088}}' = (J_Z_{1088} + J_{Z_{1088}\.Z_{1087}Z_{1088}} + \frac{J_Z_{1085}}{i_0^2}) \cdot \varepsilon_Z_{1085} \cdot i_0
