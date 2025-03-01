@@ -234,7 +234,6 @@
 "(L_{II 1} + L_{II 2}) \\cdot F_{ед} - (L_{II 1} + L_{II 2} + L_{II 3}) \\cdot R_{B II ед}",
 "R_{B II ед} = \\frac{F_{ед} \\cdot (L_{II 1} + L_{II 2})}{L_{II 1} + L_{II 2} + L_{II 3}} ==",
 
-
 "Q_{1 ед II}(x_1) = R_{A II ед}",
 "Q_{1 ед II}(0) = R_{A II ед} ==",
 "Q_{1 ед II}(L_{II 1} + L_{II 2}) = R_{A II ед} ==",

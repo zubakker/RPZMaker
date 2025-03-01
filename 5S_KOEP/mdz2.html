@@ -1,0 +1,1950 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>mdz2</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="лапа-коэп-мдз-2">Лапа КОЭП МДЗ-2</h1>
+<h1 id="введение">ВВЕДЕНИЕ</h1>
+<p>Целью расчёта является назначение степени точности и вида сопряжения
+на все зубчатые колеса, такие, что бы обеспечить суммарную погрешность
+менее заданной.</p>
+<p>Основные данные ЭМП приведены в таблице 1 и на рисунке 1.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Момент нагрузки <span class="math inline">M_н</span></th>
+<th>0.4 <span class="math inline">Н \cdot М</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Частота вращения</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>выходного вала <span class="math inline">n_н</span></td>
+<td>16 <span class="math inline">об/мин</span></td>
+</tr>
+<tr class="odd">
+<td>Угловое ускорение вращения выходного вала <span
+class="math inline">\varepsilon_н</span></td>
+<td>8 <span class="math inline">рад/сек^2</span></td>
+</tr>
+<tr class="even">
+<td>Момент инерции нагрузки <span class="math inline">J_н</span></td>
+<td>0.15 <span class="math inline">кг \cdot м^2</span></td>
+</tr>
+<tr class="odd">
+<td>Температура эксплуатации</td>
+<td>±40 <span class="math inline">^\circ С</span></td>
+</tr>
+<tr class="even">
+<td>Срок службы не менее</td>
+<td>300 <span class="math inline">час</span></td>
+</tr>
+<tr class="odd">
+<td>Критерий расчета</td>
+<td>комплексный</td>
+</tr>
+<tr class="even">
+<td>Режим работы двигателя</td>
+<td>редкие пуски</td>
+</tr>
+<tr class="odd">
+<td>Метод расчета, процент риска при расчете, точность</td>
+<td>вероятностный, 1%</td>
+</tr>
+<tr class="even">
+<td>Рабочий угол поворота выходного вала</td>
+<td>±720<span class="math inline">^\circ</span></td>
+</tr>
+<tr class="odd">
+<td>Точность отработки не хуже</td>
+<td>20’</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 1. Основные параметры ЭМП.</p>
+<figure>
+<img
+src="%D0%9B%D0%B0%D0%BF%D0%B0%20%D0%9A%D0%9E%D0%AD%D0%9F%20%D0%9C%D0%94%D0%97-2%20d673fba85d574d99876ee5f9ca2858b2/Untitled.png"
+alt="Untitled.png" />
+<figcaption aria-hidden="true">Untitled.png</figcaption>
+</figure>
+<p>Рисунок 1. Кинематическая схема ЭМП.</p>
+<h1 id="расчёт-вида-сопряжения.">1. Расчёт вида сопряжения.</h1>
+<p>Выберем вид сопряжения из условия:</p>
+<p><span class="math display">
+\begin{equation} j_p \le j_{n \ min} \end{equation}
+</span></p>
+<p>где <span class="math inline">j_p</span> — расчётное значение
+бокового зазора; <span class="math inline">j_{n \ min}</span> —
+минимальное значение гарантированного бокового зазора для
+соответствующего вида сопряжения.</p>
+<p>Расчётное значение бокового зазора определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} j_p = j_n^t + j_c\end{equation}
+</span></p>
+<p>где <span class="math inline">j_n^t</span> — боковой зазор,
+компенсирующий изменение рабочей температуре; <span
+class="math inline">j_с</span> — боковой зазор, необходимый для
+размещения слоя смазки.</p>
+<p>Боковой зазор, компенсирующий изменение рабочей температуре,
+определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} j_n^t = 0.684 \cdot a_\omega \cdot (\alpha_{зк} \cdot
+(t_{зк} - 20^\circ) - \alpha_{кор} \cdot (t_{кор} -
+20^\circ))\end{equation}
+</span></p>
+<p>где <span class="math inline">a_\omega</span> — межосевое расстояние;
+<span class="math inline">\alpha_{зк}</span> и <span
+class="math inline">\alpha_{кор}</span> — коэффициенты линейного
+расширения материалов зубчатого колеса и корпуса (<span
+class="math inline">11.2 \cdot 10^{−6}</span> для стали 50 и <span
+class="math inline">22.2 \cdot 10^{−6}</span> для алюминиевого сплава);
+<span class="math inline">t_{зк}</span> и <span
+class="math inline">t_{кор}</span> — температура нагрева зубчатого
+колеса и корпуса.</p>
+<p>При температуре <span class="math inline">+40^\circ</span> получим
+(приведены расчеты для всех передач):</p>
+<p><span class="math display">
+j_{n12}^t = 0.684 \cdot a_{\omega 12} \cdot (\alpha_{зк} \cdot (t_{зк} -
+20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot 8.4
+(11.2 \cdot 10^{-6} \cdot 20 - 22.2 \cdot 10^{-6} \cdot 20) = -1.26 \
+(мкм)
+</span></p>
+<p><span class="math display">
+j_{n34}^t = 0.684 \cdot a_{\omega 34} \cdot (\alpha_{зк} \cdot (t_{зк} -
+20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot
+10.2 (11.2 \cdot 10^{-6} \cdot 20 - 22.2 \cdot 10^{-6} \cdot 20) = -1.53
+\ (мкм)
+</span></p>
+<p><span class="math display">
+j_{n56}^t = 0.684 \cdot a_{\omega 56} \cdot (\alpha_{зк} \cdot (t_{зк} -
+20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot
+12.9 (11.2 \cdot 10^{-6} \cdot 20 - 22.2 \cdot 10^{-6} \cdot 20) = -1.94
+\ (мкм)
+</span></p>
+<p><span class="math display">
+j_{n78}^t = 0.684 \cdot a_{\omega 78} \cdot (\alpha_{зк} \cdot (t_{зк} -
+20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot
+21.6 (11.2 \cdot 10^{-6} \cdot 20 - 22.2 \cdot 10^{-6} \cdot 20) = -3.25
+\ (мкм)
+</span></p>
+<p><span class="math display">
+j_{n910}^t = 0.684 \cdot a_{\omega 910} \cdot (\alpha_{зк} \cdot (t_{зк}
+- 20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot
+42.0 (11.2 \cdot 10^{-6} \cdot 20 - 22.2 \cdot 10^{-6} \cdot 20) = -6.32
+\ (мкм)
+</span></p>
+<p>(При температуре <span class="math inline">+40^\cdot</span> все
+значения бокового зазора <span class="math inline">j_n^t &lt; 0</span>,
+для <span class="math inline">t=+40^\circ</span> температурные
+компенсации не нужны.)</p>
+<p>При температуре <span class="math inline">-40^\circ</span> получим
+(приведены расчеты для всех передач):</p>
+<p><span class="math display">
+j_{n12}^t = 0.684 \cdot a_{\omega 12} \cdot (\alpha_{зк} \cdot (t_{зк} -
+20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot 8.4
+(-11.2 \cdot 10^{-6} \cdot 60 + 22.2 \cdot 10^{-6} \cdot 60) = 3.79 \
+(мкм)
+</span></p>
+<p><span class="math display">
+j_{n34}^t = 0.684 \cdot a_{\omega 34} \cdot (\alpha_{зк} \cdot (t_{зк} -
+20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot
+10.2 (-11.2 \cdot 10^{-6} \cdot 60 + 22.2 \cdot 10^{-6} \cdot 60) = 4.60
+\ (мкм)
+</span></p>
+<p><span class="math display">
+j_{n56}^t = 0.684 \cdot a_{\omega 56} \cdot (\alpha_{зк} \cdot (t_{зк} -
+20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot
+12.9 (-11.2 \cdot 10^{-6} \cdot 60 + 22.2 \cdot 10^{-6} \cdot 60) = 5.82
+\ (мкм)
+</span></p>
+<p><span class="math display">
+j_{n78}^t = 0.684 \cdot a_{\omega 78} \cdot (\alpha_{зк} \cdot (t_{зк} -
+20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot
+21.6 (-11.2 \cdot 10^{-6} \cdot 60 + 22.2 \cdot 10^{-6} \cdot 60) = 9.75
+\ (мкм)
+</span></p>
+<p><span class="math display">
+j_{n910}^t = 0.684 \cdot a_{\omega 910} \cdot (\alpha_{зк} \cdot (t_{зк}
+- 20^\circ) - \alpha_{кор} \cdot (t_{кор} - 20^\circ))\\ = 0.684 \cdot
+42.0 (-11.2 \cdot 10^{-6} \cdot 60 + 22.2 \cdot 10^{-6} \cdot 60) =
+18.96 \ (мкм)
+</span></p>
+<p>Значения зазора для компенсации температурного диапазона <span
+class="math inline">-20..+40^\circ</span>:</p>
+<p><span class="math inline">j_{n12}^t = 3.79 \ мкм</span>, <span
+class="math inline">j_{n34}^t = 4.60 \ мкм</span>, <span
+class="math inline">j_{n56}^t = 5.82 \ мкм</span>, <span
+class="math inline">j_{n78}^t = 9.75 \ мкм</span>, <span
+class="math inline">j_{n910}^t = 18.96 \ мкм</span>.</p>
+<p>Значение зазора, необходимого для размещения смазки, определяется по
+формуле:</p>
+<p><span class="math display">
+\begin{equation} j_c = 0.01 \cdot m \end{equation}
+</span></p>
+<p>где <span class="math inline">m</span> — модуль зацепления.</p>
+<p><span class="math display">
+j_{c \ 12 \ 34 \ 56} = 0.01 \cdot m_{12 \ 34 \ 56} = 0.01 \cdot 0.3 = 3
+\ (мкм)
+</span></p>
+<p><span class="math display">
+j_{c \ 78} = 0.01 \cdot m_{78} = 0.01 \cdot 0.4 = 4 \ (мкм)
+</span></p>
+<p><span class="math display">
+j_{c \ 910} = 0.01 \cdot m_{910} = 0.01 \cdot 0.6 = 6 \ (мкм)
+</span></p>
+<p>Расчётное значение бокового зазора для всех передач:</p>
+<p><span class="math display">
+j_{p 12} = j_{n12}^t + j_{c 12} = 3.79 + 3 = 6.79 \ (мкм)
+</span></p>
+<p><span class="math display">
+j_{p 34} = j_{n34}^t + j_{c 34} = 4.60 + 3 = 7.60 \ (мкм)
+</span></p>
+<p><span class="math display">
+j_{p 56} = j_{n 56}^t + j_{c 56} = 5.82 + 3 = 8.82 \ (мкм)
+</span></p>
+<p><span class="math display">
+j_{p 78} = j_{n 78}^t + j_{c 78} = 9.75 + 4 = 13.75 \ (мкм)
+</span></p>
+<p><span class="math display">
+j_{p 910} = j_{n 910}^t + j_{c 910} = 18.96 + 6 = 24.96 \ (мкм)
+</span></p>
+<p><strong>Вывод: в соответствии с условием [1], назначаем из таблицы
+зазоров виды сопряжения:</strong></p>
+<p>первая передача<strong>: F,</strong> вторая передача<strong>:
+F,</strong> третья передача<strong>: F,</strong> четвёртая
+передача<strong>: E,</strong> пятая передача<strong>: E.</strong></p>
+<h1 id="расчёт-кинематической-погрешности.">2. Расчёт кинематической
+погрешности.</h1>
+<p>Исходя из рекомендаций [1], назначим степень точности 7 на все
+передачи.</p>
+<p>В таблице 2 приведены значения параметров передач видов F, E и
+степени точности 7.</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>№ З.К.</th>
+<th><span class="math inline">z</span></th>
+<th><span class="math inline">d</span>, <span
+class="math inline">мм</span></th>
+<th><span class="math inline">F_r</span>, <span
+class="math inline">мкм</span></th>
+<th><span class="math inline">T_H</span>, <span
+class="math inline">мкм</span></th>
+<th><span class="math inline">F_p</span>, <span
+class="math inline">мкм</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>20</td>
+<td>6</td>
+<td>11</td>
+<td>25</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>36</td>
+<td>10.8</td>
+<td>11</td>
+<td>25</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>20</td>
+<td>6</td>
+<td>11</td>
+<td>25</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>48</td>
+<td>14.4</td>
+<td>12</td>
+<td>25</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>20</td>
+<td>6</td>
+<td>11</td>
+<td>25</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>66</td>
+<td>19.8</td>
+<td>12</td>
+<td>25</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>20</td>
+<td>8</td>
+<td>11</td>
+<td>30</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>88</td>
+<td>35.2</td>
+<td>16</td>
+<td>34</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>20</td>
+<td>12</td>
+<td>15</td>
+<td>34</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>120</td>
+<td>72</td>
+<td>25</td>
+<td>48</td>
+<td>35</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Пара З.К.</th>
+<th>1-2</th>
+<th>3-4</th>
+<th>5-6</th>
+<th>7-8</th>
+<th>9-10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Вид сопр.</td>
+<td>F</td>
+<td>F</td>
+<td>F</td>
+<td>E</td>
+<td>E</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">K_\phi</span> для чётных колёс</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">K</span></td>
+<td>0.85</td>
+<td>0.83</td>
+<td>0.97</td>
+<td>0.96</td>
+<td>0.96</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">K_S</span></td>
+<td>0.76</td>
+<td>0.75</td>
+<td>0.75</td>
+<td>0.90</td>
+<td>0.85</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">f_a</span>, <span
+class="math inline">мкм</span></td>
+<td>±18</td>
+<td>±18</td>
+<td>±22</td>
+<td>±40</td>
+<td>±50</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">j_{n \ min}</span>, <span
+class="math inline">мкм</span></td>
+<td>9</td>
+<td>9</td>
+<td>11</td>
+<td>21</td>
+<td>25</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">a_\omega</span>, <span
+class="math inline">мм</span></td>
+<td>8.4</td>
+<td>10.2</td>
+<td>12.9</td>
+<td>21.6</td>
+<td>42.0</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">f_f</span></td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>9</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>№ З.К.</th>
+<th><span class="math inline">E_H</span>, <span
+class="math inline">мкм</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>22</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>22</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>24</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>45</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>28</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>53</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 2. Параметры передач.</p>
+<p>Минимальное значение кинематической погрешности для передач 8-й
+степени точности определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} F_{i0 \ min}&#39; = 0.71 \cdot K_S \cdot K_\phi \cdot
+(F_{iш}&#39; + F_{iк}&#39;) \end{equation}
+</span></p>
+<p>где <span class="math inline">K_S</span> — коэффициент фазовой
+компенсации; <span class="math inline">K_\phi</span> — коэффициент,
+учитывающий угол поворота ведомого колеса; <span
+class="math inline">F_{iш}&#39;</span> и <span
+class="math inline">F_{iк}&#39;</span> — допуски на кинематическую
+погрешность шестерни и колеса.</p>
+<p>Допуски на кинематическую погрешность определяются по формуле:</p>
+<p><span class="math display">
+\begin{equation} F_i&#39; = F_p + f_f \end{equation}
+</span></p>
+<p>где <span class="math inline">F_p</span> — допуск на накопленную
+погрешность шага зубчатого колеса; <span class="math inline">f_f</span> 
+— допуск на погрешность профиля зуба.</p>
+<p>Произведем расчет для всех передач:</p>
+<p><span class="math display">
+F_{i12357}&#39; = F_{p 12357} + f_{f 12357} = 22 + 9 = 31 \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i9}&#39; = F_{p 9} + f_{f 9} = 22 + 10 = 32 \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i46}&#39; = F_{p46} + f_{f46} = 24 + 9 = 33 \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i8}&#39; = F_{p8} + f_{f8} = 30 + 9 = 39 \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i10}&#39; = F_{p10} + f_{f10} = 35 + 10 = 45 \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i0min \ 12}&#39; =  0.71 \cdot K_{S12} \cdot K_{\phi 2} \cdot
+(F_{i1}&#39; + F_{i2}&#39;) = 0.71 \cdot 0.76 \cdot 1 (31 + 31) = 33.46
+\ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i0min \ 34}&#39; =  0.71 \cdot K_{S34} \cdot K_{\phi 4} \cdot
+(F_{i3}&#39; + F_{i4}&#39;) = 0.71 \cdot 0.75 \cdot 1 (31 + 33) =
+34.08  \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i0min \ 56}&#39; =  0.71 \cdot K_{S56} \cdot K_{\phi 6} \cdot
+(F_{i5}&#39; + F_{i6}&#39;) = 0.71 \cdot 0.75 \cdot 1 (31 + 33) =
+34.08  \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i0min \ 78}&#39; =  0.71 \cdot K_{S78} \cdot K_{\phi 8} \cdot
+(F_{i7}&#39; + F_{i8}&#39;) = 0.71 \cdot 0.90 \cdot 1 (31 + 39) =
+44.73  \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i0min \ 910}&#39; =  0.71 \cdot K_{S910} \cdot K_{\phi 10} \cdot
+(F_{i9}&#39; + F_{i10}&#39;) = 0.71 \cdot 0.85 \cdot 1 (32 + 45) = 46.47
+\ (мкм)
+</span></p>
+<p>Погрешность монтажа определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} E_{\Sigma M} = \sqrt{ \Big( \frac{e_r \cdot \tg
+\alpha}{\cos \beta} \Big)^2 + (e_a \cdot \tg \beta)^2 }\end{equation}
+</span></p>
+<p>где <span class="math inline">e_r</span> — монтажное радиальное
+биение зубчатого колеса; <span class="math inline">e_a</span> —
+монтажное осевое биение зубчатого колеса; <span
+class="math inline">\alpha = 20^\circ</span> — угол исходного профиля
+колеса; <span class="math inline">\beta = 0^\circ</span> — делительный
+угол наклона линии зуба.</p>
+<p>Монтажное радиальное и осевое биения зубчатого колеса определяются по
+формулам:</p>
+<p><span class="math display">
+\begin{equation} e_r = 0.85 \sqrt{\sum_{i=1}^n e^2_i } \end{equation}
+</span></p>
+<p><span class="math display">
+\begin{equation} e_a = 0.85 \sqrt{\sum_{j=1}^n e^2_j } \end{equation}
+</span></p>
+<p>где <span class="math inline">e_i</span> и <span
+class="math inline">e_j</span> — допуски на погрешность, создающие
+первичные радиальные и осевые биения.</p>
+<p><strong>Принимаем погрешности монтажа равными нулю, так как
+отсутствует техническая документация или чертеж со значениями
+вышеназванных допусков.</strong></p>
+<p>Максимальное значение кинематической погрешности определяется по
+формулам:</p>
+<p><span class="math display">
+\begin{equation} F_{i0max}&#39; = K \cdot K_{\phi} \cdot \Bigg( \sqrt{
+(F_{iш}&#39;)^2 + E_{\Sigma M ш}^2 } + \sqrt{ (F_{iк}&#39;)^2 +
+E_{\Sigma M к}^2} \Bigg) \end{equation}
+</span></p>
+<p>где <span class="math inline">K</span> — коэффициент фазовой
+компенсации;</p>
+<p><span class="math inline">F_{iш}&#39;</span> и <span
+class="math inline">F_{iк}&#39;</span> — допуски на кинематическую
+погрешность шестерни и колеса;</p>
+<p><span class="math inline">K_\phi</span> — коэффициент учитывающий
+угол поворота ведомого колеса;</p>
+<p><span class="math inline">E_{\Sigma M ш}</span> и <span
+class="math inline">E_{\Sigma Mк}</span> — погрешности монтажа шестерни
+и колеса (принимаем равными нулю).</p>
+<p>Тогда:</p>
+<p><span class="math display">
+F_{i0max}&#39; = K \cdot K_{\phi} \cdot \Bigg( \sqrt{ (F_{i1}&#39;)^2  +
+E_{\Sigma M 2}^2} + \sqrt{ (F_{i2}&#39;)^2 + E_{\Sigma M 2}^2} \Bigg)
+\\= K \cdot K_{\phi} \cdot \Bigg( \sqrt{ (F_{i1}&#39;)^2 } + \sqrt{
+(F_{i2}&#39;)^2 } \Bigg) = K \cdot K_{\phi} \cdot ( |F_{i1}&#39;|  +
+|F_{i2}&#39;| )
+</span></p>
+<p><span class="math display">
+F_{i0max \ 12}&#39; = K_{12} \cdot K_{\phi 2} \cdot ( |F_{i1}&#39;|  +
+|F_{i2}&#39;| ) = 0.85 \cdot 1 (31 + 31) = 52.70 \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i0max \ 34}&#39; = K_{34} \cdot K_{\phi 4} \cdot ( |F_{i3}&#39;|  +
+|F_{i4}&#39;| ) = 0.83 \cdot 1 (31 + 33) = 53.12 \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i0max \ 56}&#39; = K_{56} \cdot K_{\phi 6} \cdot ( |F_{i5}&#39;|  +
+|F_{i6}&#39;| ) = 0.97 \cdot 1 (31 + 33) = 62.08 \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i0max \ 78}&#39; = K_{78} \cdot K_{\phi 8} \cdot ( |F_{i7}&#39;|  +
+|F_{i8}&#39;| ) = 0.96 \cdot 1 (31 + 39) = 67.20 \ (мкм)
+</span></p>
+<p><span class="math display">
+F_{i0max \ 910}&#39; = K_{910} \cdot K_{\phi 10} \cdot (
+|F_{i9}&#39;|  + |F_{i10}&#39;| ) = 0.96 \cdot 1 (32 + 45) = 73.92 \
+(мкм)
+</span></p>
+<p>Угловая погрешность элементарной передачи определяется по
+формуле:</p>
+<p><span class="math display">
+\begin{equation} \Delta_{\phi i0} = 6.88 \cdot \frac{F_{i0}&#39;}{m}
+\cdot z = 6.88 \cdot \frac{F_{i0}&#39;}{d_{зк}} \end{equation}
+</span></p>
+<p>где <span class="math inline">F_{i0}&#39;</span> — кинематическая
+погрешность; <span class="math inline">m</span> — модуль зацепления;
+<span class="math inline">z</span> — число зубьев ведомого звена.</p>
+<p>Тогда:</p>
+<p><span class="math inline">\Delta_{\phi i0 min \ 12 } = 6.88 \cdot
+\frac{F_{i0 min 12 }&#39;}{d_{ 2 }} = 6.88 \cdot \frac{ 33.46 }{ 10.8 }
+= 21.315&#39;</span> <span class="math inline">\Delta_{\phi i0 min \ 34
+} = 6.88 \cdot \frac{F_{i0 min 34 }&#39;}{d_{ 4 }} = 6.88 \cdot \frac{
+34.08 }{ 14.4 } = 16.283&#39;</span> <span
+class="math inline">\Delta_{\phi i0 min \ 56 } = 6.88 \cdot \frac{F_{i0
+min 56 }&#39;}{d_{ 6 }} = 6.88 \cdot \frac{ 34.08 }{ 19.8 } =
+11.842&#39;</span> <span class="math inline">\Delta_{\phi i0 min \ 78 }
+= 6.88 \cdot \frac{F_{i0 min 78 }&#39;}{d_{ 8 }} = 6.88 \cdot \frac{
+44.73 }{ 35.2 } = 8.743&#39;</span> <span
+class="math inline">\Delta_{\phi i0 min \ 910 } = 6.88 \cdot \frac{F_{i0
+min 910 }&#39;}{d_{ 10 }} = 6.88 \cdot \frac{ 46.47 }{ 72 } =
+4.44&#39;</span> <span class="math inline">\Delta_{\phi i0 max \ 12 } =
+6.88 \cdot \frac{F_{i0 max 12 }&#39;}{d_{ 2 }} = 6.88 \cdot \frac{ 52.7
+}{ 10.8 } = 33.572&#39;</span> <span class="math inline">\Delta_{\phi i0
+max \ 34 } = 6.88 \cdot \frac{F_{i0 max 34 }&#39;}{d_{ 4 }} = 6.88 \cdot
+\frac{ 53.12 }{ 14.4 } = 25.38&#39;</span> <span
+class="math inline">\Delta_{\phi i0 max \ 56 } = 6.88 \cdot \frac{F_{i0
+max 56 }&#39;}{d_{ 6 }} = 6.88 \cdot \frac{ 62.08 }{ 19.8 } =
+21.571&#39;</span> <span class="math inline">\Delta_{\phi i0 max \ 78 }
+= 6.88 \cdot \frac{F_{i0 max 78 }&#39;}{d_{ 8 }} = 6.88 \cdot \frac{
+67.2 }{ 35.2 } = 13.135&#39;</span> <span
+class="math inline">\Delta_{\phi i0 max \ 910 } = 6.88 \cdot \frac{F_{i0
+max 910 }&#39;}{d_{ 10 }} = 6.88 \cdot \frac{ 73.92 }{ 72 } =
+7.063&#39;</span></p>
+<p>Проверка: для всех передач максимальное значение кинематической
+погрешности больше минимального значения:</p>
+<p><span class="math inline">\Delta_{\phi i0 max \ 12 } &gt;
+\Delta_{\phi i0 min \ 12 } \ (33.572 &gt; 21.315)</span></p>
+<p><span class="math inline">\Delta_{\phi i0 max \ 34 } &gt;
+\Delta_{\phi i0 min \ 34 } \ (25.38 &gt; 16.283)</span></p>
+<p><span class="math inline">\Delta_{\phi i0 max \ 56 } &gt;
+\Delta_{\phi i0 min \ 56 } \ (21.571 &gt; 11.842)</span></p>
+<p><span class="math inline">\Delta_{\phi i0 max \ 78 } &gt;
+\Delta_{\phi i0 min \ 78 } \ (13.135 &gt; 8.743)</span></p>
+<p><span class="math inline">\Delta_{\phi i0 max \ 910 } &gt;
+\Delta_{\phi i0 min \ 910 } \ (7.063 &gt; 4.44)</span></p>
+<h1 id="расчёт-погрешности-мертвого-хода.">3. Расчёт погрешности
+мертвого хода.</h1>
+<p>Минимальное значение мёртвого хода определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} j_{t \ min} = \frac{j_{n \ min}}{\cos \alpha \cdot \cos
+\beta } \end{equation}
+</span></p>
+<p>где <span class="math inline">j_{n \ min}</span>  — минимальное
+значение гарантированного бокового зазора соответствующей передачи;
+<span class="math inline">\alpha = 20^\circ</span> — угол исходного
+профиля колеса; <span class="math inline">\beta = 0^\circ</span>— угол
+наклона боковой стороны профиля.</p>
+<p>Расчет для всех передач:</p>
+<p><span class="math inline">j_{t \ min 12 } = \frac{j_{n \ min 12
+}}{\cos \alpha \cdot \cos \beta } = \frac{ 9 }{ 0.939 \cdot 1 } = 9.585
+\ (мкм)</span> <span class="math inline">j_{t \ min 34 } = \frac{j_{n \
+min 34 }}{\cos \alpha \cdot \cos \beta } = \frac{ 9 }{ 0.939 \cdot 1 } =
+9.585 \ (мкм)</span> <span class="math inline">j_{t \ min 56 } =
+\frac{j_{n \ min 56 }}{\cos \alpha \cdot \cos \beta } = \frac{ 11 }{
+0.939 \cdot 1 } = 11.715 \ (мкм)</span> <span class="math inline">j_{t \
+min 78 } = \frac{j_{n \ min 78 }}{\cos \alpha \cdot \cos \beta } =
+\frac{ 21 }{ 0.939 \cdot 1 } = 22.364 \ (мкм)</span> <span
+class="math inline">j_{t \ min 910 } = \frac{j_{n \ min 910 }}{\cos
+\alpha \cdot \cos \beta } = \frac{ 25 }{ 0.939 \cdot 1 } = 26.624 \
+(мкм)</span></p>
+<p>Максимальное значение мёртвого хода определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} j_{t \ max} = 0.7 \cdot (E_{HS ш} + E_{HS к}) +
+\\ \sqrt{0.5 \cdot (T_{Hш}^2 + T_{Hк}^2) + 2 \cdot f_a^2 + \Delta
+p_{ш}^2 + \Delta p_{к}^2 } \end{equation}
+</span></p>
+<p>где <span class="math inline">E_{HS}</span> — наименьшее смещение
+исходного контура зубчатого колеса; <span class="math inline">T_H</span>
+— допуск на смещение исходного контура зубчатого колеса; <span
+class="math inline">f_a</span> — допуск на отклонение межосевого
+расстояния передачи; <span class="math inline">Δp</span> — радиальный
+зазор в опорах зубчатого колеса.</p>
+<p>Тогда:</p>
+<p><span class="math inline">j_{t \ max 12 } = 0.7 \cdot (E_{HS 1 } +
+E_{HS 2 }) + \sqrt{0.5 \cdot (T_{H 1 }^2 + T_{H 2 }^2) + 2 \cdot f_{a 12
+}^2 + \Delta p_{ 1 }^2 + \Delta p_{ 2 }^2 } = \\\ = 0.7 \cdot ( 22 + 22
+) + \sqrt{ 0.5 \cdot (25^2 + 25^2) + 2 \cdot 18 + 0^2 + 10^2 } = \\\ =
+58.386 \ (мкм)</span> <span class="math inline">j_{t \ max 34 } = 0.7
+\cdot (E_{HS 3 } + E_{HS 4 }) + \sqrt{0.5 \cdot (T_{H 3 }^2 + T_{H 4
+}^2) + 2 \cdot f_{a 34 }^2 + \Delta p_{ 3 }^2 + \Delta p_{ 4 }^2 } = \\\
+= 0.7 \cdot ( 22 + 24 ) + \sqrt{ 0.5 \cdot (25^2 + 25^2) + 2 \cdot 18 +
+10^2 + 10^2 } = \\\ = 61.543 \ (мкм)</span> <span
+class="math inline">j_{t \ max 56 } = 0.7 \cdot (E_{HS 5 } + E_{HS 6 })
++ \sqrt{0.5 \cdot (T_{H 5 }^2 + T_{H 6 }^2) + 2 \cdot f_{a 56 }^2 +
+\Delta p_{ 5 }^2 + \Delta p_{ 6 }^2 } = \\\ = 0.7 \cdot ( 22 + 24 ) +
+\sqrt{ 0.5 \cdot (25^2 + 25^2) + 2 \cdot 22 + 10^2 + 10^2 } = \\\ =
+61.679 \ (мкм)</span> <span class="math inline">j_{t \ max 78 } = 0.7
+\cdot (E_{HS 7 } + E_{HS 8 }) + \sqrt{0.5 \cdot (T_{H 7 }^2 + T_{H 8
+}^2) + 2 \cdot f_{a 78 }^2 + \Delta p_{ 7 }^2 + \Delta p_{ 8 }^2 } = \\\
+= 0.7 \cdot ( 28 + 45 ) + \sqrt{ 0.5 \cdot (25^2 + 30^2) + 2 \cdot 40 +
+10^2 + 10^2 } = \\\ = 83.388 \ (мкм)</span> <span
+class="math inline">j_{t \ max 910 } = 0.7 \cdot (E_{HS 9 } + E_{HS 10
+}) + \sqrt{0.5 \cdot (T_{H 9 }^2 + T_{H 10 }^2) + 2 \cdot f_{a 910 }^2 +
+\Delta p_{ 9 }^2 + \Delta p_{ 10 }^2 } = \\\ = 0.7 \cdot ( 28 + 53 ) +
+\sqrt{ 0.5 \cdot (34^2 + 34^2) + 2 \cdot 50 + 10^2 + 10^2 } = \\\ =
+94.858 \ (мкм)</span></p>
+<p>Мёртвый ход передачи в угловых минутах определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} j_\phi = 6.88  \cdot \frac{j_t}{d}\end{equation}
+</span></p>
+<p>где <span class="math inline">j_t</span> — значение мёртвого хода
+рассчитываемой передачи; <span class="math inline">d</span> — диаметр
+ведомого ЗК.</p>
+<p><span class="math inline">j_{\phi max 12 } = 6.88 \cdot \frac{j_{ t
+max 12 }}{d_ 2 } = 6.88 \cdot \frac{ 58.386 }{ 10.8 } = 37.194 \
+(мкм)</span> <span class="math inline">j_{\phi max 34 } = 6.88 \cdot
+\frac{j_{ t max 34 }}{d_ 4 } = 6.88 \cdot \frac{ 61.543 }{ 14.4 } =
+29.404 \ (мкм)</span> <span class="math inline">j_{\phi max 56 } = 6.88
+\cdot \frac{j_{ t max 56 }}{d_ 6 } = 6.88 \cdot \frac{ 61.679 }{ 19.8 }
+= 21.432 \ (мкм)</span> <span class="math inline">j_{\phi max 78 } =
+6.88 \cdot \frac{j_{ t max 78 }}{d_ 8 } = 6.88 \cdot \frac{ 83.388 }{
+35.2 } = 16.299 \ (мкм)</span> <span class="math inline">j_{\phi max 910
+} = 6.88 \cdot \frac{j_{ t max 910 }}{d_ 10 } = 6.88 \cdot \frac{ 94.858
+}{ 72 } = 9.064 \ (мкм)</span> <span class="math inline">j_{\phi min 12
+} = 6.88 \cdot \frac{j_{ t min 12 }}{d_ 2 } = 6.88 \cdot \frac{ 9.585 }{
+10.8 } = 6.106 \ (мкм)</span> <span class="math inline">j_{\phi min 34 }
+= 6.88 \cdot \frac{j_{ t min 34 }}{d_ 4 } = 6.88 \cdot \frac{ 9.585 }{
+14.4 } = 4.58 \ (мкм)</span> <span class="math inline">j_{\phi min 56 }
+= 6.88 \cdot \frac{j_{ t min 56 }}{d_ 6 } = 6.88 \cdot \frac{ 11.715 }{
+19.8 } = 4.071 \ (мкм)</span> <span class="math inline">j_{\phi min 78 }
+= 6.88 \cdot \frac{j_{ t min 78 }}{d_ 8 } = 6.88 \cdot \frac{ 22.364 }{
+35.2 } = 4.371 \ (мкм)</span> <span class="math inline">j_{\phi min 910
+} = 6.88 \cdot \frac{j_{ t min 910 }}{d_ 10 } = 6.88 \cdot \frac{ 26.624
+}{ 72 } = 2.544 \ (мкм)</span></p>
+<p>Проверка: для всех передач максимальное значение погрешности мертвого
+хода больше минимального значения.</p>
+<p><span class="math inline">j_{\phi max 12} &gt; j_{\phi min 12} \
+(37.194 &gt; 6.106)</span></p>
+<p><span class="math inline">j_{\phi max 34} &gt; j_{\phi min 34} \
+(29.404 &gt; 4.58)</span></p>
+<p><span class="math inline">j_{\phi max 56} &gt; j_{\phi min 56} \
+(21.432 &gt; 4.071)</span></p>
+<p><span class="math inline">j_{\phi max 78} &gt; j_{\phi min 78} \
+(16.299 &gt; 4.371)</span></p>
+<p><span class="math inline">j_{\phi max 910} &gt; j_{\phi min 910} \
+(9.064 &gt; 2.544)</span></p>
+<h1 id="погрешность-упругого-скручивания-валов.">4. Погрешность упругого
+скручивания валов.</h1>
+<p>Погрешность мертвого хода передачи, обусловленная скручиванием валов,
+определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} \Delta \phi = \frac{2 \cdot M_{кр} \cdot l}{G \cdot
+J_p} \end{equation}
+</span></p>
+<p>где <span class="math inline">M_{кр}</span> — крутящий момент на
+валу; <span class="math inline">l</span> — длина рабочего участка вала;
+<span class="math inline">G = 8 \cdot 10^4 \  МПа</span> — модуль
+упругости второго рода для стали; <span class="math inline">J_p</span> —
+полярный момент инерции сечения.</p>
+<p>Полярный момент инерции определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} J_p \approx 0.1 \cdot d_в^4 \end{equation}
+</span></p>
+<p>где <span class="math inline">d_в</span>  — диаметр вала;</p>
+<p>Длина вала расчитывается по формуле:</p>
+<p><span class="math display">
+\begin{equation} l = (1...3) + 2 \cdot b \end{equation}
+</span></p>
+<p>где <span class="math inline">b</span> — расстояние от края ступицы
+З.К. до центра штифта.</p>
+<p>Примем <span class="math inline">b</span> всех з.к. равным <span
+class="math inline">3</span>, соответственно <span
+class="math inline">l</span> всех валов равным <span
+class="math inline">7</span></p>
+<p>Произведем расчет для всех валов:</p>
+<p><span class="math inline">\Delta \phi_I = 0</span></p>
+<p><span class="math inline">\Delta \phi_{II} = \frac{2 \cdot M_{кр II}
+\cdot l_{II} }{G \cdot 0.1 \cdot d_{вII}^4} = \frac{2 \cdot 8.37 \cdot 7
+}{8\cdot 10^4 \cdot 0.1 \cdot 4^4} = 5.72 \cdot 10^{-5} \
+(рад)</span></p>
+<p><span class="math inline">\Delta \phi_{III} = \frac{2 \cdot M_{кр
+III} \cdot l_{III} }{G \cdot 0.1 \cdot d_{вIII}^4} = \frac{2 \cdot 19.7
+\cdot 7 }{8\cdot 10^4 \cdot 0.1 \cdot 4^4} = 13.47 \cdot 10^{-5} \
+(рад)</span></p>
+<p><span class="math inline">\Delta \phi_{IV} = \frac{2 \cdot M_{кр IV}
+\cdot l_{IV} }{G \cdot 0.1 \cdot d_{вIV}^4} = \frac{2 \cdot 63.72 \cdot
+7 }{8\cdot 10^4 \cdot 0.1 \cdot 4^4} = 43.56 \cdot 10^{-5} \
+(рад)</span></p>
+<p><span class="math inline">\Delta \phi_{V} = \frac{2 \cdot M_{кр V}
+\cdot l_{V} }{G \cdot 0.1 \cdot d_{вV}^4} = \frac{2 \cdot 274.8 \cdot 7
+}{8\cdot 10^4 \cdot 0.1 \cdot 4^4} = 187.85 \cdot 10^{-5} \
+(рад)</span></p>
+<p><span class="math inline">\Delta \phi_{VI} = \frac{2 \cdot M_{кр VI}
+\cdot l_{VI} }{G \cdot 0.1 \cdot d_{вII}^4} = \frac{2 \cdot 1616 \cdot 7
+}{8\cdot 10^4 \cdot 0.1 \cdot 5^4} = 452.48 \cdot 10^{-5} \
+(рад)</span></p>
+<p>Переведем значение погрешности из радиан в угловые минуты:</p>
+<p><span class="math display">
+\begin{equation} \Delta \phi&#39; = \frac{180 \cdot 60 \cdot \Delta \phi
+}\pi \end{equation}
+</span></p>
+<p>Получим:</p>
+<p><span class="math inline">\Delta \phi&#39; = 0&#39;</span></p>
+<p><span class="math inline">\Delta \phi&#39;_{II} = \frac{180 \cdot 60
+\cdot \Delta \phi_{II}}\pi = \frac{180 \cdot 60 \cdot 5.72 \cdot
+10^{-5}}{3.1415} = 0.20&#39;</span></p>
+<p><span class="math inline">\Delta \phi&#39;_{III} = \frac{180 \cdot 60
+\cdot \Delta \phi_{III}}\pi = \frac{180 \cdot 60 \cdot 13.47 \cdot
+10^{-5}}{3.1415} = 0.46&#39;</span></p>
+<p><span class="math inline">\Delta \phi&#39;_{IV} = \frac{180 \cdot 60
+\cdot \Delta \phi_{IV}}\pi = \frac{180 \cdot 60 \cdot 43.56 \cdot
+10^{-5}}{3.1415} = 1.50&#39;</span></p>
+<p><span class="math inline">\Delta \phi&#39;_{V} = \frac{180 \cdot 60
+\cdot \Delta \phi_{V}}\pi = \frac{180 \cdot 60 \cdot 187.85 \cdot
+10^{-5}}{3.1415} = 6.46&#39;</span></p>
+<p><span class="math inline">\Delta \phi&#39;_{VI} = \frac{180 \cdot 60
+\cdot \Delta \phi_{VI}}\pi = \frac{180 \cdot 60 \cdot 452.48 \cdot
+10^{-5}}{3.1415} = 15.56&#39;</span></p>
+<p>Передаточный коэффициент <span class="math inline">j</span>-той
+элементарной передачи определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} \xi_j = \frac{1}{i_{j-в}} \end{equation}
+</span></p>
+<p>где <span class="math inline">i_{j-в}</span> — передаточное отношение
+кинематической цепи между выходными валами j-той передачи и привода.</p>
+<p><span class="math inline">\xi_{910} = 1</span></p>
+<p><span class="math inline">\xi_{78} = \frac{1}{i_{78}} = \frac{1}{6} =
+0.167</span></p>
+<p><span class="math inline">\xi_{56} = \frac{1}{i_{78} \cdot i_{910}} =
+\frac{1}{4.4 \cdot 6} =0.0379</span></p>
+<p><span class="math inline">\xi_{34} = \frac{1}{i_{56} \cdot i_{78}
+\cdot i_{910} } = \frac{1}{3.3 \cdot 4.4 \cdot 6 } =0.0115</span></p>
+<p><span class="math inline">\xi_{12} = \frac{1}{i_{34} \cdot i_{56}
+\cdot i_{78} \cdot i_{910} } = \frac{1}{2.4 \cdot 3.3 \cdot 4.4 \cdot 6}
+= 0.00478</span></p>
+<p><span class="math inline">\xi_{0} = \frac{1}{i_{12} \cdot i_{34}
+\cdot i_{56} \cdot i_{78} \cdot i_{910} } = \frac{1}{1.8 \cdot 2.4 \cdot
+3.3 \cdot 4.4 \cdot 6} = 0.00266</span></p>
+<p>Суммарная погрешность от скручивания валов определяется
+выражением:</p>
+<p><span class="math display">
+\begin{equation} \Delta \phi&#39;_\Sigma = \sum_{j=1}^n \xi_j \cdot
+\Delta \phi_j \end{equation}
+</span></p>
+<p>где <span class="math inline">\xi_j</span> — передаточный коэффициент
+j-той элементарной передачи; <span class="math inline">\Delta
+\phi&#39;_j</span> — значение погрешности скручивания j-ого вала в
+угловых минутах.</p>
+<p>Тогда:</p>
+<p><span class="math display">
+\Delta \phi_\Sigma&#39; = \sum_{j=2}^6 \xi_j \cdot \Delta \phi_j =
+1\cdot 15.56 + 0.167 \cdot 6.46 + 0.0379 \\ \cdot 1.5 + 0.0115 \cdot
+0.46 + 0.00478 \cdot 0.20 + 0.00266 \cdot 0 \\= 16.70&#39;
+</span></p>
+<h1
+id="суммарная-кинематическая-погрешность-по-вероятностному-методу.">5.
+Суммарная кинематическая погрешность по вероятностному методу.</h1>
+<p>Суммарная погрешность по вероятностному методу определяется
+выражением:</p>
+<p><span class="math display">
+\begin{equation} \delta \phi_{\Sigma P} = E_{V \Sigma}^\phi + t_1 \cdot
+\sqrt{ \sum_{j=1}^n (\xi_j \cdot V_j^\phi)^2} \end{equation}
+</span></p>
+<p>где <span class="math inline">\xi_j</span> — передаточный коэффициент
+j-той элементарной передачи; <span class="math inline">t_1</span> —
+коэффициент, учитывающий процент брака;</p>
+<p>(<span class="math inline">t_1 = 0.46</span> при <span
+class="math inline">P=1%</span>);</p>
+<p><span class="math display">
+\begin{equation} V_j^\phi = \delta \phi_{j max} - \delta \phi_{j min}
+\end{equation}
+</span></p>
+<p>где <span class="math inline">\delta \phi_{jmax}</span> , <span
+class="math inline">\delta \phi_{jmin}</span> — максимальное и
+минимальное значение кинематической погрести для j-той элементарной
+передачи в угловых минутах;</p>
+<p><span class="math display">
+\begin{equation} E_{V \Sigma}^\phi = \sum_{j=1}^n \xi_j \cdot
+\frac{\delta \phi_{jmax} - \delta \phi_{jmin}}{2} \end{equation}
+</span></p>
+<p>Произведем расчет для всех передач:</p>
+<p><span class="math inline">V_{12}^\phi = \delta \phi_{12 max} - \delta
+\phi_{12 min} = 33.572 - 21.315 = 12.257&#39;</span></p>
+<p><span class="math inline">V_{34}^\phi = \delta \phi_{34 max} - \delta
+\phi_{34 min} = 25.38 - 16.283 = 9.097&#39;</span></p>
+<p><span class="math inline">V_{56}^\phi = \delta \phi_{56 max} - \delta
+\phi_{56 min} = 21.571 - 11.842 = 9.729&#39;</span></p>
+<p><span class="math inline">V_{78}^\phi = \delta \phi_{78 max} - \delta
+\phi_{78 min} = 13.135 - 8.743 = 4.392&#39;</span></p>
+<p><span class="math inline">V_{910}^\phi = \delta \phi_{910 max} -
+\delta \phi_{910 min} = 7.063 - 4.44 = 2.623&#39;</span></p>
+<p><span class="math display">
+E_{V \Sigma}^\phi = \sum_{j=1}^n \xi_j \cdot \frac{\delta \phi_{jmax} +
+\delta \phi_{jmin}}{2} = \frac{1 \cdot (7.063+4.44)}2 + \frac{0.167
+\cdot (13.135+8.743)}2 \\ + \frac{0.0379 \cdot (21.571+11.842)}2 +
+\frac{0.0115 \cdot (25.38+16.283)}2\\ + \frac{0.00478 \cdot
+(33.572+21.315)}2\\ = 7.949&#39;
+</span></p>
+<p><span class="math display">
+\delta \phi_{\Sigma P} = E_{V \Sigma}^\phi + t_1 \cdot
+\sqrt{\sum_{j=1}^n (\xi_j \cdot V_j^\phi)^2} = 7.949 + 0.46 \cdot \\
+\sqrt{(1 \cdot 2.623)^2 + (0.167 \cdot 4.392)^2 + (0.0379 \cdot 9.729)^2
++ (0.0115 \cdot 9.097)^2 +(0.00478 \cdot 12.257)^2 }\\ = 9.214&#39;
+</span></p>
+<h1
+id="суммарная-погрешность-мертвого-хода-по-вероятностному-методу.">6.
+Суммарная погрешность мертвого хода по вероятностному методу.</h1>
+<p>Суммарная погрешность по вероятностному методу определяется
+выражением:</p>
+<p><span class="math display">
+\begin{equation} \delta j_{\Sigma P} = E_{V \Sigma}^j+ t_2\cdot
+\sqrt{\sum_{j=1}^n (\xi_j \cdot V_j^j)^2 } \end{equation}
+</span></p>
+<p>где <span class="math inline">\xi_j</span> — передаточный коэффициент
+j-той элементарной передачи; <span class="math inline">t_2</span> —
+коэффициент, учитывающий процент брака;</p>
+<p>(<span class="math inline">t_2=0.39</span> при <span
+class="math inline">P=1%</span>)</p>
+<p><span class="math display">
+\begin{equation} V_j^j = j_{\phi max \ j} - j_{\phi min \ j}
+\end{equation}
+</span></p>
+<p>где <span class="math inline">j_{\phi max \ j}</span>, <span
+class="math inline">j_{\phi min \ j}</span> — максимальное и минимальное
+значение погрешности мертвого хода для j-той элементарной передачи в
+угловых минутах;</p>
+<p><span class="math display">
+\begin{equation} E_{V \Sigma}^j = \sum_{j=1}^n \xi_j \cdot \frac{j_{\phi
+max \ j} + j_{\phi min \ j}}2 \end{equation}
+</span></p>
+<p>Произведем расчет для всех передач:</p>
+<p><span class="math inline">V_{12}^j = j_{\phi max 12} - j_{\phi min
+12} = 37.194 - 6.106 = 31.088 \ (мкм)</span></p>
+<p><span class="math inline">V_{34}^j = j_{\phi max 34} - j_{\phi min
+34} = 29.404 - 4.58 = 24.824 \ (мкм)</span></p>
+<p><span class="math inline">V_{56}^j = j_{\phi max 56} - j_{\phi min
+56} = 21.432 - 4.071 = 17.361 \ (мкм)</span></p>
+<p><span class="math inline">V_{78}^j = j_{\phi max 78} - j_{\phi min
+78} = 16.299 - 4.371 = 11.928 \ (мкм)</span></p>
+<p><span class="math inline">V_{910}^j = j_{\phi max 910} - j_{\phi min
+910} = 9.064 - 2.544 = 6.52 \ (мкм)</span></p>
+<p><span class="math display">
+E_{V \Sigma}^j = \sum_{j=1}^n \xi_j \cdot \frac{j_{\phi max \ j} +
+j_{\phi min \ j}}2 = 1 \cdot \frac{37.194 + 6.106}2 + 0.167 \cdot
+\frac{29.404 + 4.58}2\\ + 0.0379 \cdot \frac{21.432 + 4.071}2 + 0.0115
+\cdot\\ \frac{16.299 + 4.371}2 + 0.00478 \cdot \frac{9.064 + 2.544}2\\ =
+25.118&#39;
+</span></p>
+<p><span class="math display">
+\delta j_{\Sigma P} = E_{V \Sigma}^j + t_2 \cdot \sqrt{\sum_{j=1}^n
+(\xi_j \cdot V_j^j)^2 } = 25.118 + 0.39 \sqrt{(1 \cdot 31.088)^2 +
+(0.167 \cdot 24.824)^2 + (0.0379 \cdot 17.361)^2 + (0.0115 \cdot
+11.928)^2 + (0.00478 \cdot 6.52)^2}\\ = 37.352&#39;
+</span></p>
+<h1 id="общая-погрешность.-анализ-результатов.">7. Общая погрешность.
+Анализ результатов.</h1>
+<p>Общая погрешность положения выходного вала ЭМП определенная по
+вероятностному методу задается выражением:</p>
+<p><span class="math display">
+\begin{equation} \Delta_\Sigma = \delta \phi_{\Sigma P} + \delta
+j_{\Sigma P} + \Delta \phi&#39;_{\Sigma} \end{equation}
+</span></p>
+<p>где <span class="math inline">\delta \phi_{\Sigma Р}</span> —
+суммарная кинематическая погрешность по вероятностному методу;</p>
+<p><span class="math inline">j_{\Sigma P}</span> — суммарная погрешность
+мертвого хода по вероятностному методу;</p>
+<p><span class="math inline">\Delta \phi&#39;_\Sigma</span> — суммарная
+погрешность от скручивания валов.</p>
+<p>Общая погрешность положения выходного вала ЭМП не должна превышать
+заданную погрешность с некоторым коэффициентом запаса:</p>
+<p><span class="math display">
+\begin{equation} \Delta_\Sigma \le \frac{[\delta_{0S}]}n \end{equation}
+</span></p>
+<p>где <span class="math inline">\delta_{0S}</span> — заданная по ТЗ
+погрешность положения выходного вала;</p>
+<p><span class="math inline">n</span> — коэффициент запаса <span
+class="math inline">n=1.05...1.5</span>.</p>
+<p><span class="math display">
+\Delta_\Sigma = \delta \phi_{\Sigma P} + \delta j_{\Sigma P} + \Delta
+\phi&#39;_{\Sigma} = 9.214 + 37.352 + 16.70 = 63.266&#39; &gt;
+\frac{20}{1.05} = 19.05&#39;
+</span></p>
+<p><strong>Анализ результатов:</strong></p>
+<p><strong>Из полученных результатов видно, что общая погрешность
+превышает заданную в ТЗ. Самое большое значение получилось у погрешности
+мертвого хода. Скомпенсировать погрешность мертвого хода можно, выбрав
+более высокую точность или уменьшив диаметры ведомых ЗК (что, в свою
+очередь, возможно при выборе других передаточных отношений на
+передачах).</strong></p>
+<h1 id="проверочный-силовой-расчет.">8. Проверочный силовой расчет.</h1>
+<h2 id="определение-кпд-зубчатых-передач.">8.1. Определение КПД зубчатых
+передач.</h2>
+<p>КПД цилиндрических прямозубых передач внешнего зацепления:</p>
+<p><span class="math display">
+\begin{equation} \eta_{i,i+1} = 1 - \pi \cdot f \cdot \varepsilon_\nu
+\cdot C \cdot \frac12 \Big( \frac1{z_i} + \frac{1}{z_{i+1}} \Big)
+\end{equation}
+</span></p>
+<p>где <span class="math inline">\varepsilon_\nu = 1.5</span> –
+коэффициент перекрытия; <span class="math inline">f=0.06</span> –
+коэффициент трения для колеса из закаленной стали; <span
+class="math inline">C=\frac{F+2.92}{F+0.174}</span> – коэффициент
+нагрузки; <span class="math inline">F=\frac{2 \cdot
+M_{i+1}}{d_{i+1}}</span> – окружная сила, H.</p>
+<p>Если  <span class="math inline">F&gt;30 \ H</span>, то <span
+class="math inline">C=1</span>.</p>
+<p><span class="math display">
+F_2 = \frac{2 \cdot M_{кр II}}{d_{2}} = \frac{2 \cdot 8.37}{10.8} = 1.55
+\ (Н)
+</span></p>
+<p><span class="math display">
+F_4 = \frac{4 \cdot M_{кр III}}{d_{4}} = \frac{2 \cdot 19.7}{14.4} =
+2.736 \ (Н)
+</span></p>
+<p><span class="math display">
+F_6 = \frac{2 \cdot M_{кр IV}}{d_{6}} = \frac{2 \cdot 63.72}{19.8} =
+6.436 \ (Н)
+</span></p>
+<p><span class="math display">
+F_8 = \frac{8 \cdot M_{кр V}}{d_{8}} = \frac{2 \cdot 274.8}{35.2} =
+15.61 \ (Н)
+</span></p>
+<p><span class="math display">
+F_{10} = \frac{2 \cdot M_{кр VI}}{d_{10}} = \frac{2 \cdot 1616}{72} =
+44.89 \ (Н)
+</span></p>
+<p><span class="math display">
+C_{12} = \frac{F_2 + 2.92}{F_2 + 0.174} = \frac{1.55 + 2.92}{1.55 +
+0.174} = 2.59
+</span></p>
+<p><span class="math display">
+C_{34} = \frac{F_4 + 2.92}{F_4 + 0.174} = \frac{2.736 + 2.92}{2.736 +
+0.174} = 1.473
+</span></p>
+<p><span class="math display">
+C_{56} = \frac{F_6 + 2.92}{F_6 + 0.174} = \frac{6.436 + 2.92}{6.436 +
+0.174} = 1.208
+</span></p>
+<p><span class="math display">
+C_{78} = \frac{F_8 + 2.92}{F_8 + 0.174} = \frac{15.61 + 2.92}{15.61 +
+0.174} = 1.087
+</span></p>
+<p><span class="math display">
+C_{910} = 1
+</span></p>
+<p><span class="math display">
+\eta_{12} = 1 - \pi \cdot f \cdot \varepsilon_\nu \cdot C_{12} \cdot
+\frac12 \Big( \frac1{z_1} + \frac{1}{z_{2}} \Big) = 1 - 3.142 \cdot 0.06
+\cdot 1.5 \cdot 2.59 \cdot \frac12 \Big( \frac1{20} + \frac1{36} \Big)\\
+= 0.972
+</span></p>
+<p><span class="math display">
+\eta_{34} = 1 - \pi \cdot f \cdot \varepsilon_\nu \cdot C_{34} \cdot
+\frac12 \Big( \frac1{z_3} + \frac{1}{z_4} \Big) = 1 - 3.142 \cdot 0.06
+\cdot 1.5 \cdot 1.473 \cdot \frac12 \Big( \frac1{20} + \frac1{48}
+\Big)\\ = 0.985
+</span></p>
+<p><span class="math display">
+\eta_{56} = 1 - \pi \cdot f \cdot \varepsilon_\nu \cdot C_{56} \cdot
+\frac12 \Big( \frac1{z_5} + \frac{1}{z_{6}} \Big) = 1 - 3.142 \cdot 0.06
+\cdot 1.5 \cdot 1.208 \cdot \frac12 \Big( \frac1{20} + \frac1{66}
+\Big)\\ = 0.989
+</span></p>
+<p><span class="math display">
+\eta_{78} = 1 - \pi \cdot f \cdot \varepsilon_\nu \cdot C_{78} \cdot
+\frac12 \Big( \frac1{z_7} + \frac{1}{z_{8}} \Big) = 1 - 3.142 \cdot 0.06
+\cdot 1.5 \cdot 1.087 \cdot \frac12 \Big( \frac1{20} + \frac1{88}
+\Big)\\ = 0.991
+</span></p>
+<p><span class="math display">
+\eta_{910} = 1 - \pi \cdot f \cdot \varepsilon_\nu \cdot C_{910} \cdot
+\frac12 \Big( \frac1{z_9} + \frac{1}{z_{10}} \Big) = 1 - 3.142 \cdot
+0.06 \cdot 1.5 \cdot 1 \cdot \frac12 \Big( \frac1{20} + \frac1{120}
+\Big)\\ = 0.992
+</span></p>
+<h2 id="определение-момента-трения-каждого-вала.">8.2. Определение
+момента трения каждого вала.</h2>
+<figure>
+<img
+src="%D0%9B%D0%B0%D0%BF%D0%B0%20%D0%9A%D0%9E%D0%AD%D0%9F%20%D0%9C%D0%94%D0%97-2%20d673fba85d574d99876ee5f9ca2858b2/screenshot.png"
+alt="screenshot.png" />
+<figcaption aria-hidden="true">screenshot.png</figcaption>
+</figure>
+<p>Окружная и радиальная силы находятся по формулам:</p>
+<p><span class="math display">
+\begin{equation} F_{окр} = \frac{2 \cdot M}d \end{equation}
+</span></p>
+<p><span class="math display">
+\begin{equation} F_{r} = \frac{F_{окр} \cdot \tg \alpha}{\cos \beta}
+\end{equation}
+</span></p>
+<p>где <span class="math inline">M</span> – момент на валу; <span
+class="math inline">d</span> – диаметр ЗК; <span
+class="math inline">\alpha = 20^\circ</span>— стандартный угол
+зацепления; <span class="math inline">\beta = 0^\circ</span> — угол
+наклона линии зуба;</p>
+<p><span class="math inline">F_{окр \ 2 } = \frac{2 \cdot M_{ кр II } }{
+d_2 } = \frac{2 \cdot 8.37 }{ 10.8 } = 1.55 \ (Н)</span> <span
+class="math inline">F_{окр \ 3 } = \frac{2 \cdot M_{ кр II } }{ d_3 } =
+\frac{2 \cdot 8.37 }{ 6 } = 2.79 \ (Н)</span> <span
+class="math inline">F_{окр \ 4 } = \frac{2 \cdot M_{ кр III } }{ d_4 } =
+\frac{2 \cdot 19.7 }{ 14.4 } = 2.736 \ (Н)</span> <span
+class="math inline">F_{окр \ 5 } = \frac{2 \cdot M_{ кр III } }{ d_5 } =
+\frac{2 \cdot 19.7 }{ 6 } = 6.567 \ (Н)</span> <span
+class="math inline">F_{окр \ 6 } = \frac{2 \cdot M_{ кр IV } }{ d_6 } =
+\frac{2 \cdot 63.72 }{ 19.8 } = 6.436 \ (Н)</span> <span
+class="math inline">F_{окр \ 7 } = \frac{2 \cdot M_{ кр IV } }{ d_7 } =
+\frac{2 \cdot 63.72 }{ 8 } = 15.93 \ (Н)</span> <span
+class="math inline">F_{окр \ 8 } = \frac{2 \cdot M_{ кр V } }{ d_8 } =
+\frac{2 \cdot 274.8 }{ 35.2 } = 15.614 \ (Н)</span> <span
+class="math inline">F_{окр \ 9 } = \frac{2 \cdot M_{ кр V } }{ d_9 } =
+\frac{2 \cdot 274.8 }{ 12 } = 45.8 \ (Н)</span> <span
+class="math inline">F_{окр \ 10 } = \frac{2 \cdot M_{ кр VI } }{ d_{10}
+} = \frac{2 \cdot 1616 }{ 72 } = 44.889 \ (Н)</span></p>
+<p><span class="math inline">F_{ r 2 } = \frac{F_{окр 2 } \cdot \tg
+\alpha}{\cos \beta} = \frac{ 1.55 \cdot 0.36397 }{ 1 } = 0.564 \
+(Н)</span> <span class="math inline">F_{ r 3 } = \frac{F_{окр 3 } \cdot
+\tg \alpha}{\cos \beta} = \frac{ 2.79 \cdot 0.36397 }{ 1 } = 1.015 \
+(Н)</span> <span class="math inline">F_{ r 4 } = \frac{F_{окр 4 } \cdot
+\tg \alpha}{\cos \beta} = \frac{ 2.736 \cdot 0.36397 }{ 1 } = 0.996 \
+(Н)</span> <span class="math inline">F_{ r 5 } = \frac{F_{окр 5 } \cdot
+\tg \alpha}{\cos \beta} = \frac{ 6.567 \cdot 0.36397 }{ 1 } = 2.39 \
+(Н)</span> <span class="math inline">F_{ r 6 } = \frac{F_{окр 6 } \cdot
+\tg \alpha}{\cos \beta} = \frac{ 6.436 \cdot 0.36397 }{ 1 } = 2.343 \
+(Н)</span> <span class="math inline">F_{ r 7 } = \frac{F_{окр 7 } \cdot
+\tg \alpha}{\cos \beta} = \frac{ 15.93 \cdot 0.36397 }{ 1 } = 5.798 \
+(Н)</span> <span class="math inline">F_{ r 8 } = \frac{F_{окр 8 } \cdot
+\tg \alpha}{\cos \beta} = \frac{ 15.614 \cdot 0.36397 }{ 1 } = 5.683 \
+(Н)</span> <span class="math inline">F_{ r 9 } = \frac{F_{окр 9 } \cdot
+\tg \alpha}{\cos \beta} = \frac{ 45.8 \cdot 0.36397 }{ 1 } = 16.67 \
+(Н)</span> <span class="math inline">F_{ r 10 } = \frac{F_{окр 10 }
+\cdot \tg \alpha}{\cos \beta} = \frac{ 44.889 \cdot 0.36397 }{ 1 } =
+16.338 \ (Н)</span></p>
+<p><span class="math display">
+\sum M_{Bx} = 0
+</span></p>
+<p><span class="math display">
+(L_1 + L_2 + L_3) \cdot R_{Bx} - F_{r \ i+2} \cdot (L_1 + L_2) + F_{r \
+i+1} \cdot L_1 = 0
+</span></p>
+<p>откуда:</p>
+<p><span class="math display">
+R_{Bx} = \frac{F_{r \ i+2} \cdot (L_1 + L_2) - F_{r \ i+1} \cdot
+L_1}{L_1 + L_2 + L_3}
+</span></p>
+<p><span class="math display">
+\sum M_{Bx} = 0
+</span></p>
+<p><span class="math display">
+(L_1 + L_2 + L_3) \cdot R_{Ax} + F_{r \ i+1} \cdot (L_1 + L_2) - F_{r \
+i+2} \cdot L_1 = 0
+</span></p>
+<p>откуда:</p>
+<p><span class="math display">
+R_{Ax} = \frac{F_{r \ i+2} \cdot L_1 - F_{r \ i+1} \cdot (L_1 + L_2)
+}{L_1 + L_2 + L_3}
+</span></p>
+<p><span class="math display">
+\sum M_{Ay} = 0
+</span></p>
+<p><span class="math display">
+(L_1 + L_2 + L_3) \cdot R_{By} - F_{окр \ i+2} \cdot (L_1 + L_2) +
+F_{окр \ i+1} \cdot L_1 = 0
+</span></p>
+<p>откуда:</p>
+<p><span class="math display">
+R_{By} = \frac{F_{окр \ i+2} \cdot (L_1 + L_2) - F_{окр \ i+1} \cdot L_1
+}{L_1 + L_2 + L_3}
+</span></p>
+<p><span class="math display">
+\sum M_{By} = 0
+</span></p>
+<p><span class="math display">
+(L_1 + L_2 + L_3) \cdot R_{Ay} + F_{окр \ i+1} \cdot (L_1 + L_2) -
+F_{окр \ i+2} \cdot L_1 = 0
+</span></p>
+<p><span class="math display">
+R_{Ay} = \frac{- F_{окр \ i+1} \cdot (L_1 + L_2) + F_{окр \ i+2} \cdot
+L_1 }{L_1 + L_2 + L_3}
+</span></p>
+<p><span class="math display">
+F_{rA} = \sqrt{R_{Ax}^2 + R_{Ay}^2}
+</span></p>
+<p><span class="math display">
+F_{rB} = \sqrt{R_{Bx}^2 + R_{By}^2}
+</span></p>
+<h3 id="вал-ii">Вал II:</h3>
+<p><span class="math inline">L_1 = 6</span>, <span
+class="math inline">L_2 = 6</span>, <span class="math inline">L_3 =
+6</span></p>
+<p><span class="math inline">R_{Ax II } = \frac{F_{r \ 3 } \cdot L_1 -
+F_{r \ 2 } \cdot (L_1 + L_2) }{L_1 + L_2 + L_3} = \frac{ 1.015 \cdot 6 -
+0.564 \cdot (6 + 6) }{ 6 + 6 + 6 } = -0.038 \ (Н)</span> <span
+class="math inline">R_{Bx II } = \frac{F_{r \ 3 } \cdot (L_1 + L_2) -
+F_{r \ 2 } \cdot L_1}{L_1 + L_2 + L_3} = \frac{ 1.015 \cdot (6 + 6) -
+0.564 \cdot 6 }{ 6 + 6 + 6 } = 0.489 \ (Н)</span> <span
+class="math inline">R_{Ay II } = \frac{- F_{окр \ 2 } \cdot (L_1 + L_2)
++ F_{окр \ 3 } \cdot L_1 }{L_1 + L_2 + L_3} = \frac{ -1.55 \cdot (6 + 6)
++ 2.79 \cdot 6 }{ 6 + 6 + 6 } = -0.103 \ (Н)</span> <span
+class="math inline">R_{By II } = \frac{F_{окр \ 3 } \cdot (L_1 + L_2) -
+F_{окр \ 2 } \cdot L_1 }{L_1 + L_2 + L_3} = \frac{ 2.79 \cdot (6 + 6) -
+1.55 \cdot 6 }{ 6 + 6 + 6 } = 1.343 \ (Н)</span></p>
+<p><span class="math inline">F_{rA II } = \sqrt{R_{Ax II }^2 + R_{Ay II
+}^2} = \sqrt{ -0.038 ^2 + -0.103 ^2 } = 0.11 \ (Н)</span> <span
+class="math inline">F_{rB II } = \sqrt{R_{Bx II }^2 + R_{By II }^2} =
+\sqrt{ 0.489 ^2 + 1.343 ^2 } = 1.429 \ (Н)</span></p>
+<p><strong>За <span class="math inline">F_{r II}</span> примем бо́льшую
+радиальную нагрузку (в точке B), <span class="math inline">F_{r II} =
+1.429 \ Н</span></strong></p>
+<h3 id="вал-iii">Вал III:</h3>
+<p><span class="math inline">L_1 = 6</span>, <span
+class="math inline">L_2 = 6</span>, <span class="math inline">L_3 =
+6</span></p>
+<p><span class="math inline">R_{Ax III } = \frac{F_{r \ 5 } \cdot L_1 -
+F_{r \ 4 } \cdot (L_1 + L_2) }{L_1 + L_2 + L_3} = \frac{ 2.39 \cdot 6 -
+0.996 \cdot (6 + 6) }{ 6 + 6 + 6 } = 0.133 \ (Н)</span> <span
+class="math inline">R_{Bx III } = \frac{F_{r \ 5 } \cdot (L_1 + L_2) -
+F_{r \ 4 } \cdot L_1}{L_1 + L_2 + L_3} = \frac{ 2.39 \cdot (6 + 6) -
+0.996 \cdot 6 }{ 6 + 6 + 6 } = 1.261 \ (Н)</span> <span
+class="math inline">R_{Ay III } = \frac{- F_{окр \ 4 } \cdot (L_1 + L_2)
++ F_{окр \ 5 } \cdot L_1 }{L_1 + L_2 + L_3} = \frac{ -2.736 \cdot (6 +
+6) + 6.567 \cdot 6 }{ 6 + 6 + 6 } = 0.365 \ (Н)</span> <span
+class="math inline">R_{By III } = \frac{F_{окр \ 5 } \cdot (L_1 + L_2) -
+F_{окр \ 4 } \cdot L_1 }{L_1 + L_2 + L_3} = \frac{ 6.567 \cdot (6 + 6) -
+2.736 \cdot 6 }{ 6 + 6 + 6 } = 3.466 \ (Н)</span></p>
+<p><span class="math inline">F_{rA III } = \sqrt{R_{Ax III }^2 + R_{Ay
+III }^2} = \sqrt{ 0.133 ^2 + 0.365 ^2 } = 0.388 \ (Н)</span> <span
+class="math inline">F_{rB III } = \sqrt{R_{Bx III }^2 + R_{By III }^2} =
+\sqrt{ 1.261 ^2 + 3.466 ^2 } = 3.688 \ (Н)</span></p>
+<p><strong>За <span class="math inline">F_{r III}</span> примем бо́льшую
+радиальную нагрузку (в точке B), <span class="math inline">F_{r III} =
+3.688 \ Н</span></strong></p>
+<h3 id="вал-iv">Вал IV:</h3>
+<p><span class="math inline">L_1 = 6</span>, <span
+class="math inline">L_2 = 6</span>, <span class="math inline">L_3 =
+6</span></p>
+<p><span class="math inline">R_{Ax IV } = \frac{F_{r \ 7 } \cdot L_1 -
+F_{r \ 6 } \cdot (L_1 + L_2) }{L_1 + L_2 + L_3} = \frac{ 5.798 \cdot 6 -
+2.343 \cdot (6 + 6) }{ 6 + 6 + 6 } = 0.371 \ (Н)</span> <span
+class="math inline">R_{Bx IV } = \frac{F_{r \ 7 } \cdot (L_1 + L_2) -
+F_{r \ 6 } \cdot L_1}{L_1 + L_2 + L_3} = \frac{ 5.798 \cdot (6 + 6) -
+2.343 \cdot 6 }{ 6 + 6 + 6 } = 3.084 \ (Н)</span> <span
+class="math inline">R_{Ay IV } = \frac{- F_{окр \ 6 } \cdot (L_1 + L_2)
++ F_{окр \ 7 } \cdot L_1 }{L_1 + L_2 + L_3} = \frac{ -6.436 \cdot (6 +
+6) + 15.93 \cdot 6 }{ 6 + 6 + 6 } = 1.019 \ (Н)</span> <span
+class="math inline">R_{By IV } = \frac{F_{окр \ 7 } \cdot (L_1 + L_2) -
+F_{окр \ 6 } \cdot L_1 }{L_1 + L_2 + L_3} = \frac{ 15.93 \cdot (6 + 6) -
+6.436 \cdot 6 }{ 6 + 6 + 6 } = 8.475 \ (Н)</span></p>
+<p><span class="math inline">F_{rA IV } = \sqrt{R_{Ax IV }^2 + R_{Ay IV
+}^2} = \sqrt{ 0.371 ^2 + 1.019 ^2 } = 1.084 \ (Н)</span> <span
+class="math inline">F_{rB IV } = \sqrt{R_{Bx IV }^2 + R_{By IV }^2} =
+\sqrt{ 3.084 ^2 + 8.475 ^2 } = 9.019 \ (Н)</span></p>
+<p><strong>За <span class="math inline">F_{r IV}</span> примем бо́льшую
+радиальную нагрузку (в точке B), <span class="math inline">F_{r IV} =
+9.019 \ Н</span></strong></p>
+<h3 id="вал-v">Вал V:</h3>
+<p><span class="math inline">L_1 = 6</span>, <span
+class="math inline">L_2 = 6</span>, <span class="math inline">L_3 =
+6</span></p>
+<p><span class="math inline">R_{Ax V } = \frac{F_{r \ 9 } \cdot L_1 -
+F_{r \ 8 } \cdot (L_1 + L_2) }{L_1 + L_2 + L_3} = \frac{ 16.67 \cdot 6 -
+5.683 \cdot (6 + 6) }{ 6 + 6 + 6 } = 1.768 \ (Н)</span> <span
+class="math inline">R_{Bx V } = \frac{F_{r \ 9 } \cdot (L_1 + L_2) -
+F_{r \ 8 } \cdot L_1}{L_1 + L_2 + L_3} = \frac{ 16.67 \cdot (6 + 6) -
+5.683 \cdot 6 }{ 6 + 6 + 6 } = 9.219 \ (Н)</span> <span
+class="math inline">R_{Ay V } = \frac{- F_{окр \ 8 } \cdot (L_1 + L_2) +
+F_{окр \ 9 } \cdot L_1 }{L_1 + L_2 + L_3} = \frac{ -15.614 \cdot (6 + 6)
++ 45.8 \cdot 6 }{ 6 + 6 + 6 } = 4.857 \ (Н)</span> <span
+class="math inline">R_{By V } = \frac{F_{окр \ 9 } \cdot (L_1 + L_2) -
+F_{окр \ 8 } \cdot L_1 }{L_1 + L_2 + L_3} = \frac{ 45.8 \cdot (6 + 6) -
+15.614 \cdot 6 }{ 6 + 6 + 6 } = 25.329 \ (Н)</span></p>
+<p><span class="math inline">F_{rA V } = \sqrt{R_{Ax V }^2 + R_{Ay V
+}^2} = \sqrt{ 1.768 ^2 + 4.857 ^2 } = 5.169 \ (Н)</span> <span
+class="math inline">F_{rB V } = \sqrt{R_{Bx V }^2 + R_{By V }^2} =
+\sqrt{ 9.219 ^2 + 25.329 ^2 } = 26.955 \ (Н)</span></p>
+<p><strong>За <span class="math inline">F_{r V}</span> примем бо́льшую
+радиальную нагрузку (в точке B), <span class="math inline">F_{r V} =
+26.955 \ Н</span></strong></p>
+<h3 id="вал-vi">Вал VI:</h3>
+<figure>
+<img
+src="%D0%9B%D0%B0%D0%BF%D0%B0%20%D0%9A%D0%9E%D0%AD%D0%9F%20%D0%9C%D0%94%D0%97-2%20d673fba85d574d99876ee5f9ca2858b2/screenshot%201.png"
+alt="screenshot.png" />
+<figcaption aria-hidden="true">screenshot.png</figcaption>
+</figure>
+<p><span class="math inline">L_1 = 10 \ мм</span>, <span
+class="math inline">L_2 = 20 \ мм</span></p>
+<p><span class="math display">
+\sum M_{Ax} = 0
+</span></p>
+<p><span class="math display">
+(L_1 + L_2) \cdot R_{Bx} - F_{r10} \cdot L_1 = 0
+</span></p>
+<p><span class="math display">
+R_{Bx} = \frac{F_{r10} \cdot L_1}{L_1 + L_2}
+</span></p>
+<p><span class="math display">
+R_{Bx} = \frac{F_{r10} \cdot L_1}{L_1 + L_2} = \frac{16.338 \cdot 10}{10
++ 20} = 5.446 \ (Н)
+</span></p>
+<p><span class="math display">
+\sum M_{Bx} = 0
+</span></p>
+<p><span class="math display">
+(L_1 + L_2) \cdot R_{Ax} - F_{r10} \cdot L_2 = 0
+</span></p>
+<p><span class="math display">
+R_{Ax} = \frac{F_{r10} \cdot L_2}{L_1 + L_2}
+</span></p>
+<p><span class="math display">
+R_{Ax} = \frac{F_{r10} \cdot L_2}{L_1 + L_2} = \frac{16.338 \cdot 20}{10
++ 20} = 10.892 \ (Н)
+</span></p>
+<p><span class="math display">
+\sum M_{Ay} = 0
+</span></p>
+<p><span class="math display">
+(L_1 + L_2) \cdot R_{By} - F_{окр 10} \cdot L_1 = 0
+</span></p>
+<p><span class="math display">
+R_{By} = \frac{F_{окр10} \cdot L_1}{L_1 + L_2}
+</span></p>
+<p><span class="math display">
+R_{By} = \frac{F_{окр10} \cdot L_1}{L_1 + L_2} = \frac{44.889 \cdot
+10}{10 + 20} = 14.963 \ (Н)
+</span></p>
+<p><span class="math display">
+\sum M_{By} = 0
+</span></p>
+<p><span class="math display">
+(L_1 + L_2) \cdot R_{Ay} - F_{окр10} \cdot L_2 = 0
+</span></p>
+<p><span class="math display">
+R_{Ay} = \frac{F_{окр10} \cdot L_2}{L_1 + L_2}
+</span></p>
+<p><span class="math display">
+R_{Ay} = \frac{F_{окр10} \cdot L_2}{L_1 + L_2} = \frac{16.338 \cdot
+20}{10 + 20} =  29.926\ (Н)
+</span></p>
+<p><span class="math inline">F_{rA VI } = \sqrt{R_{Ax VI }^2 + R_{Ay VI
+}^2} = \sqrt{ 10.892 ^2 + 29.926 ^2 } = 31.847 \ (Н)</span></p>
+<p><span class="math inline">F_{rB VI } = \sqrt{R_{Bx VI }^2 + R_{By VI
+}^2} = \sqrt{ 5.446 ^2 + 14.963 ^2 } = 15.923 \ (Н)</span></p>
+<p><strong>За <span class="math inline">F_{r VI}</span> примем бо́льшую
+радиальную нагрузку (в точке B), <span class="math inline">F_{r VI} =
+31.847 \ Н</span></strong></p>
+<p>Теперь найдем моменты подшипников для каждого из валов по
+формуле:</p>
+<p><span class="math display">
+\begin{equation} M_{подш} = M_0 + \frac{1.25 \cdot F_r \cdot f \cdot
+D_0}{d_ш} \end{equation}
+</span></p>
+<p>где  <span class="math inline">M_0=0.04 \cdot D_0</span> – начальный
+момент трения ненагруженного подшипника; <span
+class="math inline">f</span> – коэффициент трения качения (<span
+class="math inline">0.01 .. 0.02</span> при радиальной нагрузке,
+принимаем <span class="math inline">f=0.02</span>); <span
+class="math inline">D_0= \frac{d+D}2</span> – диаметр окружности центров
+шарика (<span class="math inline">d</span> и <span
+class="math inline">D</span> – внутренний и внешний диаметры подшипника
+соответственно); <span class="math inline">d_ш</span> – диаметр шариков;
+<span class="math inline">F_r</span> – радиальная нагрузка на валу
+(осевая нагрузка в подшипнике возникает при зацеплении косозубых колес,
+для данного расчета <span class="math inline">F_a=0</span>)</p>
+<p>Проведем расчеты для всех валов:</p>
+<p><span class="math display">
+D_{0I} = D_{0II} = D_{0III} = D_{0IV} = D_{0V} = \frac{3+8}2 = 5.5 \
+(мм)
+</span></p>
+<p><span class="math display">
+D_{0VI} = \frac{5+13}2 = 9 \ (мм)
+</span></p>
+<p><span class="math display">
+M_{подшII} = 0.04 \cdot D_{0II} + \frac{1.25 \cdot F_{rII} \cdot f \cdot
+D_{0II}}{d_{шII}} = 0.04 \cdot 5.5 +\\ \frac{1.25 \cdot 1.429 \cdot 0.02
+\cdot 5.5}2 =  0.318 \ (Н\cdot мм)
+</span></p>
+<p><span class="math display">
+M_{подшIII} = 0.04 \cdot D_{0III} + \frac{1.25 \cdot F_{rIII} \cdot f
+\cdot D_{0III}}{d_{шIII}} = 0.04 \cdot 5.5\\ + \frac{1.25 \cdot 3.688
+\cdot 0.02 \cdot 5.5}2 = 0.474 \ (Н\cdot мм)
+</span></p>
+<p><span class="math display">
+M_{подшIV} = 0.04 \cdot D_{0IV} + \frac{1.25 \cdot F_{rIV} \cdot f \cdot
+D_{0IV}}{d_{шIV}} = 0.04 \cdot 5.5 \\+ \frac{1.25 \cdot 9.019 \cdot 0.02
+\cdot 5.5}2 = 0.84 \ (Н\cdot мм)
+</span></p>
+<p><span class="math display">
+M_{подшV} = 0.04 \cdot D_{0V} + \frac{1.25 \cdot F_{rV} \cdot f \cdot
+D_{0V}}{d_{шV}} = 0.04 \cdot 5.5\\ + \frac{1.25 \cdot 26.955 \cdot 0.02
+\cdot 5.5}2 = 2.073 \ (Н\cdot мм)
+</span></p>
+<p><span class="math display">
+M_{подшVI} = 0.04 \cdot D_{0VI} + \frac{1.25 \cdot F_{rVI} \cdot f \cdot
+D_{0VI}}{d_{шVI}} = 0.04 \cdot 9\\ + \frac{1.25 \cdot 31.847 \cdot 0.02
+\cdot 9}2 = 3.943 \ (Н\cdot мм)
+</span></p>
+<p>Таким образом, определим КПД подшипников по формуле:</p>
+<p><span class="math display">
+\begin{equation} \eta_{подш} = \frac{M - M_{подш}}M \cdot 100 \%
+\end{equation}
+</span></p>
+<p>где <span class="math inline">M</span>, <span
+class="math inline">M_{подш}</span> – моменты на валу и подшипнике
+соответственно</p>
+<p><span class="math display">
+\eta_{подшII} = \frac{M_{II} - M_{подшII}}{M_{II}} \cdot 100 \% =
+\frac{8.37 - 0.318}{8.37} \cdot 100 \% = 96.20 \%
+</span></p>
+<p><span class="math display">
+\eta_{подшIII} = \frac{M_{III} - M_{подшIII}}{M_{III}} \cdot 100 \% =
+\frac{19.7 - 0.474}{19.7} \cdot 100 \% = 97.59 \%
+</span></p>
+<p><span class="math display">
+\eta_{подшIV} = \frac{M_{IV} - M_{подшIV}}{M_{IV}} \cdot 100 \% =
+\frac{63.72 - 0.84}{63.72} \cdot 100 \% = 98.68 \%
+</span></p>
+<p><span class="math display">
+\eta_{подшV} = \frac{M_{V} - M_{подшV}}{M_{V}} \cdot 100 \% =
+\frac{274.8 - 2.073}{274.8} \cdot 100 \% = 99.25 \%
+</span></p>
+<p><span class="math display">
+\eta_{подшVI} = \frac{M_{VI} - M_{подшVI}}{M_{VI}} \cdot 100 \% =
+\frac{1616 - 3.943}{1616} \cdot 100 \% = 99.76 \%
+</span></p>
+<p>Проведем проверку выполнения условий для кратковременного режима
+работы при редких пусках:</p>
+<ol type="1">
+<li><p><span class="math inline">M_{нор} \ge M_{с.пр}^*</span></p></li>
+<li><p><span class="math inline">M_{пуск} \ge M_{с.пр}^* +
+M_{д.пр}</span></p></li>
+</ol>
+<p>Где <span class="math inline">M_{д.пр} =J_{пр} \cdot
+\varepsilon</span> — динамический приведенный момент; <span
+class="math inline">M_{с.пр}</span> — статический приведенный момент;
+<span class="math inline">J_{пр}</span> — приведенный к валу двигателя
+момент инерции ЭМП</p>
+<p><span class="math inline">J_{пр} = J_р + J_{р.пр} +
+\frac{J_н}{i_0^2}</span></p>
+<p><span class="math inline">J_{р.пр} = \sum_{j=1}^k \frac{J_j +
+J_{j+1}}{i_{j, j+1}^2}</span></p>
+<p><span class="math inline">\varepsilon = \varepsilon_н \cdot
+i_0</span></p>
+<p>Моменты на шестернях можно рассчитать по формуле:</p>
+<p><span class="math display">
+M_k = \frac{M_{k+1}}{i_{k,k+1} \cdot \eta_{k,k+1} \cdot \eta_{подшk,
+k+1}} + (J_k + J_{k+1})\cdot \varepsilon_k
+</span></p>
+<p>Где <span class="math inline">М_k</span> - момент ведущего колеса;
+<span class="math inline">М_{k+1}</span> - момент ведомого колеса; <span
+class="math inline">i_{k,k+1}</span> – передаточное отношение передачи;
+<span class="math inline">\eta_{k,k+1}</span> – КПД передачи; <span
+class="math inline">\eta_{подш}</span> – КПД подшипника; <span
+class="math inline">J_k</span> – момент инерции ЗК; <span
+class="math inline">\varepsilon_k = \varepsilon_н \prod_{j=1}^k
+i_{j,j+1}</span> – ускорение передачи (<span
+class="math inline">\varepsilon_н</span> – ускорение нагрузки)</p>
+<p>Момент инерции ЗК можно найти по формуле:</p>
+<p><span class="math display">
+J_k = \frac{\pi \cdot b_k \cdot \rho_k \cdot d_k^4 \cdot 10^{-12}}{32}
+</span></p>
+<p>Где <span class="math inline">b_k</span> – ширина ЗК; <span
+class="math inline">d_k</span> – делительный диаметр ЗК; <span
+class="math inline">\rho_k</span> – плотность материала ЗК;</p>
+<p>Проведем расчеты:</p>
+<p><span class="math display">
+J_1 = J_3 = J_5 = \frac{\pi \cdot b_{135} \cdot \rho \cdot d_{135}^4
+\cdot 10^{-12}}{32} = \frac{3.142 \cdot 3.3 \cdot 7.8 \cdot 6^4 \cdot
+10^{-12}}{32} = 3.275 \cdot 10^{-9} \ (кг \cdot м^2)
+</span></p>
+<p><span class="math display">
+J_2 = \frac{\pi \cdot b_{2} \cdot \rho \cdot d_{2}^4 \cdot 10^{-12}}{32}
+= \frac{3.142 \cdot 3 \cdot 7.8 \cdot 10.8^4 \cdot 10^{-12}}{32} = 3.125
+\cdot 10^{-8} \ (кг \cdot м^2)
+</span></p>
+<p><span class="math display">
+J_4 = \frac{\pi \cdot b_{4} \cdot \rho \cdot d_{4}^4 \cdot 10^{-12}}{32}
+= \frac{3.142 \cdot 3 \cdot 7.8 \cdot 14.4^4 \cdot 10^{-12}}{32} = 9.878
+\cdot 10^{-8} \ (кг \cdot м^2)
+</span></p>
+<p><span class="math display">
+J_6 = \frac{\pi \cdot b_{6} \cdot \rho \cdot d_{6}^4 \cdot 10^{-12}}{32}
+= \frac{3.142 \cdot 3 \cdot 7.8 \cdot 19.8^4 \cdot 10^{-12}}{32} = 3.531
+\cdot 10^{-7} \ (кг \cdot м^2)
+</span></p>
+<p><span class="math display">
+J_7 = \frac{\pi \cdot b_{7} \cdot \rho \cdot d_{7}^4 \cdot 10^{-12}}{32}
+= \frac{3.142 \cdot 4.4 \cdot 7.8 \cdot 8^4 \cdot 10^{-12}}{32}
+=1.380  \cdot 10^{-8} \ (кг \cdot м^2)
+</span></p>
+<p><span class="math display">
+J_8 = \frac{\pi \cdot b_{8} \cdot \rho \cdot d_{8}^4 \cdot 10^{-12}}{32}
+= \frac{3.142 \cdot 4 \cdot 7.8 \cdot 35.2^4 \cdot 10^{-12}}{32} =
+4.702  \cdot 10^{-6} \ (кг \cdot м^2)
+</span></p>
+<p><span class="math display">
+J_9 = \frac{\pi \cdot b_{9} \cdot \rho \cdot d_{9}^4 \cdot 10^{-12}}{32}
+= \frac{3.142 \cdot 6.6 \cdot 7.8 \cdot 12^4 \cdot 10^{-12}}{32}
+=  1.048 \cdot 10^{-7} \ (кг \cdot м^2)
+</span></p>
+<p><span class="math display">
+J_{10} = \frac{\pi \cdot b_{10} \cdot \rho \cdot d_{10}^4 \cdot
+10^{-12}}{32} = \frac{3.142 \cdot 6 \cdot 7.8 \cdot 72^4 \cdot
+10^{-12}}{32} =  1.234 \cdot 10^{-4} \ (кг \cdot м^2)
+</span></p>
+<p><span class="math inline">M_{VI} = \frac{M_{н}}{ \eta_{подшVI}} +
+J_{10} \cdot \varepsilon_н =\\ \frac{0.4}{0.9976} + 1.234 \cdot 10^{-4}
+\cdot 8 = 0.402 \ (Н \cdot м)</span></p>
+<p><span class="math inline">M_{ V } = \frac{M_{ VI }}{i_{ 910 } \cdot
+\eta_{ 910 } \cdot \eta_{подш, 910 }} + (J_8 + J_{ 9 })\cdot
+\varepsilon_н \cdot \cdot i_{ 910 } =\\ \frac{ 0.402 }{ 6 \cdot 0.9925
+\cdot 0.991 } + ( 4.702 \cdot 10^{-6 }+ 1.048 \cdot 10^{-7} ) \cdot 8
+\cdot 6 = 0.068 \ (Н \cdot м)</span></p>
+<p><span class="math inline">M_{ IV } = \frac{M_{ V }}{i_{ 78 } \cdot
+\eta_{ 78 } \cdot \eta_{подш, 78 }} + (J_6 + J_{ 7 })\cdot \varepsilon_н
+\cdot \cdot i_{ 910 }\cdot i_{ 78 } = \\\frac{ 0.068 }{ 4.4 \cdot 0.9868
+\cdot 0.989 } + ( 3.531 \cdot 10^{-7} + 1.38 \cdot 10^{-8} ) \cdot 8
+\cdot 6 \cdot 4.4 = 0.016 \ (Н \cdot м)</span></p>
+<p><span class="math inline">M_{ III } = \frac{M_{ IV }}{i_{ 56 } \cdot
+\eta_{ 56 } \cdot \eta_{подш, 56 }} + (J_4 + J_{ 5 })\cdot \varepsilon_н
+\cdot \cdot i_{ 910 }\cdot i_{ 78 }\cdot i_{ 56 }\\ = \frac{ 0.016 }{
+3.3 \cdot 0.9759 \cdot 0.985 } + ( 9.878 \cdot 10^{-8} + 3.275 \cdot
+10^{-9} ) \cdot 8 \cdot 6 \cdot 4.4 \cdot 3.3 = 0.005 \ (Н \cdot
+м)</span></p>
+<p><span class="math inline">M_{ II } = \frac{M_{ III }}{i_{ 34 } \cdot
+\eta_{ 34 } \cdot \eta_{подш, 34 }} + (J_2 + J_{ 3 })\cdot \varepsilon_н
+\cdot \cdot i_{ 910 }\cdot i_{ 78 }\cdot i_{ 56 }\cdot i_{ 34 }\\ =
+\frac{ 0.005 }{ 2.4 \cdot 0.962 \cdot 0.972 } + ( 3.125 \cdot 10^{-8} +
+3.275 \cdot 10^{-9} ) \cdot 8 \cdot 6 \cdot 4.4 \cdot 3.3 \cdot 2.4 =
+0.002 \ (Н \cdot м)</span></p>
+<p><span class="math inline">M_{ I } = \frac{M_{ II }}{i_{ 12 } \cdot
+\eta_{ 12 } \cdot \eta_{подш, 12 }} + (J_1 + J_{р })\cdot \varepsilon_н
+\cdot i_{ 910 }\cdot i_{ 78 }\cdot i_{ 56 }\cdot i_{ 34 }\cdot i_{ 12
+}\\ = \frac{ 0.002 }{ 1.8 \cdot 0.953 } + ( 3.275\cdot 10^{-9} + 3.6
+\cdot 10^{-6} ) \cdot 8 \cdot 6 \cdot 4.4 \cdot 3.3 \cdot 2.4 \cdot 1.8
+= 0.004 \ (Н \cdot м)</span></p>
+<p><span class="math inline">J_{р.пр} = \frac{3.275 \cdot 10^{-9} +
+3.125 \cdot 10^{-8}}{1.8^2} + \frac{3.275 \cdot 10^{-9} + 9.878 \cdot
+10^{-8}}{(1.8 \cdot 2.4)^2} + \frac{3.275 \cdot 10^{-9} + 3.531 \cdot
+10^{-7}}{(1.8 \cdot 2.4 \cdot 3.3)^2} + \frac{1.380 \cdot 10^{-8} +
+4.702 \cdot 10^{-6}}{(1.8 \cdot 2.4 \cdot 3.3 \cdot 4.4)^2} +
+\frac{1.048 \cdot 10^{-7} + 1.234 \cdot 10^{-4}}{(1.8 \cdot 2.4 \cdot
+3.3 \cdot 4.4 \cdot 6)^2} = 1.995 \cdot 10^{-8} \ (кг \cdot
+м^2)</span></p>
+<p><span class="math display">
+M_{с.пр} = \frac{M_н}{i_0 \cdot \prod_{j=1}^k (\eta_{j,j+1} \cdot
+\eta_{подш j,j+1})}
+</span></p>
+<p><span class="math inline">M_{с.пр} = \frac{0.4}{6 \cdot 0.9925 \cdot
+0.991 \cdot 4.4 \cdot 0.9868 \cdot 0.989 \cdot 3.3 \cdot 0.9759 \cdot
+0.985 \cdot 2.4 \cdot 0.962 \cdot 0.972 \cdot 1.8 \cdot 0.953} = 0.0005
+\ (Н \cdot м) = 0.5 \ (Н \cdot мм)</span></p>
+<p><span class="math display">
+M_{д.пр} = (J_р + J_{р.пр} + \frac{J_н}{i_0^2}) \cdot \varepsilon_н
+\cdot i_0
+</span></p>
+<p><span class="math inline">M_{д.пр} = (3.6 \cdot 10^{-6} + 1.995 \cdot
+10^{-8} + \frac{0.15}{375^2}) \cdot 8 \cdot 375 = 0.014 \ (Н \cdot мм) =
+14 \ (Н \cdot мм)</span></p>
+<p>Проверка:</p>
+<p><span class="math display">
+M_{ном} \ge M_{с.пр}^* \ (19.6 &gt;0.5)
+</span></p>
+<p><span class="math display">
+M_{пуск} \ge M_{с.пр}^* + M_{д.пр} \ (137.4 &gt;14.5)
+</span></p>
+<p><strong>Вывод: Условия проверки выполняются, а значит расчет
+произведен правильно.</strong></p>
+<h1 id="расчёт-на-быстродействие.">9. Расчёт на быстродействие.</h1>
+<p>Для ЭП с двигателями постоянного тока время разгона определяется по
+формуле:</p>
+<p><span class="math display">
+t_р = 3 T_{ЭМ}
+</span></p>
+<p>где <span class="math inline">T_{ЭМ}</span> – электромеханическая
+постоянная:</p>
+<p><span class="math display">
+T_{ЭМ} = \frac{J_{пр} \cdot \omega_{ном}}{M_{пуск} - M_{ст.пр}}
+</span></p>
+<p>где <span class="math inline">\omega_{ном}</span> — номинальная
+скорость вращения двигателя;</p>
+<p><span class="math inline">\omega_{ном} = \frac{ n_{ном} \cdot 60
+\cdot 2 \cdot \pi}{60} = \frac{6000 \cdot 2 \cdot 3.142}{60} = 628 \
+\frac{рад}{сек}</span></p>
+<p><span class="math display">
+J_{пр} = J_р + J_{р.пр} + \frac{J_н}{i_0^2}
+</span></p>
+<p><span class="math inline">J_{пр} = 3.6 \cdot 10^{-6} + 1.995 \cdot
+10^{-8} + \frac{0.15}{375^2} = 4.686 \cdot 10^{-6} \ (Н \cdot
+м)</span></p>
+<p><span class="math inline">T_{ЭМ} = \frac{ 4.686 \cdot 10^{-6} \cdot
+628 }{0.137 - 0.019} = 25 \ (мс)</span></p>
+<p><span class="math inline">t_р = 3T_{ЭМ} = 3 \cdot 25 = 75 \
+(мс)</span></p>
+<p><strong>Выводы: быстродействие редуктора велико.</strong></p>
+<h1 id="проверка-на-контактную-прочность.">10. Проверка на контактную
+прочность.</h1>
+<p>Необходимо проверить, выполняется ли следующее условие:</p>
+<p><span class="math display">
+\begin{equation} \sigma_н \le [ \sigma_H ] \end{equation}
+</span></p>
+<p>Где <span class="math inline">\sigma_н</span> — контактнаяпрочность;
+<span class="math inline">\sigma_H</span> — предельное значение
+контактной прочности (из проектного расчета)</p>
+<p><span class="math display">
+\sigma_н = Z_H Z_M Z_\xi \sqrt{ \frac{M_{в} \cdot K \cdot (1 +
+i_{j,j+1})^3}{d_{j+1} \cdot b_{j+1} \cdot i_{j,j+1} \cdot a_{\omega
+j,j+1}}}
+</span></p>
+<p>где <span class="math inline">Z_H = \sqrt{ \frac{2}{\sin 2\alpha}} =
+1.76</span> — коэффициент, учитывающий форму зуба; <span
+class="math inline">Z_M=\sqrt{\frac{Eпр}{\pi (1−\nu^2)}}</span> —
+коэффициент, учитывающий механические свойства материала зубчатых колёс,
+где <span class="math inline">\nu</span> — коэффициент Пуассона,
+выбирается по таблице, для стали <span class="math inline">\nu
+=0.3</span>, для стальных колёс <span class="math inline">Z_M =
+86</span>; <span class="math inline">Z_\xi=0.9</span> — коэффициент
+торцевого перекрытия; <span class="math inline">K</span> — коэффициент
+нагрузки (<span class="math inline">K=1.3</span>);</p>
+<p><span class="math inline">\sigma_{н 2} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 8.37 \cdot 1.3 \cdot (1 + 1.8)^3 }{ 10.8 \cdot 3 \cdot 1.8
+\cdot 8.4}} = 95.12 \ (МПа) &lt; 417 \ (МПа)</span></p>
+<p><span class="math inline">\sigma_{н 4} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 19.7 \cdot 1.3 \cdot (1 + 2.4)^3 }{ 14.4 \cdot 3 \cdot 2.4
+\cdot 10.2}} = 132.9 \ (МПа) &lt; 417 \ (МПа)</span></p>
+<p><span class="math inline">\sigma_{н 6} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 63.72 \cdot 1.3 \cdot (1 + 3.3)^3 }{ 19.8 \cdot 3 \cdot
+3.3 \cdot 12.9}} = 190.39 \ (МПа) &lt; 417 \ (МПа)</span></p>
+<p><span class="math inline">\sigma_{н 8} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 274.8 \cdot 1.3 \cdot (1 + 4.4)^3 }{ 35.2 \cdot 4 \cdot
+4.4 \cdot 21.6}} = 279.3 \ (МПа) &lt; 417 \ (МПа)</span></p>
+<p><span class="math inline">\sigma_{н 10} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 1616 \cdot 1.3 \cdot (1 + 6)^3 }{ 72 \cdot 6 \cdot 6 \cdot
+42}} = 350.47 \ (МПа) &lt; 417 \ (МПа)</span></p>
+<p>********************************************************************************************************************Вывод:
+условия проверки на контакнтую прочность
+выполнены.********************************************************************************************************************</p>
+<h1
+id="проверка-на-прочность-при-кратковременных-перегрузках."><strong>11.
+Проверка на прочность при кратковременных перегрузках.</strong></h1>
+<p>Необходимо, чтобы выполнялось следующее условие:</p>
+<p>Для контактных напряжений:</p>
+<p><span class="math display">
+\sigma_н \cdot \sqrt{ K_{пер} } \le [\sigma_н]_{max}
+</span></p>
+<p>Для напряжений изгиба:</p>
+<p><span class="math display">
+\sigma_F \cdot \sqrt{K_{пер}} \le [\sigma_F]_{max}
+</span></p>
+<p>Где <span class="math inline">K_{пер}</span> — коэффициент
+перегрузки; <span class="math inline">\sigma_н</span> — контактное
+напряжение; <span class="math inline">\sigma_F</span> — изгибное
+напряжение; <span class="math inline">[\sigma_н]_{max}</span> —
+предельное контактное напряжение; <span
+class="math inline">[\sigma_F]_{max}</span> — предельное изгибное
+напряжение;</p>
+<p>Коэффициент перегрузки рассчитывается по формуле:</p>
+<p><span class="math display">
+K_{пер} = \frac{M_{пуск}}{M_{I\Sigma}}
+</span></p>
+<p>Где <span class="math inline">M_{пуск}</span> — пусковой момент
+двигателя; <span class="math inline">M_{I \Sigma}</span> - уточненный
+момент на валу I (вал двигателя);</p>
+<p><span class="math inline">K_{пер} = \frac{137.4}{4} =
+34.35</span></p>
+<p><span class="math display">
+[\sigma_н]_{max} = 2.8 \cdot \sigma_т
+</span></p>
+<p><span class="math display">
+[\sigma_F]_{max} = 0.8 \cdot \sigma_т
+</span></p>
+<p>Для шестерни <span class="math inline">\sigma_т=360 \ МПа</span>, для
+колеса <span class="math inline">\sigma_т=320 \ МПа</span></p>
+<p><span class="math inline">[\sigma_н]_{max} = 2.8 \cdot 360 = 1008 \
+МПа</span></p>
+<p><span class="math inline">[\sigma_н]_{max} = 2.8 \cdot 320 = 896 \
+МПа</span></p>
+<p><span class="math inline">[\sigma_F]_{max} = 0.8 \cdot 360 = 288 \
+МПа</span></p>
+<p><span class="math inline">[\sigma_F]_{max} = 0.8 \cdot 320 = 256 \
+МПа</span></p>
+<p><span class="math inline">\sigma_{н 2 } \cdot \sqrt{ K_{пер} } =
+95.12 \cdot 5.861 = 557.498 &lt; 896</span></p>
+<p><span class="math inline">\sigma_{н 4 } \cdot \sqrt{ K_{пер} } =
+132.9 \cdot 5.861 = 778.927 &lt; 896</span></p>
+<p><span class="math inline">\sigma_{н 6 } \cdot \sqrt{ K_{пер} } =
+190.39 \cdot 5.861 = 1115.876 &gt; 896</span></p>
+<p><span class="math inline">\sigma_{н 8 } \cdot \sqrt{ K_{пер} } =
+279.3 \cdot 5.861 = 1636.977 &gt; 896</span></p>
+<p><span class="math inline">\sigma_{н 10 } \cdot \sqrt{ K_{пер} } =
+350.47 \cdot 5.861 = 2054.105 &gt; 896</span></p>
+<p><span class="math inline">\sigma_{F 1 } \cdot \sqrt{ K_{пер} } =
+114.34 \cdot 5.861 = 670.147 &gt; 256</span></p>
+<p><span class="math inline">\sigma_{F 2 } \cdot \sqrt{ K_{пер} } =
+114.34 \cdot 5.861 = 670.147&gt; 256</span></p>
+<p><span class="math inline">\sigma_{F 3 } \cdot \sqrt{ K_{пер} } =
+114.34 \cdot 5.861 = 670.147&gt; 256</span></p>
+<p><span class="math inline">\sigma_{F 4 } \cdot \sqrt{ K_{пер} } =
+131.61 \cdot 5.861 = 771.366&gt; 256</span></p>
+<p><span class="math inline">\sigma_{F 5 } \cdot \sqrt{ K_{пер} } =
+177.34 \cdot 5.861 = 1039.39&gt; 256</span></p>
+<p><span class="math inline">\sigma_{н 1} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 4.74 \cdot 1.3 \cdot (1 + 1.8)^3 }{ 6 \cdot 3.3 \cdot 1.8
+\cdot 8.4}} = 91.57 \ (МПа)</span></p>
+<p><span class="math inline">\sigma_{н 3} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 8.37 \cdot 1.3 \cdot (1 + 2.4)^3 }{ 6 \cdot 3.3 \cdot 2.4
+\cdot 10.2}} = 127.96 \ (МПа)</span></p>
+<p><span class="math inline">\sigma_{н 5} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 19.7 \cdot 1.3 \cdot (1 + 3.3)^3 }{ 6 \cdot 3.3 \cdot 3.3
+\cdot 12.7}} = 213.39 \ (МПа)</span></p>
+<p><span class="math inline">\sigma_{н 7} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 63.72 \cdot 1.3 \cdot (1 + 4.4)^3 }{ 8 \cdot 4.4 \cdot 4.4
+\cdot 21.6}} = 268.99 \ (МПа)</span></p>
+<p><span class="math inline">\sigma_{н 9} = 1.76 \cdot 86 \cdot 0.9
+\sqrt{ \frac{ 274.8 \cdot 1.3 \cdot (1 + 6)^3 }{ 12 \cdot 6.6 \cdot 6
+\cdot 42}} = 337.53 \ (МПа)</span></p>
+<p><span class="math inline">\sigma_{н 1 } \cdot \sqrt{ K_{пер} } =
+91.57 \cdot 5.861 = 536.692 &lt; 1008</span></p>
+<p><span class="math inline">\sigma_{н 3 } \cdot \sqrt{ K_{пер} } =
+127.96 \cdot 5.861 = 749.974 &lt; 1008</span></p>
+<p><span class="math inline">\sigma_{н 5 } \cdot \sqrt{ K_{пер} } =
+213.39 \cdot 5.861 = 1250.679 &gt; 1008</span></p>
+<p><span class="math inline">\sigma_{н 7 } \cdot \sqrt{ K_{пер} } =
+268.99 \cdot 5.861 = 1576.55 &gt; 1008</span></p>
+<p><span class="math inline">\sigma_{н 9 } \cdot \sqrt{ K_{пер} } =
+337.53 \cdot 5.861 = 1978.263 &gt; 1008</span></p>
+<p><span class="math inline">\sigma_{F 1 } \cdot \sqrt{ K_{пер} } =
+127.64 \cdot 5.861 = 748.098&gt; 288</span></p>
+<p><span class="math inline">\sigma_{F 3 } \cdot \sqrt{ K_{пер} } =
+127.64 \cdot 5.861 = 748.098&gt; 288</span></p>
+<p><span class="math inline">\sigma_{F 5 } \cdot \sqrt{ K_{пер} } =
+127.64 \cdot 5.861 = 748.098&gt; 288</span></p>
+<p><span class="math inline">\sigma_{F 7 } \cdot \sqrt{ K_{пер} } =
+146.91 \cdot 5.861 = 861.04&gt; 288</span></p>
+<p><span class="math inline">\sigma_{F 9 } \cdot \sqrt{ K_{пер} } =
+197.96 \cdot 5.861 = 1160.244&gt; 288</span></p>
+<p><strong>Вывод: условия проверки на контактную прочность при
+перегрузках не выполнены. Условия проверки на изгибную прочность не
+выполняются.</strong></p>
+<h1 id="общие-выводы.">12. Общие выводы.</h1>
+<ol type="1">
+<li>По итогам проверки на точность оказалось, что общая погрешность
+положения выходного вала не удовлетворяет заданной в ТЗ. Основной вклад
+в общую погрешность вносит погрешность мертвого хода, которую можно
+уменьшить путем выбора другого разбиения передаточного отношения с целью
+уменьшения диаметров ведомых колес, либо выбрав другой вид сопряжения и
+повысив степень точность, либо используя безлюфтовые зубчатые колеса на
+выходном валу редуктора.</li>
+<li>По результатам проверочного силового расчета выбранный двигатель
+удовлетворяет условию для режима редких пусков работы.</li>
+<li>Быстродействие редуктора велико.</li>
+<li>Контактная прочность зубчатых колёс удовлетворяет критерию
+проверки.</li>
+<li>Контактная прочность при перегрузках не удовлетворяет условиям. Для
+удовлетворения необходимо брать двигтаель с меньшим пусковым моментом,
+увеличить момент на первом вале, увеличить ширину и модуль зубчатых
+колёс или изменить передаточное число.</li>
+</ol>
+<h1 id="список-литературы.">Список литературы.</h1>
+<ol type="1">
+<li>Кокорев Ю.А., Жаров В.А., Торгов А.М. Расчет электромеханического
+привода. Изд-во МГТУ, 1995, 132 с.</li>
+<li>ГОСТ 21098-82.</li>
+<li>ГОСТ 1643-81.</li>
+</ol>
+</body>
+</html>

@@ -5,12 +5,9 @@ from sympy.parsing.latex import parse_latex
 from json import loads
 
 
-formulas_one = loads(open('kp_1_f_no_rus.json', 'r').read())
-formulas_two = loads(open('kp_2_f_no_rus.json', 'r').read())
-constants_one = loads(open('kp_1_c_no_rus.json', 'r').read())
-constants_two = loads(open('kp_2_c_no_rus.json', 'r').read())
-context_one = open('kp_r_1_clean.md', 'r').read().split("$$\n$$")
-context_two = open('kp_r_2_clean.md', 'r').read().split("$$\n$$")
+formulas  = loads(open('inp_formulas_no_rus.json', 'r').read())
+constants = loads(open('inp_constants_no_rus.json', 'r').read())
+context_one = open('inp_template.md', 'r').read().split("$$\n$$")
 
 precounted = open('precounted.txt', 'r').read().split('\n')
 precout = open('precounted.txt', 'w+')
@@ -20,15 +17,11 @@ precoutmd = open('precounted.md', 'w+')
 context_i = 0
 out = open('r_kp.md', 'w+')
 
-formulas = formulas_one + formulas_two
-constants = constants_one + constants_two
-context = context_one + context_two
 
-variables = list()
-unevariables = list()
-var_dict = dict()
-for line in constants:
-    line, comment = line
+variables = []
+unevariables = []
+var_dict = {}
+for line, comment in constants:
     if not line:
         continue
     eq = parse_latex(line)
@@ -70,9 +63,7 @@ else:
     preid = int(preid) 
     context_i = preid
 for line in precounted[:preid -1 ]:
-    if not line:
-        continue
-    if line[0] == '$':
+    if not line or line.startswith('$'):
         continue
     print('precounted:', line)
     # print(line, subsed)

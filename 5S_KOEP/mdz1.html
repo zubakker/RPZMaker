@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>mdz1</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script defer=""
+  src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1 id="лапа-коэп-мдз-1">Лапа КОЭП МДЗ-1</h1>
+<h1 id="введение">ВВЕДЕНИЕ</h1>
+<p>Целью расчёта является назначение <strong>степени точности</strong> и
+<strong>вида сопряжения</strong> на все зубчатые колеса, такие, что бы
+обеспечить суммарную погрешность менее заданной.</p>
+<p>Основные данные ЭМП приведены в таблице 1.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Момент нагрузки <span class="math inline">M_н</span></th>
+<th>0.4 <span class="math inline">Н \cdot М</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Частота вращения</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>выходного вала <span class="math inline">n_н</span></td>
+<td>16 <span class="math inline">об/мин</span></td>
+</tr>
+<tr class="odd">
+<td>Угловое ускорение вращения выходного вала <span
+class="math inline">\varepsilon_н</span></td>
+<td>8 <span class="math inline">рад/сек^2</span></td>
+</tr>
+<tr class="even">
+<td>Момент инерции нагрузки <span class="math inline">J_н</span></td>
+<td>0.15 <span class="math inline">кг \cdot м^2</span></td>
+</tr>
+<tr class="odd">
+<td>Температура эксплуатации</td>
+<td>±40 <span class="math inline">^\circ С</span></td>
+</tr>
+<tr class="even">
+<td>Срок службы не менее</td>
+<td>300 <span class="math inline">час</span></td>
+</tr>
+<tr class="odd">
+<td>Критерий расчета</td>
+<td>комплексный</td>
+</tr>
+<tr class="even">
+<td>Режим работы двигателя</td>
+<td>редкие пуски</td>
+</tr>
+<tr class="odd">
+<td>Метод расчета, процент риска при расчете, точность</td>
+<td>вероятностный, 1%</td>
+</tr>
+<tr class="even">
+<td>Рабочий угол поворота выходного вала</td>
+<td>±720<span class="math inline">^\circ</span></td>
+</tr>
+<tr class="odd">
+<td>Точность отработки не хуже</td>
+<td>20’</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 1. Условия задания.</p>
+<h1 id="выбор-двигателя">1. Выбор двигателя</h1>
+<p>Целью расчёта является выбор двигателя для ЭМП.</p>
+<h2 id="выбор-двигателя-по-мощности">1.1 Выбор двигателя по
+мощности</h2>
+<p>Двигатель следует выбрать с учётом расчётной мощности двигателя,
+которая должна быть достаточна для перемещения нагрузки в соответствии с
+техническим заданием.</p>
+<p>Расчётная мощность электродвигателя определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} P_р = \frac{\xi \cdot P_н}{\eta_0} \end{equation}
+</span></p>
+<p>где <span class="math inline">P_р</span> — расчётная мощность
+электродвигателя; <span class="math inline">P_н</span> — расчётная
+мощность нагрузки; <span class="math inline">\eta_0</span> — КПД цепи
+двигатель-нагрузка, примем равным 0.8; <span
+class="math inline">\xi</span>– коэффициент запаса, примем равным
+1.5.</p>
+<p>Расчётная мощность электродвигателя определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} P_н = (M_н + J_н \cdot \varepsilon_н)\cdot \omega_н
+\end{equation}
+</span></p>
+<p>где <span class="math inline">M_н</span> — статический момент
+нагрузки; <span class="math inline">\omega_н</span> — угловая скорость
+вращения нагрузки, определяется по формуле:</p>
+<p><span class="math display">
+\omega_н = \frac{2\pi \cdot n_н }{60}
+</span></p>
+<p>Расчитаем:</p>
+<p><span class="math display">
+\omega_н = \frac{2\pi \cdot n_н }{60}  = \frac{2\cdot 3.14 \cdot 16
+}{60} = 1.675 (\frac{рад}{с})
+</span></p>
+<p><span class="math display">
+P_н = (M_н + J_н \cdot \varepsilon_н)\cdot \omega_н  =1.675 \cdot ( 0.4
++ 0.15 \cdot 8) = 2.68 (Вт)
+</span></p>
+<p><span class="math display">
+P_р = \frac{\xi \cdot P_н}{\eta_0} = \frac{1.5 \cdot 2.68}{0.8} = 5.025
+(Вт)
+</span></p>
+<p>Выберем двигатель ДПР-62-Н1-02. Его характеристики приведены в
+таблице 2.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Тип двигателя</th>
+<th>ДПР-62-Н1-02</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">U</span></td>
+<td>27 <span class="math inline">В</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">P_{2 ном}</span></td>
+<td>12.3 <span class="math inline">Вт</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">n_{ном}</span></td>
+<td>6000 <span class="math inline">\frac{об}{мин}</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">M_{ном}</span></td>
+<td>19.6 <span class="math inline">мН \cdot м</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">M_п</span></td>
+<td>137.4 <span class="math inline">мН \cdot м</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">I_{ном}</span></td>
+<td>0.82 <span class="math inline">А</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">I_п</span></td>
+<td>10.5 <span class="math inline">А</span></td>
+</tr>
+<tr class="even">
+<td>КПД</td>
+<td>56%</td>
+</tr>
+<tr class="odd">
+<td>Наработка</td>
+<td>1000 <span class="math inline">ч</span></td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 2. Параметры двигателя</p>
+<p>Проверка:</p>
+<p><span class="math display">
+P_{д} &gt; P_{р}; \\ 19.6 &gt; 5.025
+</span></p>
+<p><strong>Вывод:</strong> <strong>выбранный двигатель</strong>
+<strong>подходит по мощности.</strong></p>
+<h2 id="предварительная-проверка-выбора-двигателя-по-моментам">1.2
+Предварительная проверка выбора двигателя по моментам</h2>
+<p>Для режима редких пусков двигатель должен удовлетворять условиям:</p>
+<p><span class="math display">
+\begin{equation} \begin{split} &amp;M_{пуск} \ge M_{с.пр.} + M_{д.пр.},
+\\ &amp;M_{ном} &gt; M_{с.пр.} \end{split} \end{equation}
+</span></p>
+<p>где <span class="math inline">M_{ном}</span> — номинальный момент на
+валу двигателя; <span class="math inline">M_{пуск}</span>  — пусковой
+момент (при неподвижном роторе); <span
+class="math inline">M_{с.пр.}</span> — статический приведённый момент;
+<span class="math inline">M_{д.пр.}</span> — динамический приведённый
+момент.</p>
+<p>Статический приведённый момент определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} M_{с.пр.} = \frac{M_н}{i_0 \cdot \eta_0} \end{equation}
+</span></p>
+<p>где <span class="math inline">M_н</span> — момент нагрузки; <span
+class="math inline">i_0</span> — общее передаточное отношение;</p>
+<p>Динамический приведённый момент определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} M_{д.пр.} = \varepsilon_н \cdot i_0 \bigg((1  +
+K_м)\cdot J_р + \frac{J_н}{{i_0}^2} \bigg) \end{equation}
+</span></p>
+<p>где <span class="math inline">\varepsilon_н</span> — угловое
+ускорение вращения на выходном звене; <span
+class="math inline">K_м</span> — коэффициент, учитывающий инерционность
+собственного зубчатого механизма (для малоинерционных двигателей от 0,4
+до 1, возьмем 0,7); <span class="math inline">J_р</span>— момент инерции
+ротора двигателя (из паспортных данных) <span class="math inline">= 3.6
+\cdot 10^{-6} кг \cdot м^2</span>; <span class="math inline">J_н</span>
+— момент инерции нагрузки.</p>
+<p>Определим передаточное отношение по известным частотам вращения
+двигателя <span class="math inline">n_{дв}</span> и нагрузки <span
+class="math inline">n_н</span>:</p>
+<p><span class="math display">
+i_0 =  \frac{n_{дв}}{n_н} = \frac{6000}{16} = 375
+</span></p>
+<p>Рассчитаем статический и динамический приведенные моменты по
+вышеописанным формулам:</p>
+<p><span class="math display">
+M_{с.пр.} = \frac{M_н}{i_0 \cdot \eta_0} = \frac{4.9}{375 \cdot 0.8} =
+16.3 \cdot 10^{-3}(Н\cdot м) = 16.3(Н\cdot мм)
+</span></p>
+<p><span class="math display">
+M_{д.пр.} = \varepsilon_н \cdot i_0 \bigg((1  + K_м)\cdot J_р +
+\frac{J_н}{{i_0}^2} \bigg)  = \\ 8 \cdot 375 \bigg((1  + 0.7)\cdot 3.6
+\cdot 10^{-6}+ \frac{0.15}{{375}^2} \bigg) = 0.022 (Н \cdot мм)
+</span></p>
+<p>Проверка:</p>
+<p><span class="math display">
+M_{ном} &gt; M_{с.пр} + M_{д.пр.}, \\ 19.6 &gt; 16.322
+</span></p>
+<p><strong>Вывод: выбранный двигатель проходит по моментам.</strong></p>
+<h1 id="кинематический-расчёт"><strong>2. Кинематический
+расчёт</strong></h1>
+<p>Целью расчёта является разработка кинематической схемы привода,
+разбиение передаточного отношения, определения числа зубьев зубчатых
+колес.</p>
+<h2 id="определение-общего-передаточного-отношения"><strong>2.1
+Определение общего передаточного отношения</strong></h2>
+<p>Поскольку предварительно двигатель выбран, можно рассчитать
+передаточное отношение iо цепи двигатель-нагрузка.</p>
+<p><span class="math display">
+\begin{equation} i_0 = \frac{n_{дв}}{n_н}\end{equation}
+</span></p>
+<p>где <span class="math inline">n_{дв}</span> — частота вращения вала
+двигателя; <span class="math inline">n_н</span> — частота вращения
+выходного вала</p>
+<p><span class="math display">
+i_0 =  \frac{n_{дв}}{n_н} = \frac{6000}{16} = 375
+</span></p>
+<p>Частота вращения и угловая скорость связаны между собой
+отношением:</p>
+<p><span class="math display">
+\begin{equation} n = \frac{30 \cdot \omega}{\pi} \end{equation}
+</span></p>
+<h2
+id="разбиение-общего-передаточного-отношения-по-ступеням"><strong>2.2
+Разбиение общего передаточного отношения по ступеням</strong></h2>
+<p>Согласно условию ТЗ проектирование будет осуществляться по
+комплексному критерию. При расчёте по критерию равнопрочности колёс
+число ступеней будет вычисляться по формуле:</p>
+<p><span class="math display">
+\begin{equation} n = 1.85 \cdot \lg (i_0)\end{equation}
+</span></p>
+<p>Подставим:</p>
+<p><span class="math display">
+n = 1.85 \cdot \lg (i_0) = 1.85 \cdot  \lg (375) = 4.76 \approx 5
+</span></p>
+<p>Передаточное отношение для ступеней определяется выражениями:</p>
+<p><span class="math display">
+\begin{equation} i_1 \leq i_2 \leq ... \leq i_n\end{equation}
+</span></p>
+<p>где <span class="math inline">n</span> — число ступеней.</p>
+<p>Рекоммендуют назначить <span class="math inline">i_5 = i_{max} =
+5…8</span>, далее <span class="math inline">i_{n-1} = i_n / k</span>,
+где <span class="math inline">k = 1.2…1.5</span></p>
+<p>Передаточные отношения ступеней сведены в таблицу 3.</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline">i_5</span></th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">i_4</span></td>
+<td>4.431</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">i_3</span></td>
+<td>3.272</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">i_2</span></td>
+<td>2.416</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">i_1</span></td>
+<td>1.784</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 3. Передаточные отношения ступеней</p>
+<h2 id="определение-чисел-зубьев-зубчатых-колес">2.3 Определение чисел
+зубьев зубчатых колес</h2>
+<p>Пусть число зубьев шестерни <span class="math inline">z_ш =
+20</span>.</p>
+<p>Число зубьев колеса рассчитывается по формуле:</p>
+<p><span class="math display">
+\begin{equation} z_к = z_ш \cdot i_j \end{equation}
+</span></p>
+<p>где <span class="math inline">z_к</span> — число зубьев колеса; <span
+class="math inline">z_ш</span>  — число зубьев шестерни; <span
+class="math inline">i_j</span>  —передаточное отношение одной
+ступени.</p>
+<p>Учитывая рекомендованный ряд, назначаем количества зубьев колес и
+шестерен:</p>
+<p><span class="math display">
+z_2 = z_1 \cdot i_{12} = 20 \cdot 1.784 = 36(1\ ряд) \\
+z_4 = z_3 \cdot i_{34} = 20 \cdot 2.416 = 48(1 \ ряд) \\
+z_6 = z_5 \cdot i_{56} = 20 \cdot 3.272 = 66(2 \ ряд) \\
+z_8 = z_7 \cdot i_{78} = 20 \cdot 4.431 = 88(2 \ ряд) \\
+z_{10} = z_9 \cdot i_{910} = 20 \cdot 6 = 120(2 \ ряд)
+</span></p>
+<div class="line-block">№ колеса | № элементарной</div>
+<p>передачи | число зубьев | | — | — | — | | 1 | <span
+class="math inline">I</span> | 20 | | 2 | <span
+class="math inline">I</span> | 36 | | 3 | <span
+class="math inline">II</span> | 20 | | 4 | <span
+class="math inline">II</span> | 48 | | 5 | <span
+class="math inline">III</span> | 20 | | 6 | <span
+class="math inline">III</span> | 66 | | 7 | <span
+class="math inline">IV</span> | 20 | | 8 | <span
+class="math inline">IV</span> | 88 | | 9 | <span
+class="math inline">V</span> | 20 | | 10 | <span
+class="math inline">V</span> | 120 |</p>
+<p>Таблица 4. Числа зубьев колёс редуктора.</p>
+<p>Действительное передаточное отношение рассчитывается по формуле:</p>
+<p><span class="math display">
+\begin{equation} i_д = i_{12} \cdot i_{34} \cdot i_{56} \cdot i_{78}
+\cdot i_{910} \end{equation}
+</span></p>
+<p>Тогда действительное значение передаточного отношения будет
+отличаться от расчётного на:</p>
+<p><span class="math display">
+\begin{equation} \Delta i = \frac{|i_д - i_0|}{i_0} \end{equation}
+</span></p>
+<p>где <span class="math inline">\Delta i</span> — отличие
+действительного передаточного отношения от расчётного; <span
+class="math inline">i_д</span> — действительное передаточное отношение;
+<span class="math inline">i_0</span>— общее передаточное отношение
+цепи.</p>
+<p><span class="math display">
+i_д = i_{12} \cdot i_{34} \cdot i_{56} \cdot i_{78} \cdot i_{910}
+=   1.8 \cdot 2.4 \cdot 3.3 \cdot 4.4 \cdot 6 = 376.36
+</span></p>
+<p><span class="math display">
+\Delta i = \frac{|i_д - i_0|}{i_0} = \frac{|376.36 - 375|}{375} = 3.62
+\cdot 10^{-3} = 0.36\%
+</span></p>
+<p>По заданным критериям такое отклонение допустимо. В таком случае
+можно считать выбранные значения чисел зубьев колеса и шестерни
+подходящими.</p>
+<p>Кинематическая схема приведена на рисунке:</p>
+<figure>
+<img
+src="%D0%9B%D0%B0%D0%BF%D0%B0%20%D0%9A%D0%9E%D0%AD%D0%9F%20%D0%9C%D0%94%D0%97-1%204b2f2677e8f847e2a69f8f3ea11e72f6/Untitled.png"
+alt="Untitled.png" />
+<figcaption aria-hidden="true">Untitled.png</figcaption>
+</figure>
+<p>Рисунок 1. Кинематическая схема.</p>
+<h1 id="силовой-расчёт">3. Силовой расчёт</h1>
+<p>Целью силового расчёта является определение возникающих в каждой
+передаче моментов.</p>
+<p>Моменты рассчитываются по формуле:</p>
+<p><span class="math display">
+\begin{equation} M_{ведущ} = \frac{M_{ведом}}{i_j \cdot \eta_j \cdot
+\eta_{подш}} \end{equation}
+</span></p>
+<p>где <span class="math inline">M_{ведущ}</span> — момент на ведущем
+звене; <span class="math inline">M_{ведом}</span> — момент на ведомом
+звене; <span class="math inline">i_j</span> — передаточное отношение
+ступени; <span class="math inline">\eta_j</span> — КПД передачи; <span
+class="math inline">\eta_{подш}</span> — КПД подшипников.</p>
+<p>Общий момент нагрузки рассчитывается по формуле:</p>
+<p><span class="math display">
+\begin{equation} M_\Sigma = M_н + M_д = M_н + J_н \cdot \varepsilon_н
+\end{equation}
+</span></p>
+<p>где <span class="math inline">M_н</span> – момент нагрузки; <span
+class="math inline">M_д</span> – динамический момент нагрузки; <span
+class="math inline">J_н</span> – момент инерции нагрузки; <span
+class="math inline">\varepsilon_н</span> –угловое ускорение вращения
+выходного вала.</p>
+<p>Примем КПД всех передач равным <span class="math inline">\eta_j =
+0.99</span>, КПД всех подшипников равным <span
+class="math inline">\eta_{подш} = 0.99</span>.</p>
+<p><span class="math display">
+M_\Sigma = M_н + M_д = M_н + J_н \cdot \varepsilon_н = 0.4 + 0.15 \cdot
+8 = 1.6(Н \cdot м) = 1600(Н \cdot мм)
+</span></p>
+<p><span class="math display">
+M_{VI \Sigma} = \frac{M_{\Sigma}}{\eta_{подш VI}} = \frac{1600}{0.99}  =
+1616 (Н \cdot мм)
+</span></p>
+<p><span class="math display">
+M_{V \Sigma} = \frac{M_{VI \Sigma}}{i_{910} \cdot \eta_{910} \cdot
+\eta_{подш V}} = \frac{1616}{6 \cdot 0.99 \cdot0.99}  = 274.8 (Н \cdot
+мм)
+</span></p>
+<p><span class="math display">
+M_{IV \Sigma} = \frac{M_{V \Sigma}}{i_{78} \cdot \eta_{78} \cdot
+\eta_{подш IV}} = \frac{274.8}{4.4 \cdot 0.99 \cdot0.99}  = 63.72 (Н
+\cdot мм)
+</span></p>
+<p><span class="math display">
+M_{III \Sigma} = \frac{M_{IV \Sigma}}{i_{56} \cdot \eta_{56} \cdot
+\eta_{подш III}} = \frac{63.72}{3.3 \cdot 0.99 \cdot0.99}  = 19.7 (Н
+\cdot мм)
+</span></p>
+<p><span class="math display">
+M_{II \Sigma} = \frac{M_{III \Sigma}}{i_{34} \cdot \eta_{34} \cdot
+\eta_{подш II}} = \frac{19.7}{2.4 \cdot 0.99 \cdot0.99}  = 8.37 (Н \cdot
+мм)
+</span></p>
+<p><span class="math display">
+M_{I \Sigma} = \frac{M_{II \Sigma}}{i_{12} \cdot \eta_{12} \cdot
+\eta_{подш I}} = \frac{8.37}{1.8 \cdot 0.99 \cdot0.99}  = 4.74 (Н \cdot
+мм)
+</span></p>
+<h1 id="расчёт-зубчатых-колёс-на-прочность">4. Расчёт зубчатых колёс на
+прочность</h1>
+<p>Целью расчёта является определение модуля зацепления зубчатых колёс,
+обеспечивающего работоспособность в течение заданного срока службы.</p>
+<h2 id="выбор-материала">4.1 Выбор материала</h2>
+<p>Для цилиндрической передачи открытого типа с небольшими окружными
+скоростями в качестве материала для шестерен будет использоваться
+углеродистая сталь 45, а в качестве материала для колёс — сталь 35 (см.
+таблица 5) в соответствии с рекомендациями [1]. Зубья шестерен будут
+выполнены из материалов с более высокой твёрдостью рабочих поверхностей
+по сравнению с колёсами для повышения долговечности зубчатой
+передачи.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Шестерня</th>
+<th>Колесо</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Материал</td>
+<td><span class="math inline">45</span></td>
+<td><span class="math inline">35</span></td>
+</tr>
+<tr class="even">
+<td>Модуль упругости <span class="math inline">E</span>, <span
+class="math inline">МПа</span></td>
+<td><span class="math inline">2 \cdot 10^5</span></td>
+<td><span class="math inline">2 \cdot 10^5</span></td>
+</tr>
+<tr class="odd">
+<td>Коэффициент линейного расширения, <span class="math inline">\alpha
+\cdot 10^{-6}</span>, <span class="math inline">^\circ
+C^{-1}</span></td>
+<td><span class="math inline">12</span></td>
+<td><span class="math inline">12</span></td>
+</tr>
+<tr class="even">
+<td>Плотность <span class="math inline">\rho</span>, <span
+class="math inline">\frac{г}{см^3}</span></td>
+<td><span class="math inline">7.8</span></td>
+<td><span class="math inline">7.8</span></td>
+</tr>
+<tr class="odd">
+<td>Твёрдость, <span class="math inline">HB</span></td>
+<td><span class="math inline">190-240</span></td>
+<td><span class="math inline">196-263</span></td>
+</tr>
+<tr class="even">
+<td>Термообработка</td>
+<td>Нормализация, закалка, отпуск</td>
+<td>Нормализация, закалка, отпуск</td>
+</tr>
+<tr class="odd">
+<td>Предел прочности <span class="math inline">\sigma_в</span>, <span
+class="math inline">МПа</span></td>
+<td><span class="math inline">580</span></td>
+<td><span class="math inline">580</span></td>
+</tr>
+<tr class="even">
+<td>Предел прочности <span class="math inline">\sigma_т</span>, <span
+class="math inline">МПа</span></td>
+<td><span class="math inline">360</span></td>
+<td><span class="math inline">320</span></td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 5. Характеристики используемых материалов</p>
+<h2 id="расчёт-допустимых-напряжений">4.2 Расчёт допустимых
+напряжений</h2>
+<p>Расчётное число циклов нагружения определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} N_H = 60 \cdot n \cdot c \cdot  L \end{equation}
+</span></p>
+<p>Где <span class="math inline">n</span> — частота вращения зубчатого
+колеса; <span class="math inline">c = 1</span> — число колёс,
+находящихся в зацеплении с рассчитываемым; <span
+class="math inline">L</span> — срок службы передачи.</p>
+<p>L = 300</p>
+<p><span class="math display">
+N_{H1} = 60 \cdot n_{ном} \cdot c \cdot L = 60 \cdot 6000 \cdot 1 \cdot
+300 = 108 \cdot 10^6
+</span></p>
+<p><span class="math display">
+N_{H2} = 60 \cdot n_{2} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8}
+\cdot 1 \cdot 300 = 60 \cdot 10^6
+</span></p>
+<p><span class="math display">
+N_{H3} = N_{H2} = 60 \cdot 10^6
+</span></p>
+<p><span class="math display">
+N_{H4} = 60 \cdot n_{4} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8 \cdot
+2.4} \cdot 1 \cdot 300 = 25 \cdot 10^6
+</span></p>
+<p><span class="math display">
+N_{H5} = N_{H4} = 25 \cdot 10^6
+</span></p>
+<p><span class="math display">
+N_{H6} = 60 \cdot n_{6} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8 \cdot
+2.4 \cdot 3.3} \cdot 1 \cdot 300 = 7.58 \cdot 10^6
+</span></p>
+<p><span class="math display">
+N_{H7} = N_{H6} = 7.58 \cdot 10^6
+</span></p>
+<p><span class="math display">
+N_{H8} = 60 \cdot n_{8} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8 \cdot
+2.4 \cdot 3.3 \cdot 4.4} \cdot 1 \cdot 300 = 1.723 \cdot 10^6
+</span></p>
+<p><span class="math display">
+N_{H9} = N_{H8} = 1.723 \cdot 10^6
+</span></p>
+<p><span class="math display">
+N_{H10} = 60 \cdot n_{10} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8
+\cdot 2.4 \cdot 3.3 \cdot 4.4 \cdot 6} \cdot 1 \cdot 300 = 0.287 \cdot
+10^6
+</span></p>
+<p>Коэффициент долговечности определяется соотношением:</p>
+<p><span class="math display">
+\begin{equation} K_{FL} = \sqrt[m]{\frac{4\cdot 10^6}{N_H}}
+\end{equation}
+</span></p>
+<p>Где <span class="math inline">m = 6</span> — показатель степени для
+материалов с твёрдостью <span class="math inline">HB \le 350</span>
+[9];</p>
+<p>При <span class="math inline">N_H &gt; 4 \cdot 10^6</span> принимают
+<span class="math inline">K_{FL} = 1</span> [9]. Рассчитаем коэффициенты
+долговечности для шестерен и колёс:</p>
+<p><span class="math display">
+K_{FL1} = 1 \ (т.к.\ 108 \cdot 10^6 &gt; 4 \cdot 10^6)
+</span></p>
+<p><span class="math display">
+K_{FL2} = K_{FL3} =  1 \ (т.к.\ 60 \cdot 10^6 &gt; 4 \cdot 10^6)
+</span></p>
+<p><span class="math display">
+K_{FL4} = K_{FL5} =  1 \ (т.к.\ 25 \cdot 10^6 &gt; 4 \cdot 10^6)
+</span></p>
+<p><span class="math display">
+K_{FL6} = K_{FL5} =  1 \ (т.к.\ 7.58 \cdot 10^6 &gt; 4 \cdot 10^6)
+</span></p>
+<p><span class="math display">
+K_{FL8} = K_{FL7} = \sqrt[m]{\frac{4\cdot 10^6}{N_{H8}}} =
+\sqrt[6]{\frac{4\cdot 10^6}{1.723 \cdot 10^6}} = 1.151
+</span></p>
+<p><span class="math display">
+K_{FL10} = K_{FL9} = \sqrt[m]{\frac{4\cdot 10^6}{N_{H10}}} =
+\sqrt[6]{\frac{4\cdot 10^6}{0.287 \cdot 10^6}} = 1.551
+</span></p>
+<p>В таком случае можно определить допускаемое напряжение изгиба:</p>
+<p><span class="math display">
+\begin{equation} [\sigma_F] = \frac{\sigma_{FR} \cdot K_{FC} \cdot
+K_{FL}}{S_F} \end{equation}
+</span></p>
+<p>где <span class="math inline">\sigma_{FR}</span> — предел
+выносливости при изгибе; <span class="math inline">K_{FC} = 0.65</span>
+— коэффициент, учитывающий цикл нагружения колеса для реверсивных
+передач;</p>
+<p><span class="math inline">K_{FL}</span> — коэффициент
+долговечности;</p>
+<p><span class="math inline">S_F = 2.2</span> — коэффициент запаса
+прочности для обычных условий работы.</p>
+<p>Предел выносливости при изгибе рассчитывается из соотношения [1]:</p>
+<p><span class="math display">
+\begin{equation} \sigma_{FR} = 1.8 \cdot HB \ (МПа)\end{equation}
+</span></p>
+<p>где <span class="math inline">HB</span> — твёрдость материала
+колеса.</p>
+<p>Определим пределы выносливости при изгибе для шестерен и колёс:</p>
+<p><span class="math display">
+\sigma_{FR\ шестерни} = 1.8 \cdot 240 = 432 \ (МПа)
+</span></p>
+<p><span class="math display">
+\sigma_{FR\ колеса} = 1.8 \cdot 215 = 387 \ (МПа)
+</span></p>
+<p>Допускаемые напряжения на изгиб для шестерен и колёс будут равны:</p>
+<p><span class="math display">
+[\sigma_F]_{1,3,5} = \frac{\sigma_{FR \ шестерни} \cdot K_{FC} \cdot
+K_{FL}}{S_F} = \frac{432 \cdot 0.65 \cdot 1}{2.2} = 127.64 \ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_F]_{7} = \frac{\sigma_{FR \ шестерни} \cdot K_{FC} \cdot
+K_{FL}}{S_F} = \frac{432 \cdot 0.65 \cdot 1.151}{2.2} = 146.91 \ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_F]_{9} = \frac{\sigma_{FR \ шестерни} \cdot K_{FC} \cdot
+K_{FL}}{S_F} = \frac{432 \cdot 0.65 \cdot 1.551}{2.2} = 197.96 \ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_F]_{2,4,6} = \frac{\sigma_{FR \ колеса} \cdot K_{FC} \cdot
+K_{FL}}{S_F} = \frac{387 \cdot 0.65 \cdot 1}{2.2} = 114.34 \ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_F]_{8} = \frac{\sigma_{FR \ колеса} \cdot K_{FC} \cdot
+K_{FL}}{S_F} = \frac{387 \cdot 0.65 \cdot 1.151}{2.2} = 131.61 \ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_F]_{10} = \frac{\sigma_{FR \ колеса} \cdot K_{FC} \cdot
+K_{FL}}{S_F} = \frac{387 \cdot 0.65 \cdot 1.551}{2.2} = 177.34 \ (МПа)
+</span></p>
+<p>Допускаемое контактное напряжение определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} [\sigma_H] = \frac{\sigma_{HR} \cdot z_R \cdot z_v
+\cdot K_{HL}}{S_H} \end{equation}
+</span></p>
+<p>где <span class="math inline">\sigma_{HR}</span> — предел контактной
+выносливости поверхности зубьев, соответствующий базовому числу циклов
+перемены напряжений <span class="math inline">N_{H0}</span>;<span
+class="math inline">z_R = 1</span> — коэффициент, учитывающий
+шероховатость сопряжённых поверхностей при <span class="math inline">R_α
+= 0.63..1.25</span>; <span class="math inline">z_V = 1</span> —
+коэффициент, учитывающий окружную скорость колеса при <span
+class="math inline">V &lt; 5 \frac{м}{с}</span>; <span
+class="math inline">K_{HL}</span> — коэффициент долговечности,
+определяющийся по формуле (20); <span class="math inline">S_H =
+1.1</span> — коэффициент безопасности [1].</p>
+<p>Коэффициент долговечности для кратковременно работающих передач
+определяется соотношением:</p>
+<p><span class="math display">
+\begin{equation} K_{HL} = \sqrt[m]{\frac{N_{H0}}{N_H}} \end{equation}
+</span></p>
+<p>где <span class="math inline">m = 6</span> — показатель степени для
+стальных прирабатываемых колёс [1];</p>
+<p><span class="math inline">N_{H0} = 30 \cdot 10^6</span> — базовое
+число циклов перемены напряжений для колёс, улучшаемых  до твердости
+НВ≤350[1];</p>
+<p><span class="math inline">N_H</span> — расчётное число циклов
+нагружения.</p>
+<p>сли <span class="math inline">K_{HL} &lt; 1</span>, его принимают
+<span class="math inline">K_{HL} = 1</span> (Если <span
+class="math inline">N_H &gt; N_{H0}</span>, то <span
+class="math inline">K_{HL} = 1</span>).</p>
+<p>Предел контактной выносливости поверхности зубьев рассчитывается из
+соотношения:</p>
+<p><span class="math display">
+\begin{equation} \sigma_{HR} = 2\cdot HB + 70  \ (МПа) \end{equation}
+</span></p>
+<p>где <span class="math inline">HB</span> — твёрдость материала
+колеса.</p>
+<p>Вычислим значения коэффициента долговечности для каждого колеса и
+шестерни:</p>
+<p><span class="math display">
+K_{HL1} = K_{HL2} = K_{HL3} = 1 \ (т.к. \ N_{H1} &gt; N_{H0}, \ N_{H2}
+&gt; N_{H0}, \ N_{H3} &gt; N_{H0})
+</span></p>
+<p><span class="math display">
+K_{HL \ 4,5} = \sqrt[m]{\frac{N_{H0}}{N_{H \ 4,5}}} = \sqrt[6]{\frac{30
+\cdot 10^6}{25 \cdot 10^6}} = 1.031
+</span></p>
+<p><span class="math display">
+K_{HL \ 6,7} = \sqrt[m]{\frac{N_{H0}}{N_{H \ 6,7}}} = \sqrt[6]{\frac{30
+\cdot 10^6}{7.58 \cdot 10^6}} = 1.258
+</span></p>
+<p><span class="math display">
+K_{HL \ 8,9} = \sqrt[m]{\frac{N_{H0}}{N_{H \ 8,9}}} = \sqrt[6]{\frac{30
+\cdot 10^6}{1.723 \cdot 10^6}} = 1.610
+</span></p>
+<p><span class="math display">
+K_{HL \ 10} = \sqrt[m]{\frac{N_{H0}}{N_{H \ 10}}} = \sqrt[6]{\frac{30
+\cdot 10^6}{0.287 \cdot 10^6}} = 2.170
+</span></p>
+<p>Определим предел контактной выносливости поверхности зуба для каждого
+колеса и шестерни:</p>
+<p><span class="math display">
+\sigma_{HR \ шестерен} = 2\cdot 240 + 70 = 550 \ (МПа)
+</span></p>
+<p><span class="math display">
+\sigma_{HR \ колёс} = 2\cdot 215 + 70 = 500 \ (МПа)
+</span></p>
+<p>Допускаемые контактные напряжения для шестерен и колёс будут
+равны:</p>
+<p><span class="math display">
+[\sigma_H]_{1,3} = \frac{\sigma_{HR \ шестерни} \cdot z_R \cdot z_V
+\cdot K_{HL \ 1,3}}{S_H} = \frac{550 \cdot 1 \cdot 1 \cdot 1 }{1.1} =
+500 \ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_H]_{2} = \frac{\sigma_{HR \ колеса} \cdot z_R \cdot z_V \cdot
+K_{HL \ 2}}{S_H} = \frac{500 \cdot 1 \cdot 1 \cdot 1 }{1.1} = 454.5 \
+(МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_H]_{4} = \frac{\sigma_{HR \ колеса} \cdot z_R \cdot z_V \cdot
+K_{HL \ 4}}{S_H} = \frac{500 \cdot 1 \cdot 1 \cdot 1.031 }{1.1} = 468.6
+\ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_H]_{5} = \frac{\sigma_{HR \ шестерни} \cdot z_R \cdot z_V \cdot
+K_{HL \ 5}}{S_H} = \frac{550 \cdot 1 \cdot 1 \cdot 1.031 }{1.1} = 515.5
+\ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_H]_{6} = \frac{\sigma_{HR \ колеса} \cdot z_R \cdot z_V \cdot
+K_{HL \ 6}}{S_H} = \frac{500 \cdot 1 \cdot 1 \cdot 1.258 }{1.1} = 571.8
+\ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_H]_{7} = \frac{\sigma_{HR \ шестерни} \cdot z_R \cdot z_V \cdot
+K_{HL \ 7}}{S_H} = \frac{550 \cdot 1 \cdot 1 \cdot 1.258 }{1.1} = 629 \
+(МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_H]_{8} = \frac{\sigma_{HR \ колеса} \cdot z_R \cdot z_V \cdot
+K_{HL \ 8}}{S_H} = \frac{500 \cdot 1 \cdot 1 \cdot 1.610 }{1.1} = 731.8
+\ (МПа)
+</span></p>
+<p><span class="math display">
+[\sigma_H]_{9} = \frac{\sigma_{HR \ шестерни} \cdot z_R \cdot z_V \cdot
+K_{HL \ 9}}{S_H} = \frac{550 \cdot 1 \cdot 1 \cdot 1.610 }{1.1} = 805 \
+(МПа)
+</span></p>
+<h2 id="расчет-зубчатых-передач-на-изгибную-прочность">4.3 Расчет
+зубчатых передач на изгибную прочность</h2>
+<p>Для открытых передач модуль зацепления определяется из изгибной
+прочности:</p>
+<p><span class="math display">
+\begin{equation} m = K_m \sqrt[3]{\frac{M \cdot Y_F \cdot K}{z \cdot
+\psi_m \cdot [\sigma_F]}} \end{equation}
+</span></p>
+<p>где <span class="math inline">K_m = 1.4</span> — коэффициент для
+прямозубых колёс [9]; <span class="math inline">M</span> — крутящий
+момент, действующий на рассчитываемое колесо (по данным силового
+расчёта); <span class="math inline">Y_F</span> — коэффициент формы зуба
+для прямозубых цилиндрических колёс. <span class="math inline">z</span>
+— число зубьев рассчитываемого колеса; <span class="math inline">K =
+1.3</span> — коэффициент расчётной нагрузки [9]; <span
+class="math inline">\psi_m = 10</span> — коэффициент ширины зубчатого
+венца для мелкомодульных передач [1]; <span
+class="math inline">[\sigma_F]</span> — допускаемое напряжение
+изгиба.</p>
+<p>Для шестерён <span class="math inline">z=20</span>, <span
+class="math inline">Y_{F \ шестерни} = 4.1</span>,</p>
+<p>Для зубчатых колёс:</p>
+<p><span class="math inline">Y_{F \ 2} = 3.7</span>, <span
+class="math inline">Y_{F \ 4} = 3.7</span>, <span
+class="math inline">Y_{F \ 6} = 3.6</span>, <span
+class="math inline">Y_{F \ 8} = 3.6</span>, <span
+class="math inline">Y_{F \ 10} = 3.6</span>.</p>
+<p>Для каждой передачи расчёт производится по тому зубчатому колесу (из
+пары шестерня – зубчатое колесо), для которого отношение <span
+class="math inline">Y_F/[\sigma_F]</span> больше.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\frac{Y_F}{[\sigma_F]}</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\frac{4.1}{127.64} = 0.0321</span></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\frac{3.7}{114.34} = 0.0324</span></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\frac{4.1}{127.64} = 0.0321</span></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">\frac{3.7}{114.34} = 0.0324</span></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">\frac{4.1}{127.64} = 0.0321</span></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><span class="math inline">\frac{3.6}{114.34} = 0.0315</span></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><span class="math inline">\frac{4.1}{127.64} = 0.0321</span></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><span class="math inline">\frac{3.6}{114.34} = 0.0315</span></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td><span class="math inline">\frac{4.1}{127.64} = 0.0321</span></td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td><span class="math inline">\frac{3.6}{114.34} = 0.0315</span></td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 6. Отношение коэффициента формы зуба к допускаемому
+напряжению изгиба.</p>
+<p>Для первой и второй передачи ведем расчет по зубчатому колесу, для
+остальных – по шестерне.</p>
+<p>Модуль зацепления для каждой пары колёс будет равен:</p>
+<p><span class="math display">
+m_{12} = K_m \sqrt[3]{\frac{M_{I \Sigma} \cdot Y_{F \ 2} \cdot K}{z_2
+\cdot \psi_m \cdot [\sigma_F]_2}} = 1.4 \sqrt[3]{\frac{4.74 \cdot 3.7
+\cdot 1.3}{36 \cdot 10 \cdot 114.34}} = 0.115
+</span></p>
+<p><span class="math display">
+m_{34} = K_m \sqrt[3]{\frac{M_{II \Sigma} \cdot Y_{F \ 4} \cdot K}{z_4
+\cdot \psi_m \cdot [\sigma_F]_4}} = 1.4 \sqrt[3]{\frac{8.37 \cdot 3.7
+\cdot 1.3}{48\cdot 10 \cdot 114.34}} = 0.126
+</span></p>
+<p><span class="math display">
+m_{56} = K_m \sqrt[3]{\frac{M_{III \Sigma} \cdot Y_{F \ ш} \cdot K}{z_5
+\cdot \psi_m \cdot [\sigma_F]_5}} = 1.4 \sqrt[3]{\frac{19.7 \cdot 4.1
+\cdot 1.3}{20 \cdot 10 \cdot 127.64}} = 0.224
+</span></p>
+<p><span class="math display">
+m_{78} = K_m \sqrt[3]{\frac{M_{IV \Sigma} \cdot Y_{F \ ш} \cdot K}{z_7
+\cdot \psi_m \cdot [\sigma_F]_7}} = 1.4 \sqrt[3]{\frac{63.72 \cdot 4.1
+\cdot 1.3}{20 \cdot 10 \cdot 127.64}} = 0.332
+</span></p>
+<p><span class="math display">
+m_{910} = K_m \sqrt[3]{\frac{M_{V \Sigma} \cdot Y_{F \ ш} \cdot K}{z_9
+\cdot \psi_m \cdot [\sigma_F]_9}} = 1.4 \sqrt[3]{\frac{274.8 \cdot 4.1
+\cdot 1.3}{20 \cdot 10 \cdot 127.64}} = 0.540
+</span></p>
+<p>Значения модулей зацепления округляются в соответствии с ГОСТ
+9563-60. Таким образом, модули зацепления цилиндрических зубчатых
+передач будут равны <span class="math inline">m_{12} = m_{34} = m_{56} =
+0.3</span>, <span class="math inline">m_{78} = 0.4</span>, <span
+class="math inline">m_{910} = 0.6</span>.</p>
+<h1 id="геометрический-расчёт">5. Геометрический расчёт</h1>
+<p>Целью расчёта является определение основных размеров передач и их
+элементов.</p>
+<p>Основные геометрические размеры цилиндрических зубчатых передач
+указаны на рисунке 2.</p>
+<figure>
+<img
+src="%D0%9B%D0%B0%D0%BF%D0%B0%20%D0%9A%D0%9E%D0%AD%D0%9F%20%D0%9C%D0%94%D0%97-1%204b2f2677e8f847e2a69f8f3ea11e72f6/Untitled%201.png"
+alt="Untitled" />
+<figcaption aria-hidden="true">Untitled</figcaption>
+</figure>
+<p>Рисунок 2. Геометрические параметры цилиндрической зубчатой
+передачи.</p>
+<p>В данном приводе используются цилиндрические прямозубые передачи,
+поэтому угол наклона зубьев <span class="math inline">\beta =
+0^\circ</span>.</p>
+<p>Делительный диаметр определяется соотношением:</p>
+<p><span class="math display">
+\begin{equation} d = \frac{m \cdot z}{\cos \beta} \end{equation}
+</span></p>
+<p>где <span class="math inline">d</span> — делительный диаметр; <span
+class="math inline">m</span> — модуль зацепления рассчитываемой пары
+колёс; <span class="math inline">z</span> — число зубьев рассчитываемого
+колеса; <span class="math inline">\beta = 0^\circ</span> — угол наклона
+зубьев.</p>
+<p>Рассчитаем делительные диаметры каждого колеса и шестерни:</p>
+<p><span class="math display">
+d_1 = \frac{m_{12} \cdot z_1}{\cos \beta} = \frac{0.3 \cdot 20}{1} = 6 \
+(мм)
+</span></p>
+<p><span class="math display">
+d_2 = \frac{m_{12} \cdot z_2}{\cos \beta} = \frac{0.3 \cdot 36}{1} =
+10.8 \ (мм)
+</span></p>
+<p><span class="math display">
+d_3 = \frac{m_{34} \cdot z_3}{\cos \beta} = \frac{0.3 \cdot 20}{1} = 6 \
+(мм)
+</span></p>
+<p><span class="math display">
+d_4 = \frac{m_{34} \cdot z_4}{\cos \beta} = \frac{0.3 \cdot 48}{1} =
+14.4 \ (мм)
+</span></p>
+<p><span class="math display">
+d_5 = \frac{m_{56} \cdot z_5}{\cos \beta} = \frac{0.3 \cdot 20}{1} = 6 \
+(мм)
+</span></p>
+<p><span class="math display">
+d_6 = \frac{m_{56} \cdot z_6}{\cos \beta} = \frac{0.3 \cdot 66}{1} =
+19.8 \ (мм)
+</span></p>
+<p><span class="math display">
+d_7 = \frac{m_{78} \cdot z_7}{\cos \beta} = \frac{0.4 \cdot 20}{1} = 8\
+(мм)
+</span></p>
+<p><span class="math display">
+d_8 = \frac{m_{78} \cdot z_8}{\cos \beta} = \frac{0.4 \cdot 88}{1} =35.2
+\ (мм)
+</span></p>
+<p><span class="math display">
+d_9 = \frac{m_{910} \cdot z_9}{\cos \beta} = \frac{0.6 \cdot 20}{1} = 12
+\ (мм)
+</span></p>
+<p><span class="math display">
+d_{10} = \frac{m_{910} \cdot z_{10}}{\cos \beta} = \frac{0.6 \cdot
+120}{1} = 72 \ (мм)
+</span></p>
+<p>Диаметр вершин зубьев определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} d_a = \frac{m \cdot z }{ \cos \beta} + 2m \Big( h_a^* +
+x \Big) = d + 2m \Big( h_a^* + x \Big)\end{equation}
+</span></p>
+<p>где <span class="math inline">d_a</span> — диаметр вершин зубьев;
+<span class="math inline">h_a^* = 1</span> — коэффициент высоты головки
+зуба [1]; <span class="math inline">x = 0</span> — коэффициент
+смещения.</p>
+<p>Тогда диаметры вершин зубьев для каждого колеса и шестерни равны:</p>
+<p><span class="math display">
+d_{a1} = d_1 + 2m_{12} \Big( h_a^* + x \Big) = 6 + 2 \cdot 0.3 (1 + 0) =
+6.6 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{a2} = d_2 + 2m_{12} \Big( h_a^* + x \Big) = 10.8 + 2 \cdot 0.3 (1 +
+0) = 11.4 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{a3} = d_3 + 2m_{34} \Big( h_a^* + x \Big) = 6 + 2 \cdot 0.3 (1 + 0) =
+6.6 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{a4} = d_4 + 2m_{34} \Big( h_a^* + x \Big) = 14.4 + 2 \cdot 0.3 (1 +
+0) = 15.0 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{a5} = d_5 + 2m_{56} \Big( h_a^* + x \Big) = 6 + 2 \cdot 0.3 (1 + 0) =
+6.6 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{a6} = d_6 + 2m_{56} \Big( h_a^* + x \Big) = 19.8 + 2 \cdot 0.3 (1 +
+0) = 20.4 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{a7} = d_7 + 2m_{78} \Big( h_a^* + x \Big) = 8 + 2 \cdot 0.4 (1 + 0) =
+8.8 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{a8} = d_8 + 2m_{78} \Big( h_a^* + x \Big) = 35.2 + 2 \cdot 0.4 (1 +
+0) = 36 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{a9} = d_9 + 2m_{910} \Big( h_a^* + x \Big) = 12 + 2 \cdot 0.6 (1 + 0)
+= 13.2 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{a10} = d_{10} + 2m_{910} \Big( h_a^* + x \Big) = 72 + 2 \cdot 0.6 (1
++ 0) = 73.2 \ (мм)
+</span></p>
+<p>Диаметр впадин определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} d_f = d - 2m \Big( h_a^* + c^* - x \Big)\end{equation}
+</span></p>
+<p>где <span class="math inline">d_f</span> — диаметр впадин зубьев;
+<span class="math inline">c^*</span> — коэффициент радиального зазора
+(по ГОСТ 9587-81 <span class="math inline">c^* = 0.5</span> для <span
+class="math inline">m \leq 0.5\ мм</span>, <span class="math inline">c^*
+= 0.35</span> для <span class="math inline">0.5 &lt; m &lt; 1 \
+мм</span>);</p>
+<p>Проведем расчеты диаметров впадин каждого колеса и шестерни:</p>
+<p><span class="math display">
+d_{f \ 1} = d_1 - 2m_{12} \Big( h_a^* + c^* - x \Big) = 6 - 2 \cdot 0.3
+\cdot (1 + 0.5 - 0) = 5.1 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{f \ 2} = d_2 - 2m_{12} \Big( h_a^* + c^* - x \Big) = 10.8 - 2 \cdot
+0.3 \cdot (1 + 0.5 - 0) = 9.9 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{f \ 3} = d_3 - 2m_{34} \Big( h_a^* + c^* - x \Big) = 6 - 2 \cdot 0.3
+\cdot (1 + 0.5 - 0) = 5.1 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{f \ 4} = d_4 - 2m_{34} \Big( h_a^* + c^* - x \Big) = 14.4 - 2 \cdot
+0.3 \cdot (1 + 0.5 - 0) = 13.5 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{f \ 5} = d_5 - 2m_{56} \Big( h_a^* + c^* - x \Big) = 6 - 2 \cdot 0.3
+\cdot (1 + 0.5 - 0) = 5.1 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{f \ 6} = d_6 - 2m_{56} \Big( h_a^* + c^* - x \Big) = 19.8 - 2 \cdot
+0.3 \cdot (1 + 0.5 - 0) = 18.9 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{f \ 7} = d_7 - 2m_{78} \Big( h_a^* + c^* - x \Big) = 8 - 2 \cdot 0.4
+\cdot (1 + 0.5 - 0) = 6.8 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{f \ 8} = d_8 - 2m_{78} \Big( h_a^* + c^* - x \Big) = 35.2 - 2 \cdot
+0.4 \cdot (1 + 0.5 - 0) = 34.0 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{f \ 9} = d_9 - 2m_{910} \Big( h_a^* + c^* - x \Big) = 12 - 2 \cdot
+0.6 \cdot (1 + 0.5 - 0) = 10.2 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{f \ 10} = d_{10} - 2m_{910} \Big( h_a^* + c^* - x \Big) = 72 - 2
+\cdot 0.6 \cdot (1 + 0.5 - 0) = 70.2 \ (мм)
+</span></p>
+<p>Окружной шаг определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} p = m \cdot \pi \end{equation}
+</span></p>
+<p>где <span class="math inline">p</span> — окружной шаг;</p>
+<p>Определим окружные шаги:</p>
+<p><span class="math display">
+p_{12} = m_{12 \ 34 \ 56} \cdot \pi = 0.3 \cdot 3.14 = 0.942
+</span></p>
+<p><span class="math display">
+p_{78} = m_{78} \cdot \pi = 0.4 \cdot 3.14 = 1.256
+</span></p>
+<p><span class="math display">
+p_{910} = m_{910} \cdot \pi = 0.6 \cdot 3.14 = 1.884
+</span></p>
+<p>Ширина колеса определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} b_к = \psi_m \cdot m \end{equation}
+</span></p>
+<p>где <span class="math inline">b_к</span> — ширина колеса; <span
+class="math inline">\psi_m = 10</span> — коэффициент ширины зубчатого
+венца для мелкомодульных передач [1]; <span class="math inline">m</span>
+— модуль зацепления рассчитываемой пары колёс.</p>
+<p>Тогда ширина колёс будет равна:</p>
+<p><span class="math display">
+b_{к \ 246} = \psi_m \cdot m_{12 \ 34 \ 56} = 10 \cdot 0.3 = 3 \ (мм)
+</span></p>
+<p><span class="math display">
+b_{к \ 8} = \psi_m \cdot m_{78} = 10 \cdot 0.4 = 4 \ (мм)
+</span></p>
+<p><span class="math display">
+b_{к \ 10} = \psi_m \cdot m_{910} = 10 \cdot 0.6 = 6 \ (мм)
+</span></p>
+<p>Ширина шестерни определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} b_ш = b_к + m \end{equation}
+</span></p>
+<p>Тогда ширина шестерён будет равна:</p>
+<p><span class="math display">
+b_{ш \ 135} = b_{к \ 246} + m_{12 \ 34 \ 56} =3.0 + 0.3 = 3.3 \ (мм)
+</span></p>
+<p><span class="math display">
+b_{ш \ 7} = b_{к \ 8} + m_{78} = 4.0 + 0.4 = 4.4 \ (мм)
+</span></p>
+<p><span class="math display">
+b_{ш \ 9} = b_{к \ 10} + m_{910} = 6.0 + 0.6 = 6.6 \ (мм)
+</span></p>
+<p>Межосевое расстояние определяется по формуле:</p>
+<p><span class="math display">
+\begin{equation} a_\omega = \frac{0.5 \cdot m \cdot (z_к + z_ш)}{\cos
+\beta} \end{equation}
+</span></p>
+<p>где <span class="math inline">a_\omega</span> — делительное межосевое
+расстояние; <span class="math inline">m</span> — модуль зацепления
+рассчитываемой пары колёс; <span class="math inline">z_к</span>  — число
+зубьев колеса; <span class="math inline">z_ш</span>  — число зубьев
+шестерни; <span class="math inline">\beta = 0^\circ</span> — угол
+наклона зубьев.</p>
+<p><span class="math display">
+a_{\omega 1} = \frac{0.5 \cdot m_{12} \cdot (z_2 + z_1)}{\cos \beta} =
+\frac{0.5 \cdot 0.3 \cdot (36 + 20) }{1} = 8.4 \ (мм)
+</span></p>
+<p><span class="math display">
+a_{\omega 2} = \frac{0.5 \cdot m_{34} \cdot (z_4 + z_3)}{\cos \beta} =
+\frac{0.5 \cdot 0.3 \cdot (48 + 20) }{1} = 10.2 \ (мм)
+</span></p>
+<p><span class="math display">
+a_{\omega 3} = \frac{0.5 \cdot m_{56} \cdot (z_6 + z_5)}{\cos \beta} =
+\frac{0.5 \cdot 0.3 \cdot (66 + 20) }{1} = 12.9 \ (мм)
+</span></p>
+<p><span class="math display">
+a_{\omega 4} = \frac{0.5 \cdot m_{78} \cdot (z_8 + z_7)}{\cos \beta} =
+\frac{0.5 \cdot 0.4 \cdot (88 + 20) }{1} = 21.6 \ (мм)
+</span></p>
+<p><span class="math display">
+a_{\omega 5} = \frac{0.5 \cdot m_{910} \cdot (z_10 + z_9)}{\cos \beta} =
+\frac{0.5 \cdot 0.6 \cdot (120+ 20) }{1} = 42.0 \ (мм)
+</span></p>
+<p>В таблице 7 сведены все расчитанные геометрические параметры зубчатых
+колес.</p>
+<table>
+<thead>
+<tr class="header">
+<th>№ колеса</th>
+<th><span class="math inline">z</span></th>
+<th><span class="math inline">d, \ мм</span></th>
+<th><span class="math inline">d_a, \ мм</span></th>
+<th><span class="math inline">d_f, \ мм</span></th>
+<th><span class="math inline">b, \ мм</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>20</td>
+<td>6</td>
+<td>6.6</td>
+<td>5.1</td>
+<td>3.3</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>36</td>
+<td>10.8</td>
+<td>11.4</td>
+<td>9.9</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>20</td>
+<td>6</td>
+<td>6.6</td>
+<td>5.1</td>
+<td>3.3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>48</td>
+<td>14.4</td>
+<td>15.0</td>
+<td>13.5</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>20</td>
+<td>6</td>
+<td>6.6</td>
+<td>5.1</td>
+<td>3.3</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>66</td>
+<td>19.8</td>
+<td>20.4</td>
+<td>18.9</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>20</td>
+<td>8</td>
+<td>8.8</td>
+<td>6.8</td>
+<td>4.4</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>88</td>
+<td>35.2</td>
+<td>36</td>
+<td>34.0</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>20</td>
+<td>12</td>
+<td>13.2</td>
+<td>10.2</td>
+<td>6.6</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>120</td>
+<td>72</td>
+<td>73.2</td>
+<td>70.2</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr class="header">
+<th>Колёсная пара</th>
+<th><span class="math inline">a_\omega, \ мм</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1-2</td>
+<td>8.4</td>
+</tr>
+<tr class="even">
+<td>3-4</td>
+<td>10.2</td>
+</tr>
+<tr class="odd">
+<td>5-6</td>
+<td>12.9</td>
+</tr>
+<tr class="even">
+<td>7-8</td>
+<td>21.6</td>
+</tr>
+<tr class="odd">
+<td>9-10</td>
+<td>42.0</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 7. Геометрические параметры зубчатых колёс.</p>
+<h1 id="проектный-расчёт-вала">6. Проектный расчёт вала</h1>
+<p>Диаметр вала исходя из условия крутильной прочности определяется
+выражением:</p>
+<p><span class="math display">
+\begin{equation} d \ge \sqrt[3]{\frac{M_{кр}}{0.2[\tau]_{кр}}}
+\end{equation}
+</span></p>
+<p>где <span class="math inline">M_{кр}</span> – крутящий момент на
+валу,</p>
+<p><span class="math inline">[\tau]_{кр}</span> – предельные крутильные
+напряжения:</p>
+<p><span class="math display">
+\begin{equation} [\tau]_{кр} \approx 0.56 \frac{\sigma_{-1}}{n}
+\end{equation}
+</span></p>
+<p>где <span class="math inline">\sigma_{-1}</span> – предел
+выносливости при симметричном цикле нагружения; <span
+class="math inline">n</span> – коэффициент запаса.</p>
+<p>В качестве материала для валов возьмем сталь 40ХН, имеющую  <span
+class="math inline">\sigma_{-1}=394</span>. Примем коэффициент запаса
+<span class="math inline">n=1.5</span>.</p>
+<p>Тогда предельные крутильные напряжения:</p>
+<p><span class="math display">
+[\tau]_{кр} \approx 0.56 \frac{\sigma_{-1}}{n} = 0.56 \cdot
+\frac{394}{1.5} = 110.32 \ (МПа)
+</span></p>
+<p>Диаметр первого вала примем равным диаметру ротора двигателя <span
+class="math inline">d_I = 4 \ (мм)</span></p>
+<p>Рассчитаем диаметры валов:</p>
+<p><span class="math display">
+d_{II} \ge \sqrt[3]{\frac{M_{\Sigma \ II}}{0.2[\tau]_{кр}}} =
+\sqrt[3]{\frac{8.37}{0.2 \cdot 110.32}} = 0.724 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{III} \ge \sqrt[3]{\frac{M_{\Sigma \ III}}{0.2[\tau]_{кр}}} =
+\sqrt[3]{\frac{19.7}{0.2 \cdot 110.32}} = 0.963 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{IV} \ge \sqrt[3]{\frac{M_{\Sigma \ IV}}{0.2[\tau]_{кр}}} =
+\sqrt[3]{\frac{63.72}{0.2 \cdot 110.32}} = 1.424 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{V} \ge \sqrt[3]{\frac{M_{\Sigma \ V}}{0.2[\tau]_{кр}}} =
+\sqrt[3]{\frac{274.8}{0.2 \cdot 110.32}} = 2.318 \ (мм)
+</span></p>
+<p><span class="math display">
+d_{VI} \ge \sqrt[3]{\frac{M_{\Sigma \ VI}}{0.2[\tau]_{кр}}} =
+\sqrt[3]{\frac{1616}{0.2 \cdot 110.32}} = 4.184 \ (мм)
+</span></p>
+<p>Возьмём для всех валов кроме VI диаметр 4 мм, а для VI диаметра 5
+мм</p>
+<table>
+<thead>
+<tr class="header">
+<th>№ вала</th>
+<th><span class="math inline">M_{кр}, \ МПа</span></th>
+<th><span class="math inline">d, \ мм</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>I</td>
+<td>4.74</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>II</td>
+<td>8.37</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>III</td>
+<td>19.7</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>IV</td>
+<td>63.72</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>V</td>
+<td>274.8</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>VI</td>
+<td>1616</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 8. Диаметры валов и крутящие моменты на них.</p>
+<h1 id="выбор-подшипников">7. Выбор подшипников</h1>
+<p>В качестве опор будут использоваться шарикоподшипники.
+Предварительный выбор шарикоподшипников будет осуществляться по диаметру
+цапфы. Предварительно диаметр цапфы для каждого вала можно определить из
+выражения:</p>
+<p><span class="math display">
+\begin{equation} d_ц = d- (1..3)мм \end{equation}
+</span></p>
+<p>где <span class="math inline">d</span> – диаметр вала</p>
+<p>Найдем диаметры цапф для промежуточных валов:</p>
+<p><span class="math display">
+d_{ц \ II} = d_{ц \ III} = d_{ц \ IV} = d_{ц \ V} = d - 1 = 4 - 1 = 3 \
+(мм)
+</span></p>
+<p>Выберем подшипник сверхлегкой серии диаметров 9 1000093.</p>
+<p>Параметры подшипника:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Параметр</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">d, \ мм</span></td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">D, \ мм</span></td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">B, \ мм</span></td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">d_ш, \ мм</span></td>
+<td>1.59</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">C, \ Н</span></td>
+<td>440</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">C_0, \ Н</span></td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">n, \frac{об}{мин}</span></td>
+<td>31500</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 9. Параметры подшипника 9 1000093.</p>
+<p>Где <span class="math inline">d</span> — номинальный диаметр
+отверстия внутреннего кольца; <span class="math inline">D</span> —
+номинальный диаметр наружный цилиндрической поверхности наружного
+кольца; <span class="math inline">B</span> — номинальная ширина
+подшипника; <span class="math inline">d_ш</span> — номинальная диаметр
+шарика; <span class="math inline">C</span> — базовая динамическая
+грузоподъемность; <span class="math inline">C_0</span> — базовая
+статическая грузоподъемность; <span class="math inline">n</span> —
+частота вращения.</p>
+<p>Диаметр цапфы для вала VI примем равным диаметру самого вала в связи
+с тем, что формула (32) не может использоваться в случае выходного
+вала:</p>
+<p><span class="math display">
+d_{ц \ VI} = d_V = 5 \ (мм)
+</span></p>
+<p>Выберем подшипник сверхлегкой серии диаметров 9 1000095.</p>
+<p>Параметры подшипника:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Параметр</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">d, \ мм</span></td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">D, \ мм</span></td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">B, \ мм</span></td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">d_ш, \ мм</span></td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">C, \ Н</span></td>
+<td>850</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">C_0, \ Н</span></td>
+<td>400</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">n, \frac{об}{мин}</span></td>
+<td>31500</td>
+</tr>
+</tbody>
+</table>
+<p>Таблица 10. Параметры подшипника 9 1000095.</p>
+<h1 id="список-литературы.">Список литературы.</h1>
+<ol type="1">
+<li>Кокорев Ю.А., Жаров В.А., Торгов А.М. Расчет электромеханического
+привода. Изд-во МГТУ, 1995, 132 с.</li>
+<li>Буцев А.А., Еремеев А.И., Кокорев Ю.А. и др. Атлас конструкций ЭМП.
+Под ред. Тищенко О.Ф. Машиностроение, 1982.</li>
+<li>Буцев А.А., Кокорев Ю.А., Потапцев И.С. Учебное пособие по расчету
+ЭМП для студентов вечернего отделения с примерами применения 1984.</li>
+<li>Буцев А.А., Коваленко А.П., Котов А.Н. Проектирование приборных
+приводов. Изд-во МГТУ, 1988.</li>
+<li>Коваленко А.П., Буцев А.А., Выбор исполнительных электродвигателей
+приборных устройств. МВТУ, 1981.</li>
+<li>Элементы приборных устройств. Курсовое проектирование. Под ред.
+Тищенко О.Ф. Высш. Школа. 1982, ч.1, ч.2.</li>
+<li>Пивораров В.Н., Шевцов Ю.А., Жаров В.А. Применение ЭВМ в курсовом
+проекте. МВТУ, 1985.</li>
+<li>Торгов А.М. Оптимизация передаточных отношений многоступенчатых
+передач с применением решения на ЭВМ, М. МГТУ, 1989, 36с.</li>
+<li>Расчет деталей машин на ЭВМ. Под ред. Решетова Д.Н. Высш. Школа,
+1985.</li>
+<li>Дружинин Ю.А., Зубов В.А., Лавров В.Ю. Проектирование механизмов
+приборов и вычислительных систем с применением ЭВМ. М. Высш. Школа,
+1988. 160с</li>
+</ol>
+</body>
+</html>

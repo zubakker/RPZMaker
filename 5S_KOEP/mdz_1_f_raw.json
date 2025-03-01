@@ -1,0 +1,300 @@
+[
+\begin{equation} P_р = \frac{\xi \cdot P_н}{\eta_0} \end{equation} 
+
+\begin{equation} P_н = (M_н + J_н \cdot \varepsilon_н)\cdot \omega_н \end{equation}
+
+\omega_н = \frac{2\pi \cdot n_н }{60}
+
+\omega_н = \frac{2\pi \cdot n_н }{60}  = \frac{2\cdot 3.14 \cdot 16 }{60} = 1.675 (\frac{рад}{с})
+
+P_н = (M_н + J_н \cdot \varepsilon_н)\cdot \omega_н  =1.675 \cdot ( 0.4 + 0.15 \cdot 8) = 2.68 (Вт)
+
+P_р = \frac{\xi \cdot P_н}{\eta_0} = \frac{1.5 \cdot 2.68}{0.8} = 5.025 (Вт)
+
+P_{д} > P_{р}; \\ 19.6 > 5.025
+
+\begin{equation} \begin{split} &M_{пуск} \ge M_{с.пр.} + M_{д.пр.}, \\ &M_{ном} > M_{с.пр.} \end{split} \end{equation}
+
+\begin{equation} M_{с.пр.} = \frac{M_н}{i_0 \cdot \eta_0} \end{equation}
+
+\begin{equation} M_{д.пр.} = \varepsilon_н \cdot i_0 \bigg((1  + K_м)\cdot J_р + \frac{J_н}{{i_0}^2} \bigg) \end{equation}
+
+i_0 =  \frac{n_{дв}}{n_н} = \frac{6000}{16} = 375
+
+ M_{с.пр.} = \frac{M_н}{i_0 \cdot \eta_0} = \frac{4.9}{375 \cdot 0.8} = 16.3 \cdot 10^{-3}(Н\cdot м) = 16.3(Н\cdot мм)
+
+M_{д.пр.} = \varepsilon_н \cdot i_0 \bigg((1  + K_м)\cdot J_р + \frac{J_н}{{i_0}^2} \bigg)  = \\ 8 \cdot 375 \bigg((1  + 0.7)\cdot 3.6 \cdot 10^{-6}+ \frac{0.15}{{375}^2} \bigg) = 0.022 (Н \cdot мм)
+
+M_{ном} > M_{с.пр} + M_{д.пр.}, \\ 19.6 > 16.322
+
+\begin{equation} i_0 = \frac{n_{дв}}{n_н}\end{equation}
+
+i_0 =  \frac{n_{дв}}{n_н} = \frac{6000}{16} = 375
+
+\begin{equation} n = \frac{30 \cdot \omega}{\pi} \end{equation}
+
+\begin{equation} n = 1.85 \cdot \lg (i_0)\end{equation}
+
+ n = 1.85 \cdot \lg (i_0) = 1.85 \cdot  \lg (375) = 4.76 \approx 5
+
+\begin{equation} i_1 \leq i_2 \leq ... \leq i_n\end{equation}
+
+\begin{equation} z_к = z_ш \cdot i_j \end{equation}
+
+z_{10} = z_9 \cdot i_{910} = 20 \cdot 6 = 120(2 \ ряд)
+
+\begin{equation} i_д = i_{12} \cdot i_{34} \cdot i_{56} \cdot i_{78} \cdot i_{910} \end{equation}
+
+\begin{equation} \Delta i = \frac{|i_д - i_0|}{i_0} \end{equation}
+
+i_д = i_{12} \cdot i_{34} \cdot i_{56} \cdot i_{78} \cdot i_{910} =   1.8 \cdot 2.4 \cdot 3.3 \cdot 4.4 \cdot 6 = 376.36
+
+\Delta i = \frac{|i_д - i_0|}{i_0} = \frac{|376.36 - 375|}{375} = 3.62 \cdot 10^{-3} = 0.36\%
+
+\begin{equation} M_{ведущ} = \frac{M_{ведом}}{i_j \cdot \eta_j \cdot \eta_{подш}} \end{equation}
+
+\begin{equation} M_\Sigma = M_н + M_д = M_н + J_н \cdot \varepsilon_н \end{equation} 
+
+M_\Sigma = M_н + M_д = M_н + J_н \cdot \varepsilon_н = 0.4 + 0.15 \cdot 8 = 1.6(Н \cdot м) = 1600(Н \cdot мм)
+
+M_{VI \Sigma} = \frac{M_{\Sigma}}{\eta_{подш VI}} = \frac{1600}{0.99}  = 1616 (Н \cdot мм)
+
+M_{V \Sigma} = \frac{M_{VI \Sigma}}{i_{910} \cdot \eta_{910} \cdot \eta_{подш V}} = \frac{1616}{6 \cdot 0.99 \cdot0.99}  = 274.8 (Н \cdot мм)
+
+M_{IV \Sigma} = \frac{M_{V \Sigma}}{i_{78} \cdot \eta_{78} \cdot \eta_{подш IV}} = \frac{274.8}{4.4 \cdot 0.99 \cdot0.99}  = 63.72 (Н \cdot мм)
+
+M_{III \Sigma} = \frac{M_{IV \Sigma}}{i_{56} \cdot \eta_{56} \cdot \eta_{подш III}} = \frac{63.72}{3.3 \cdot 0.99 \cdot0.99}  = 19.7 (Н \cdot мм)
+
+M_{II \Sigma} = \frac{M_{III \Sigma}}{i_{34} \cdot \eta_{34} \cdot \eta_{подш II}} = \frac{19.7}{2.4 \cdot 0.99 \cdot0.99}  = 8.37 (Н \cdot мм)
+
+M_{I \Sigma} = \frac{M_{II \Sigma}}{i_{12} \cdot \eta_{12} \cdot \eta_{подш I}} = \frac{8.37}{1.8 \cdot 0.99 \cdot0.99}  = 4.74 (Н \cdot мм)
+
+\begin{equation} N_H = 60 \cdot n \cdot c \cdot  L \end{equation}
+
+N_{H1} = 60 \cdot n_{ном} \cdot c \cdot L = 60 \cdot 6000 \cdot 1 \cdot 300 = 108 \cdot 10^6
+
+N_{H2} = 60 \cdot n_{2} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8} \cdot 1 \cdot 300 = 60 \cdot 10^6
+
+N_{H3} = N_{H2} = 60 \cdot 10^6
+
+N_{H4} = 60 \cdot n_{4} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8 \cdot 2.4} \cdot 1 \cdot 300 = 25 \cdot 10^6
+
+N_{H5} = N_{H4} = 25 \cdot 10^6
+
+N_{H6} = 60 \cdot n_{6} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8 \cdot 2.4 \cdot 3.3} \cdot 1 \cdot 300 = 7.58 \cdot 10^6
+
+N_{H7} = N_{H6} = 7.58 \cdot 10^6
+
+N_{H8} = 60 \cdot n_{8} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8 \cdot 2.4 \cdot 3.3 \cdot 4.4} \cdot 1 \cdot 300 = 1.723 \cdot 10^6
+
+N_{H9} = N_{H8} = 1.723 \cdot 10^6
+
+N_{H10} = 60 \cdot n_{10} \cdot c \cdot L = 60 \cdot \frac{6000}{1.8 \cdot 2.4 \cdot 3.3 \cdot 4.4 \cdot 6} \cdot 1 \cdot 300 = 0.287 \cdot 10^6
+
+\begin{equation} K_{FL} = \sqrt[m]{\frac{4\cdot 10^6}{N_H}} \end{equation}
+
+K_{FL1} = 1 \ (т.к.\ 108 \cdot 10^6 > 4 \cdot 10^6)
+
+K_{FL2} = K_{FL3} =  1 \ (т.к.\ 60 \cdot 10^6 > 4 \cdot 10^6)
+
+K_{FL4} = K_{FL5} =  1 \ (т.к.\ 25 \cdot 10^6 > 4 \cdot 10^6)
+
+K_{FL6} = K_{FL5} =  1 \ (т.к.\ 7.58 \cdot 10^6 > 4 \cdot 10^6)
+
+K_{FL8} = K_{FL7} = \sqrt[m]{\frac{4\cdot 10^6}{N_{H8}}} = \sqrt[6]{\frac{4\cdot 10^6}{1.723 \cdot 10^6}} = 1.151
+
+K_{FL10} = K_{FL9} = \sqrt[m]{\frac{4\cdot 10^6}{N_{H10}}} = \sqrt[6]{\frac{4\cdot 10^6}{0.287 \cdot 10^6}} = 1.551
+
+\begin{equation} [\sigma_F] = \frac{\sigma_{FR} \cdot K_{FC} \cdot K_{FL}}{S_F} \end{equation}
+
+\begin{equation} \sigma_{FR} = 1.8 \cdot HB \ (МПа)\end{equation}
+
+\sigma_{FR\ шестерни} = 1.8 \cdot 240 = 432 \ (МПа)
+
+\sigma_{FR\ колеса} = 1.8 \cdot 215 = 387 \ (МПа)
+
+[\sigma_F]_{1,3,5} = \frac{\sigma_{FR \ шестерни} \cdot K_{FC} \cdot K_{FL}}{S_F} = \frac{432 \cdot 0.65 \cdot 1}{2.2} = 127.64 \ (МПа)
+
+[\sigma_F]_{7} = \frac{\sigma_{FR \ шестерни} \cdot K_{FC} \cdot K_{FL}}{S_F} = \frac{432 \cdot 0.65 \cdot 1.151}{2.2} = 146.91 \ (МПа)
+
+[\sigma_F]_{9} = \frac{\sigma_{FR \ шестерни} \cdot K_{FC} \cdot K_{FL}}{S_F} = \frac{432 \cdot 0.65 \cdot 1.551}{2.2} = 197.96 \ (МПа)
+
+[\sigma_F]_{2,4,6} = \frac{\sigma_{FR \ колеса} \cdot K_{FC} \cdot K_{FL}}{S_F} = \frac{387 \cdot 0.65 \cdot 1}{2.2} = 114.34 \ (МПа)
+
+[\sigma_F]_{8} = \frac{\sigma_{FR \ колеса} \cdot K_{FC} \cdot K_{FL}}{S_F} = \frac{387 \cdot 0.65 \cdot 1.151}{2.2} = 131.61 \ (МПа)
+
+[\sigma_F]_{10} = \frac{\sigma_{FR \ колеса} \cdot K_{FC} \cdot K_{FL}}{S_F} = \frac{387 \cdot 0.65 \cdot 1.551}{2.2} = 177.34 \ (МПа)
+
+\begin{equation} [\sigma_H] = \frac{\sigma_{HR} \cdot z_R \cdot z_v \cdot K_{HL}}{S_H} \end{equation}
+
+\begin{equation} K_{HL} = \sqrt[m]{\frac{N_{H0}}{N_H}} \end{equation}
+
+\begin{equation} \sigma_{HR} = 2\cdot HB + 70  \ (МПа) \end{equation}
+
+K_{HL1} = K_{HL2} = K_{HL3} = 1 \ (т.к. \ N_{H1} > N_{H0}, \ N_{H2} > N_{H0}, \ N_{H3} > N_{H0})
+
+K_{HL \ 4,5} = \sqrt[m]{\frac{N_{H0}}{N_{H \ 4,5}}} = \sqrt[6]{\frac{30 \cdot 10^6}{25 \cdot 10^6}} = 1.031
+
+K_{HL \ 6,7} = \sqrt[m]{\frac{N_{H0}}{N_{H \ 6,7}}} = \sqrt[6]{\frac{30 \cdot 10^6}{7.58 \cdot 10^6}} = 1.258
+
+K_{HL \ 8,9} = \sqrt[m]{\frac{N_{H0}}{N_{H \ 8,9}}} = \sqrt[6]{\frac{30 \cdot 10^6}{1.723 \cdot 10^6}} = 1.610
+
+K_{HL \ 10} = \sqrt[m]{\frac{N_{H0}}{N_{H \ 10}}} = \sqrt[6]{\frac{30 \cdot 10^6}{0.287 \cdot 10^6}} = 2.170
+
+\sigma_{HR \ шестерен} = 2\cdot 240 + 70 = 550 \ (МПа)
+
+\sigma_{HR \ колёс} = 2\cdot 215 + 70 = 500 \ (МПа)
+
+[\sigma_H]_{1,3} = \frac{\sigma_{HR \ шестерни} \cdot z_R \cdot z_V \cdot K_{HL \ 1,3}}{S_H} = \frac{550 \cdot 1 \cdot 1 \cdot 1 }{1.1} = 500 \ (МПа)
+
+[\sigma_H]_{2} = \frac{\sigma_{HR \ колеса} \cdot z_R \cdot z_V \cdot K_{HL \ 2}}{S_H} = \frac{500 \cdot 1 \cdot 1 \cdot 1 }{1.1} = 454.5 \ (МПа)
+
+[\sigma_H]_{4} = \frac{\sigma_{HR \ колеса} \cdot z_R \cdot z_V \cdot K_{HL \ 4}}{S_H} = \frac{500 \cdot 1 \cdot 1 \cdot 1.031 }{1.1} = 468.6 \ (МПа)
+
+[\sigma_H]_{5} = \frac{\sigma_{HR \ шестерни} \cdot z_R \cdot z_V \cdot K_{HL \ 5}}{S_H} = \frac{550 \cdot 1 \cdot 1 \cdot 1.031 }{1.1} = 515.5 \ (МПа)
+
+[\sigma_H]_{6} = \frac{\sigma_{HR \ колеса} \cdot z_R \cdot z_V \cdot K_{HL \ 6}}{S_H} = \frac{500 \cdot 1 \cdot 1 \cdot 1.258 }{1.1} = 571.8 \ (МПа)
+
+[\sigma_H]_{7} = \frac{\sigma_{HR \ шестерни} \cdot z_R \cdot z_V \cdot K_{HL \ 7}}{S_H} = \frac{550 \cdot 1 \cdot 1 \cdot 1.258 }{1.1} = 629 \ (МПа)
+
+[\sigma_H]_{8} = \frac{\sigma_{HR \ колеса} \cdot z_R \cdot z_V \cdot K_{HL \ 8}}{S_H} = \frac{500 \cdot 1 \cdot 1 \cdot 1.610 }{1.1} = 731.8 \ (МПа)
+
+[\sigma_H]_{9} = \frac{\sigma_{HR \ шестерни} \cdot z_R \cdot z_V \cdot K_{HL \ 9}}{S_H} = \frac{550 \cdot 1 \cdot 1 \cdot 1.610 }{1.1} = 805 \ (МПа)
+
+\begin{equation} m = K_m \sqrt[3]{\frac{M \cdot Y_F \cdot K}{z \cdot \psi_m \cdot [\sigma_F]}} \end{equation}
+
+ m_{12} = K_m \sqrt[3]{\frac{M_{I \Sigma} \cdot Y_{F \ 2} \cdot K}{z_2 \cdot \psi_m \cdot [\sigma_F]_2}} = 1.4 \sqrt[3]{\frac{4.74 \cdot 3.7 \cdot 1.3}{36 \cdot 10 \cdot 114.34}} = 0.115
+
+ m_{34} = K_m \sqrt[3]{\frac{M_{II \Sigma} \cdot Y_{F \ 4} \cdot K}{z_4 \cdot \psi_m \cdot [\sigma_F]_4}} = 1.4 \sqrt[3]{\frac{8.37 \cdot 3.7 \cdot 1.3}{48\cdot 10 \cdot 114.34}} = 0.126
+
+ m_{56} = K_m \sqrt[3]{\frac{M_{III \Sigma} \cdot Y_{F \ ш} \cdot K}{z_5 \cdot \psi_m \cdot [\sigma_F]_5}} = 1.4 \sqrt[3]{\frac{19.7 \cdot 4.1 \cdot 1.3}{20 \cdot 10 \cdot 127.64}} = 0.224
+
+ m_{78} = K_m \sqrt[3]{\frac{M_{IV \Sigma} \cdot Y_{F \ ш} \cdot K}{z_7 \cdot \psi_m \cdot [\sigma_F]_7}} = 1.4 \sqrt[3]{\frac{63.72 \cdot 4.1 \cdot 1.3}{20 \cdot 10 \cdot 127.64}} = 0.332
+
+ m_{910} = K_m \sqrt[3]{\frac{M_{V \Sigma} \cdot Y_{F \ ш} \cdot K}{z_9 \cdot \psi_m \cdot [\sigma_F]_9}} = 1.4 \sqrt[3]{\frac{274.8 \cdot 4.1 \cdot 1.3}{20 \cdot 10 \cdot 127.64}} = 0.540
+
+\begin{equation} d = \frac{m \cdot z}{\cos \beta} \end{equation}
+
+d_1 = \frac{m_{12} \cdot z_1}{\cos \beta} = \frac{0.3 \cdot 20}{1} = 6 \ (мм)
+
+d_2 = \frac{m_{12} \cdot z_2}{\cos \beta} = \frac{0.3 \cdot 36}{1} = 10.8 \ (мм)
+
+d_3 = \frac{m_{34} \cdot z_3}{\cos \beta} = \frac{0.3 \cdot 20}{1} = 6 \ (мм)
+
+d_4 = \frac{m_{34} \cdot z_4}{\cos \beta} = \frac{0.3 \cdot 48}{1} = 14.4 \ (мм)
+
+d_5 = \frac{m_{56} \cdot z_5}{\cos \beta} = \frac{0.3 \cdot 20}{1} = 6 \ (мм)
+
+d_6 = \frac{m_{56} \cdot z_6}{\cos \beta} = \frac{0.3 \cdot 66}{1} = 19.8 \ (мм)
+
+d_7 = \frac{m_{78} \cdot z_7}{\cos \beta} = \frac{0.4 \cdot 20}{1} = 8\ (мм)
+
+d_8 = \frac{m_{78} \cdot z_8}{\cos \beta} = \frac{0.4 \cdot 88}{1} =35.2 \ (мм)
+
+d_9 = \frac{m_{910} \cdot z_9}{\cos \beta} = \frac{0.6 \cdot 20}{1} = 12 \ (мм)
+
+d_{10} = \frac{m_{910} \cdot z_{10}}{\cos \beta} = \frac{0.6 \cdot 120}{1} = 72 \ (мм)
+
+\begin{equation} d_a = \frac{m \cdot z }{ \cos \beta} + 2m \Big( h_a^* + x \Big) = d + 2m \Big( h_a^* + x \Big)\end{equation}
+
+d_{a1} = d_1 + 2m_{12} \Big( h_a^* + x \Big) = 6 + 2 \cdot 0.3 (1 + 0) = 6.6 \ (мм)
+
+d_{a2} = d_2 + 2m_{12} \Big( h_a^* + x \Big) = 10.8 + 2 \cdot 0.3 (1 + 0) = 11.4 \ (мм)
+
+d_{a3} = d_3 + 2m_{34} \Big( h_a^* + x \Big) = 6 + 2 \cdot 0.3 (1 + 0) = 6.6 \ (мм)
+
+d_{a4} = d_4 + 2m_{34} \Big( h_a^* + x \Big) = 14.4 + 2 \cdot 0.3 (1 + 0) = 15.0 \ (мм)
+
+d_{a5} = d_5 + 2m_{56} \Big( h_a^* + x \Big) = 6 + 2 \cdot 0.3 (1 + 0) = 6.6 \ (мм)
+
+d_{a6} = d_6 + 2m_{56} \Big( h_a^* + x \Big) = 19.8 + 2 \cdot 0.3 (1 + 0) = 20.4 \ (мм)
+
+d_{a7} = d_7 + 2m_{78} \Big( h_a^* + x \Big) = 8 + 2 \cdot 0.4 (1 + 0) = 8.8 \ (мм)
+
+d_{a8} = d_8 + 2m_{78} \Big( h_a^* + x \Big) = 35.2 + 2 \cdot 0.4 (1 + 0) = 36 \ (мм)
+
+d_{a9} = d_9 + 2m_{910} \Big( h_a^* + x \Big) = 12 + 2 \cdot 0.6 (1 + 0) = 13.2 \ (мм)
+
+d_{a10} = d_{10} + 2m_{910} \Big( h_a^* + x \Big) = 72 + 2 \cdot 0.6 (1 + 0) = 73.2 \ (мм)
+
+\begin{equation} d_f = d - 2m \Big( h_a^* + c^* - x \Big)\end{equation}
+
+d_{f \ 1} = d_1 - 2m_{12} \Big( h_a^* + c^* - x \Big) = 6 - 2 \cdot 0.3 \cdot (1 + 0.5 - 0) = 5.1 \ (мм)
+
+d_{f \ 2} = d_2 - 2m_{12} \Big( h_a^* + c^* - x \Big) = 10.8 - 2 \cdot 0.3 \cdot (1 + 0.5 - 0) = 9.9 \ (мм)
+
+d_{f \ 3} = d_3 - 2m_{34} \Big( h_a^* + c^* - x \Big) = 6 - 2 \cdot 0.3 \cdot (1 + 0.5 - 0) = 5.1 \ (мм)
+
+d_{f \ 4} = d_4 - 2m_{34} \Big( h_a^* + c^* - x \Big) = 14.4 - 2 \cdot 0.3 \cdot (1 + 0.5 - 0) = 13.5 \ (мм)
+
+d_{f \ 5} = d_5 - 2m_{56} \Big( h_a^* + c^* - x \Big) = 6 - 2 \cdot 0.3 \cdot (1 + 0.5 - 0) = 5.1 \ (мм)
+
+d_{f \ 6} = d_6 - 2m_{56} \Big( h_a^* + c^* - x \Big) = 19.8 - 2 \cdot 0.3 \cdot (1 + 0.5 - 0) = 18.9 \ (мм)
+
+d_{f \ 7} = d_7 - 2m_{78} \Big( h_a^* + c^* - x \Big) = 8 - 2 \cdot 0.4 \cdot (1 + 0.5 - 0) = 6.8 \ (мм)
+
+d_{f \ 8} = d_8 - 2m_{78} \Big( h_a^* + c^* - x \Big) = 35.2 - 2 \cdot 0.4 \cdot (1 + 0.5 - 0) = 34.0 \ (мм)
+
+d_{f \ 9} = d_9 - 2m_{910} \Big( h_a^* + c^* - x \Big) = 12 - 2 \cdot 0.6 \cdot (1 + 0.5 - 0) = 10.2 \ (мм)
+
+d_{f \ 10} = d_{10} - 2m_{910} \Big( h_a^* + c^* - x \Big) = 72 - 2 \cdot 0.6 \cdot (1 + 0.5 - 0) = 70.2 \ (мм)
+
+\begin{equation} p = m \cdot \pi \end{equation}
+
+p_{12} = m_{12 \ 34 \ 56} \cdot \pi = 0.3 \cdot 3.14 = 0.942
+
+p_{78} = m_{78} \cdot \pi = 0.4 \cdot 3.14 = 1.256
+
+p_{910} = m_{910} \cdot \pi = 0.6 \cdot 3.14 = 1.884
+
+\begin{equation} b_к = \psi_m \cdot m \end{equation}
+
+b_{к \ 246} = \psi_m \cdot m_{12 \ 34 \ 56} = 10 \cdot 0.3 = 3 \ (мм)
+
+b_{к \ 8} = \psi_m \cdot m_{78} = 10 \cdot 0.4 = 4 \ (мм)
+
+b_{к \ 10} = \psi_m \cdot m_{910} = 10 \cdot 0.6 = 6 \ (мм)
+
+\begin{equation} b_ш = b_к + m \end{equation}
+
+b_{ш \ 135} = b_{к \ 246} + m_{12 \ 34 \ 56} =3.0 + 0.3 = 3.3 \ (мм)
+
+b_{ш \ 7} = b_{к \ 8} + m_{78} = 4.0 + 0.4 = 4.4 \ (мм)
+
+b_{ш \ 9} = b_{к \ 10} + m_{910} = 6.0 + 0.6 = 6.6 \ (мм)
+
+\begin{equation} a_\omega = \frac{0.5 \cdot m \cdot (z_к + z_ш)}{\cos \beta} \end{equation}
+
+a_{\omega 1} = \frac{0.5 \cdot m_{12} \cdot (z_2 + z_1)}{\cos \beta} = \frac{0.5 \cdot 0.3 \cdot (36 + 20) }{1} = 8.4 \ (мм)
+
+a_{\omega 2} = \frac{0.5 \cdot m_{34} \cdot (z_4 + z_3)}{\cos \beta} = \frac{0.5 \cdot 0.3 \cdot (48 + 20) }{1} = 10.2 \ (мм)
+
+a_{\omega 3} = \frac{0.5 \cdot m_{56} \cdot (z_6 + z_5)}{\cos \beta} = \frac{0.5 \cdot 0.3 \cdot (66 + 20) }{1} = 12.9 \ (мм)
+
+a_{\omega 4} = \frac{0.5 \cdot m_{78} \cdot (z_8 + z_7)}{\cos \beta} = \frac{0.5 \cdot 0.4 \cdot (88 + 20) }{1} = 21.6 \ (мм)
+
+a_{\omega 5} = \frac{0.5 \cdot m_{910} \cdot (z_10 + z_9)}{\cos \beta} = \frac{0.5 \cdot 0.6 \cdot (120+ 20) }{1} = 42.0 \ (мм)
+
+\begin{equation} d \ge \sqrt[3]{\frac{M_{кр}}{0.2[\tau]_{кр}}} \end{equation}
+
+\begin{equation} [\tau]_{кр} \approx 0.56 \frac{\sigma_{-1}}{n} \end{equation}
+
+[\tau]_{кр} \approx 0.56 \frac{\sigma_{-1}}{n} = 0.56 \cdot \frac{394}{1.5} = 110.32 \ (МПа)
+
+d_{II} \ge \sqrt[3]{\frac{M_{\Sigma \ II}}{0.2[\tau]_{кр}}} = \sqrt[3]{\frac{8.37}{0.2 \cdot 110.32}} = 0.724 \ (мм)
+
+d_{III} \ge \sqrt[3]{\frac{M_{\Sigma \ III}}{0.2[\tau]_{кр}}} = \sqrt[3]{\frac{19.7}{0.2 \cdot 110.32}} = 0.963 \ (мм)
+
+d_{IV} \ge \sqrt[3]{\frac{M_{\Sigma \ IV}}{0.2[\tau]_{кр}}} = \sqrt[3]{\frac{63.72}{0.2 \cdot 110.32}} = 1.424 \ (мм)
+
+d_{V} \ge \sqrt[3]{\frac{M_{\Sigma \ V}}{0.2[\tau]_{кр}}} = \sqrt[3]{\frac{274.8}{0.2 \cdot 110.32}} = 2.318 \ (мм)
+
+d_{VI} \ge \sqrt[3]{\frac{M_{\Sigma \ VI}}{0.2[\tau]_{кр}}} = \sqrt[3]{\frac{1616}{0.2 \cdot 110.32}} = 4.184 \ (мм)
+
+\begin{equation} d_ц = d- (1..3)мм \end{equation}
+
+d_{ц \ II} = d_{ц \ III} = d_{ц \ IV} = d_{ц \ V} = d - 1 = 4 - 1 = 3 \ (мм)
+
+d_{ц \ VI} = d_V = 5 \ (мм)
+]
+
