@@ -34,9 +34,7 @@ constants = loads(open('inp_constants_no_rus.json', 'r').read())
 context = open('inp_template.md', 'r').read().split("$$\n$$")
 
 precounted = open('precounted.txt', 'r').read().split('\n')
-precout = open('precounted.txt', 'w+')
 precountedmd = open('precounted.md','r').read().split('$$$$$$')
-precoutmd = open('precounted.md', 'w+')
 
 context_i = 0
 out = open('out_calculated_no_rus.md', 'w+')
@@ -46,18 +44,30 @@ variables = []
 unevariables = []
 comments_dict = {}
 var_dict = {}
-for line, comment in constants:
+var_name_dict = {}
+for line, comment, units in constants:
     if not line:
         continue
-    eq = parse_latex(line)
-    subsed = eq.subs(variables)
-    # print(line, subsed)
-    name, val = subsed.args
-    variables.append((name, float(val)))
-    unevariables.append((name, UnevaluatedExpr(S.One*val)))
+    if ':' in line:
+        name, val = line.split(':')
+        val = val.strip()
+    else:
+        clean_nm = line.split('=')[0]
+        eq = parse_latex(line)
+        subsed = eq.subs(variables)
+        # print(line, subsed)
+        name, val = subsed.args
+    # print(str(val))
     outname = decode(str(name))
-    print(f'var: {outname} val: {float(val)}')
-    var_dict[outname] = float(val)
+    var_name_dict[outname] = clean_nm.strip()
+    # print(outname, clean_nm)
+    if str(val) != 'NULL' and ':' not in line:
+        variables.append((name, float(val)))
+        unevariables.append((name, UnevaluatedExpr(S.One*val)))
+        var_dict[outname] = float(val)
+    elif str(val) != 'NULL':
+        var_dict[outname] = val
+    print(f'var: {outname} val: {val} units: {units}')
     comments_dict[outname] = comment
 
 preid = input('Input line to start from: ')
@@ -68,10 +78,17 @@ else:
     preid = int(preid) 
     context_i = preid
 for line in precounted[:preid-1]:
-    line, comment = line.split('<comment>')
     if not line or line.startswith('$'):
         continue
-    print('precounted:', line)
+    if line.startswith('%$'):
+        line, comment = line[2:].split('<comment>')
+        comment, clean_nm = comment.split('<cleannm>')
+        outname = line.split('=')[0]
+        var_name_dict[outname.strip()] = clean_nm.strip()
+        continue
+    line, comment = line.split('<comment>')
+    comment, clean_nm = comment.split('<cleannm>')
+    outname = line.split('=')[0]
     # print(line, subsed)
     eq = parse_latex(line)
     subsed = eq.subs(variables)
@@ -80,10 +97,13 @@ for line in precounted[:preid-1]:
     unevariables.append((name, UnevaluatedExpr(S.One*val)))
     i = 0
     outname = decode(str(name))
-    print(outname, float(val))
+    print(f'precounted: {line}, outname: {outname}, cleannm: {clean_nm}, val: {float(val)}')
     var_dict[outname] = float(val)
+    var_name_dict[outname] = clean_nm.strip()
     comments_dict[outname] = comment
 
+precout = open('precounted.txt', 'w+')
+precoutmd = open('precounted.md', 'w+')
 precout.write('\n'.join(precounted[:preid-1]) + '\n')
 precoutmd.write('$$$$$$'.join(precountedmd[:preid-1]) + '$$$$$$')
 out.write('\n'.join(precountedmd[:preid-1]))
@@ -92,47 +112,51 @@ out.write('\n'.join(precountedmd[:preid-1]))
 for line, comment, where_flag, digs, units in formulas[context_i:]:
     context[context_i] = context[context_i].format(**var_dict)
     if not line:
-        context_i += 1
         continue
     if line.count('=') > 1:
         if not isinstance(digs, int):
             digs = 5
         line_two = line.split('=')
-        comments_dict[str(parse_latex(line_two[0]))] = comment
         line = '='.join(line.split('=')[:2])
         # print(line)
         eq = parse_latex(line)
         subsed = eq.subs(variables)
-        print(context_i, 'line: ', line,  eq, subsed)
         name, val = subsed.args
-        subsed = Eq(name, val)
+        # subsed = Eq(name, val)
         unevalsubsed = eq.subs(unevariables)
         
         la_uneval = latex(unevalsubsed) 
         la_subs = latex(subsed)
 
-        variables.append(subsed.args)
+        variables.append([name, float(val)])
         # print('line: ', line, '_eq_', eq, '_lasubs_', la_subs,'_val_',  val, '_subsed_', subsed)
+        outname = decode(str(name))
+        print(context_i, f'line: {line}, eq: {eq}, subsed: {subsed}, outname: {outname}')
+        comments_dict[outname] = comment
+        var_name_dict[outname] = line_two[0].strip()
+        # print('cleannames', outname,  line_two[0].strip())
+
         unevariables.append((name, UnevaluatedExpr(round(float(val), digs))))
         out_line = context[context_i] + f"$$\n {line} = {la_uneval.split("=")[-1]}" 
+        where_part = '\n$$\n'
         if where_flag:
             where_part = ',\n$$\n где'
             for var in eq.atoms():
-                if str(var) in comments_dict:
-                    where_part += f';<br> ${var}$ -- {comments_dict[str(var)]}'
-            where_part = where_part.replace('где;<br> ', 'где ') + '.'
+                var = decode(str(var))
+                # print(var, eq)
+                if var in comments_dict and comments_dict[var] != '':
+                    where_part += f';\n<br> ${var_name_dict[var]}$ -- {comments_dict[str(var)]}'
+                    comments_dict.pop(var)
+            where_part = where_part.replace('где;\n<br> ', 'где ') + '.'
             if where_part == ',\n$$\n где.':
                 where_part = '\n$$\n'
-        else:
-            where_part = '\n$$\n'
         out_line += f" = {round(float(val), digs)} {units}{where_part}"
 
         # FOR CONTEXT:
         context_i += 1
-        precout.write(f"{line_two[0]} = {float(val)}<comment>{comment}\n")
+        precout.write(f"{line_two[0]} = {float(val)}<comment>{comment}<cleannm>{line_two[0].strip()}\n")
         out.write(out_line)
         precoutmd.write(out_line + '$$$$$$')
-        outname = decode(str(name))
         # print(name)
         var_dict[outname] = float(val)
         # print(out_line)
@@ -159,14 +183,37 @@ for line, comment, where_flag, digs, units in formulas[context_i:]:
     else:
         eq = parse_latex(line)
         lateq = latex(eq)
+
+        # print(line, eq, eq.args)
+        var_nm_drt = decode(str(eq.args[0]))
+        var_name_dict[var_nm_drt] = line.split('=')[0].strip()
+        comments_dict[var_nm_drt] = comment
         # print('latex', line, eq, lateq) #, latex(unevalved))
         print(context_i, f'line_{context_i}:', lateq)
-        out_line = context[context_i]
-        out_line += "$$\n " +line + " \n$$\n"
+
+        where_part = '\n$$\n'
+        if where_flag:
+            where_part = ',\n$$\n где'
+            for var in eq.atoms():
+                # print(str(var), eq, str(var) in comments_dict)
+                var = decode(str(var))
+                # print(var, eq)
+                if var in comments_dict and comments_dict[var] != '':
+                    where_part += f';\n<br> ${var_name_dict[var]}$ -- {comments_dict[var]}'
+                    comments_dict.pop(var)
+            where_part = where_part.replace('где;\n<br> ', 'где ') + '.'
+            if where_part == ',\n$$\n где.':
+                where_part = '\n$$\n'
+
+        out_line = context[context_i] + f"$$\n {line} {where_part}"
         context_i += 1
 
         out.write(out_line)
-        precout.write('$' + line + '\n')
+        precout.write(f"%${line}<comment>{comment}<cleannm>{line.split('=')[0].strip()}\n")
         precoutmd.write(out_line + '$$$$$$')
 
 
+precout.close()
+precoutmd.close()
+out.write(context[-1])
+out.close()
